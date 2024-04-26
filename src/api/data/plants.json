@@ -1,74 +1,74 @@
 {
   "PLANT_DETAIL": {
-    "HOST_REF": "string",
-    "PARENT_HOST_REF": "string",
     "EPPO_CODE": "string",
-    "LATIN_NAME": "string",
     "GENUS_NAME": "string",
-    "SPECIES_NAME": "string",
-    "TAXONOMY": "string",
-    "PLANT_NAME": [
-      {
-        "NAME_TYPE": "string",
-        "NAME": "string"
+    "HOST_REF": "string",
+    "HOST_REGULATION": {
+      "ANNEX11": {
+        "A11_RULE": "string",
+        "BTOM": "string",
+        "BTOM_CLARIFICATION": "string",
+        "BTOM_NON_EUSL": "string",
+        "COUNTRY_CODE": "string",
+        "COUNTRY_NAME": "string",
+        "IMPORT_RULE": "string",
+        "IMPORT_RULE_NON_EUSL": "string",
+        "INFERRED": "string",
+        "SERVICE_FORMAT": "string",
+        "SERVICE_SUB_FORMAT": "string",
+        "SERVICE_SUB_FORMAT_EXCLUDED": "string"
       },
-      {
-        "NAME_TYPE": "string",
-        "NAME": "string"
+      "ANNEX6": {
+        "A6_RULE": "string",
+        "COUNTRY_CODE": "string",
+        "COUNTRY_NAME": "string",
+        "FORMAT_CLARIFICATION": "string",
+        "FORMAT_EXCLUDED": {
+          "FORMAT_ID": "string",
+          "FORMAT_NAME": "string"
+        },
+        "HYBRID_INDICATOR": "string",
+        "OVERALL_DECISION": "string",
+        "PROHIBITION_CLARIFICATION": "string",
+        "SERVICE_FORMAT": "string"
       }
-    ],
+    },
+    "LATIN_NAME": "string",
+    "PARENT_HOST_REF": "string",
     "PEST_LINK": {
-      "CSL_REF": "string",
-      "PARENT_CSL_REF": "string",
-      "EPPO_CODE": "string",
-      "LATIN_NAME": "string",
       "COMMON_NAME": {
         "NAME1": "string",
         "NAME2": "string"
       },
-      "HOST_CLASS": "string",
-      "REGULATION_CATEGORY": "string",
+      "CSL_REF": "string",
+      "EPPO_CODE": "string",
       "FORMAT": {
-        "FORMAT_ID": "string",
-        "FORMAT": "string"
+        "FORMAT": "string",
+        "FORMAT_ID": "string"
       },
+      "HOST_CLASS": "string",
+      "LATIN_NAME": "string",
+      "PARENT_CSL_REF": "string",
       "PEST_COUNTRY": [
         {
           "COUNTRY_CODE": "string",
           "COUNTRY_NAME": "string",
           "COUNTRY_STATUS": "string"
         }
-      ]
+      ],
+      "REGULATION_CATEGORY": "string"
     },
-    "HOST_REGULATION": {
-      "ANNEX6": {
-        "COUNTRY_CODE": "string",
-        "COUNTRY_NAME": "string",
-        "A6_RULE": "string",
-        "SERVICE_FORMAT": "string",
-        "OVERALL_DECISION": "string",
-        "PROHIBITION_CLARIFICATION": "string",
-        "HYBRID_INDICATOR": "string",
-        "FORMAT_EXCLUDED": {
-          "FORMAT_ID": "string",
-          "FORMAT_NAME": "string"
-        },
-        "FORMAT_CLARIFICATION": "string"
+    "PLANT_NAME": [
+      {
+        "NAME": "string",
+        "NAME_TYPE": "string"
       },
-      "ANNEX11": {
-        "COUNTRY_CODE": "string",
-        "COUNTRY_NAME": "string",
-        "A11_RULE": "string",
-        "SERVICE_FORMAT": "string",
-        "INFERRED": "string",
-        "SERVICE_SUB_FORMAT": "string",
-        "SERVICE_SUB_FORMAT_EXCLUDED": "string",
-        "BTOM_CLARIFICATION": "string",
-        "BTOM": "string",
-        "BTOM_NON_EUSL": "string",
-        "IMPORT_RULE": "string",
-        "IMPORT_RULE_NON_EUSL": "string"
+      {
+        "NAME": "string",
+        "NAME_TYPE": "string"
       }
-    }
+    ],
+    "SPECIES_NAME": "string",
+    "TAXONOMY": "string"
   }
 }

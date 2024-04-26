@@ -5,7 +5,8 @@ export async function loadDataFromJson(
   filePath,
   mongoUri,
   dbName,
-  collectionName
+  collectionName,
+  indicator
 ) {
   console.log('dbName:', dbName)
   console.log('filePath:', filePath)
@@ -23,7 +24,11 @@ export async function loadDataFromJson(
     await client.connect()
     const db = client.db(dbName)
     const collection = db.collection(collectionName)
-    await collection.insertOne(jsonData)
+    if (indicator === 1) {
+        await collection.insertOne(jsonData)
+    } else if ( indicator === 2) {
+        await collection.insertMany(jsonData)
+    }
     console.log('Data successfully loaded into MongoDB')
   } catch (error) {
     console.error('Failed to load data into MongoDB_MJ:', error)
