@@ -1,5 +1,6 @@
 import path from 'path'
 import hapi from '@hapi/hapi'
+import { loadDataFromJson } from '../helpers/db/data-loader'
 
 import { config } from '~/src/config'
 import { router } from '~/src/api/router'
@@ -52,6 +53,23 @@ async function createServer() {
 
   await server.register(populateDb)
 
+  /*****/
+  // Define the path to the JSON file
+  const filePath = path.join(__dirname, 'data', 'plants.json')
+  const mongoUri = config.get('mongoUri') // Get MongoDB URI from the config
+  const dbName = config.get('mongoDatabase') // Get MongoDB database name from the config
+  const collectionName = 'plants' // Define the MongoDB collection name
+
+  try {
+    // Load JSON data into MongoDB before starting the server
+    await loadDataFromJson(filePath, mongoUri, dbName, collectionName)
+    await server.start()
+    console.log(`Server running at ${server.info.uri}`)
+  } catch (error) {
+    console.error('Failed to start the server:', error)
+  }
+
+  /*****/
   return server
 }
 
