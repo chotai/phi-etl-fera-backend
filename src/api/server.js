@@ -56,28 +56,42 @@ async function createServer() {
   /*****/
   // Define the path to the JSON file
   const filePathPlant = path.join(__dirname, 'data', 'plants.json')
-  const filePathCountry = path.join(__dirname, 'data', 'countryGrouping.json')
+  const filePathCountry = path.join(__dirname, 'data', 'countries.json')
   const filePathService = path.join(__dirname, 'data', 'serviceFormat.json')
 
   const mongoUri = config.get('mongoUri') // Get MongoDB URI from the config
   const dbName = config.get('mongoDatabase') // Get MongoDB database name from the config
-  
+
   const collectionNamePlant = 'PLANT_DETAIL' // Define the MongoDB collection name
-  const collectionNameCountry = 'COUNTRY_GROUPING' // Define the MongoDB collection name
+  const collectionNameCountry = 'COUNTRIES' // Define the MongoDB collection name
   const collectionNameServiceFormat = 'SERVICE_FORMAT' // Define the MongoDB collection name
 
   try {
     // Load JSON data into MongoDB before starting the server
-    await loadDataFromJson(filePathPlant, mongoUri, dbName, collectionNamePlant, 1)
-    await loadDataFromJson(filePathService, mongoUri, dbName, collectionNameServiceFormat, 1)
-    await loadDataFromJson(filePathCountry, mongoUri, dbName, collectionNameCountry, 1)
-
+    await loadDataFromJson(
+      filePathPlant,
+      mongoUri,
+      dbName,
+      collectionNamePlant,
+      1
+    )
+    await loadDataFromJson(
+      filePathService,
+      mongoUri,
+      dbName,
+      collectionNameServiceFormat,
+      1
+    )
+    await loadDataFromJson(
+      filePathCountry,
+      mongoUri,
+      dbName,
+      collectionNameCountry,
+      1
+    )
 
     await server.start()
-    console.log(`Server running at ${server.info.uri}`)
-  } catch (error) {
-    console.error('Failed to start the server:', error)
-  }
+  } catch (error) {}
 
   /*****/
   return server
