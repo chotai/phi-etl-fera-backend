@@ -1,6 +1,5 @@
 import path from 'path'
 import hapi from '@hapi/hapi'
-import { loadDataFromJson } from '../helpers/db/data-loader'
 
 import { config } from '~/src/config'
 import { router } from '~/src/api/router'
@@ -53,47 +52,6 @@ async function createServer() {
 
   await server.register(populateDb)
 
-  /*****/
-  // Define the path to the JSON file
-  const filePathPlant = path.join(__dirname, 'data', 'plants.json')
-  const filePathCountry = path.join(__dirname, 'data', 'countries.json')
-  const filePathService = path.join(__dirname, 'data', 'serviceFormat.json')
-
-  const mongoUri = config.get('mongoUri') // Get MongoDB URI from the config
-  const dbName = config.get('mongoDatabase') // Get MongoDB database name from the config
-
-  const collectionNamePlant = 'PLANT_DETAIL' // Define the MongoDB collection name
-  const collectionNameCountry = 'COUNTRIES' // Define the MongoDB collection name
-  const collectionNameServiceFormat = 'SERVICE_FORMAT' // Define the MongoDB collection name
-
-  try {
-    // Load JSON data into MongoDB before starting the server
-    await loadDataFromJson(
-      filePathPlant,
-      mongoUri,
-      dbName,
-      collectionNamePlant,
-      1
-    )
-    await loadDataFromJson(
-      filePathService,
-      mongoUri,
-      dbName,
-      collectionNameServiceFormat,
-      1
-    )
-    await loadDataFromJson(
-      filePathCountry,
-      mongoUri,
-      dbName,
-      collectionNameCountry,
-      1
-    )
-
-    await server.start()
-  } catch (error) {}
-
-  /*****/
   return server
 }
 
