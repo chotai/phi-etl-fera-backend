@@ -2,7 +2,8 @@ import { createLogger } from '~/src/helpers/logging/logger'
 import { populateApi } from '~/src/helpers/db/populate-api'
 import path from 'path'
 import { config } from '~/src/config'
-import { loadDataFromJson } from './data-loader'
+import { MongoClient } from 'mongodb'
+import fs from 'fs/promises'
 
 const logger = createLogger()
 const filePathPlant = path.join(__dirname, 'data', 'plants.json')
@@ -23,21 +24,15 @@ const populateDb = {
     name: 'Populate MongoDb',
     register: async (server) => {
       try {
-        await loadDataFromJson(
-          filePathPlant,
-          mongoUri,
-          dbName,
-          collectionNamePlant,
-          1
-        )
-        await loadDataFromJson(
+        await loadData(filePathPlant, mongoUri, dbName, collectionNamePlant, 1)
+        await loadData(
           filePathService,
           mongoUri,
           dbName,
           collectionNameServiceFormat,
           1
         )
-        await loadDataFromJson(
+        await loadData(
           filePathCountry,
           mongoUri,
           dbName,
@@ -54,4 +49,26 @@ const populateDb = {
   }
 }
 
+async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
+  const fileContents = await fs.readFile(filePath, 'utf-8')
+  const jsonData = JSON.parse(fileContents)
+
+  const client = new MongoClient(mongoUri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  try {
+    await client.connect()
+    const db = client.db(dbName)
+    const collection = db.collection(collectionName)
+    if (indicator === 1) {
+      await collection.insertOne(jsonData)
+    } else if (indicator === 2) {
+      await collection.insertMany(jsonData)
+    }
+  } catch (error) {
+  } finally {
+    await client.close()
+  }
+}
 export { populateDb }
