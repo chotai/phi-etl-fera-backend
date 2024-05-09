@@ -1,0 +1,5104 @@
+{
+  "PLANT_ANNEX6": [
+    {
+      "HOST_REF": 28,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 28,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 28,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 28,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 28,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 28,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 245,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 245,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 434,
+      "COUNTRY_NAME": "New Zealand",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": "other than: one- to three-year old bare-rooted, dormant, free-of-leaves, grafted or budded plants for planting "
+    },
+    {
+      "HOST_REF": 380,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 442,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6C2",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 464,
+      "COUNTRY_NAME": "New Zealand",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": "other than: one- to three-year old bare-rooted, dormant, free-of-leaves, grafted or budded plants for planting "
+    },
+    {
+      "HOST_REF": 481,
+      "COUNTRY_NAME": "Canada",
+      "A6_RULE": "6A6",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 481,
+      "COUNTRY_NAME": "Mexico",
+      "A6_RULE": "6A6",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 481,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6A6",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 489,
+      "COUNTRY_NAME": "New Zealand",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": "other than: one- to three-year old bare-rooted, dormant, free-of-leaves, grafted or budded plants for planting "
+    },
+    {
+      "HOST_REF": 822,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6C2",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 1043,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 1043,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 1093,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 1103,
+      "COUNTRY_NAME": "Israel",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 1246,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 1384,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 1384,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 1802,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 1802,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 1894,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 2558,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 2558,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 2993,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 2993,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 3162,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 3250,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 3476,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 3833,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 4137,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 4302,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 4302,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 4320,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 4348,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 4824,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 4824,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5092,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5202,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A2",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5202,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A2",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5202,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A2 + 6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5202,
+      "COUNTRY_NAME": "Europe non-EUSL",
+      "A6_RULE": "6A2 + 6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5202,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6A4",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5364,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5364,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5364,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5665,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5693,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5693,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5693,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5693,
+      "COUNTRY_NAME": "South Korea",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5693,
+      "COUNTRY_NAME": "South Korea",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5693,
+      "COUNTRY_NAME": "South Korea",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5693,
+      "COUNTRY_NAME": "Japan",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "Y",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5693,
+      "COUNTRY_NAME": "Japan",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "Y",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 5693,
+      "COUNTRY_NAME": "Japan",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 27394,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6A11",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "Y",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 6578,
+      "COUNTRY_NAME": "Costa Rica",
+      "A6_RULE": "6C1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 6578,
+      "COUNTRY_NAME": "Honduras",
+      "A6_RULE": "6C1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 6975,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7048,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 7075,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7196,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A8 + 6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7196,
+      "COUNTRY_NAME": "Europe non-EUSL",
+      "A6_RULE": "6A8 + 6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Tunisia",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Syria",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "New Zealand",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Morocco",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Libya",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Lebanon",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Jordan",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Israel",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "Y",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Egypt",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Canada",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Australia",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 7561,
+      "COUNTRY_NAME": "Algeria",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 8675,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 9146,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 9146,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 9156,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 9156,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 9299,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 9299,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 10594,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 10734,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 10937,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6A11",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "Y",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 10947,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A9",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 10970,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "6A21 + 6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "Prohibited where Agrilus planipennis is known to occur",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 10970,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "6A21 + 6B1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "Prohibited where Agrilus planipennis is known to occur",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 10970,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "6A21 + 6B1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "Prohibited where Agrilus planipennis is known to occur",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 10970,
+      "COUNTRY_NAME": "EUSL",
+      "A6_RULE": "6A21",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "Prohibited where Agrilus planipennis is known to occur",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 10970,
+      "COUNTRY_NAME": "EUSL",
+      "A6_RULE": "6A21",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "Prohibited where Agrilus planipennis is known to occur",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 10970,
+      "COUNTRY_NAME": "EUSL",
+      "A6_RULE": "6A21",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "Prohibited where Agrilus planipennis is known to occur",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 11549,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 11833,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 11833,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 11862,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 11862,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 11971,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 12320,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 12320,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 12322,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 12322,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 12323,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 12323,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 12746,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 12746,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13005,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 13103,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13103,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13624,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13695,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13695,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13695,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13695,
+      "COUNTRY_NAME": "South Korea",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13695,
+      "COUNTRY_NAME": "South Korea",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13695,
+      "COUNTRY_NAME": "South Korea",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13695,
+      "COUNTRY_NAME": "Japan",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13695,
+      "COUNTRY_NAME": "Japan",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 13695,
+      "COUNTRY_NAME": "Japan",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14018,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14018,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14131,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14131,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14131,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14131,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14131,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14131,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14456,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14456,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14580,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14864,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6C2",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 14969,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 15180,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 15180,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 15316,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 15316,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 15333,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 15333,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 15583,
+      "COUNTRY_NAME": "Serbia",
+      "A6_RULE": "6A8 + 6A9 + 6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 15575,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A8 + 6A9 + 6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 15575,
+      "COUNTRY_NAME": "Europe non-EUSL",
+      "A6_RULE": "6A8 + 6A9 + 6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 16370,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 16387,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "6B3",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "Prohibition only applies to Fruit from countries where�Thrips palmi�Karny is known to occur and where effective mitigation measures for that pest are lacking.",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 16662,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 16662,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 16853,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 17879,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 18126,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18126,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18388,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18388,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18534,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18631,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 18794,
+      "COUNTRY_NAME": "Algeria",
+      "A6_RULE": "6A13",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18794,
+      "COUNTRY_NAME": "Algeria",
+      "A6_RULE": "6A13",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18794,
+      "COUNTRY_NAME": "Algeria",
+      "A6_RULE": "6A13",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18794,
+      "COUNTRY_NAME": "Morocco",
+      "A6_RULE": "6A13",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18794,
+      "COUNTRY_NAME": "Morocco",
+      "A6_RULE": "6A13",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18794,
+      "COUNTRY_NAME": "Morocco",
+      "A6_RULE": "6A13",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18822,
+      "COUNTRY_NAME": "China",
+      "A6_RULE": "6A12",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18822,
+      "COUNTRY_NAME": "North Korea",
+      "A6_RULE": "6A12",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18822,
+      "COUNTRY_NAME": "Japan",
+      "A6_RULE": "6A12",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18822,
+      "COUNTRY_NAME": "South Korea",
+      "A6_RULE": "6A12",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 18822,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6A12",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19001,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19001,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19001,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19001,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19001,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19001,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19114,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19114,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19114,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19114,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19114,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19114,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19178,
+      "COUNTRY_NAME": "South Korea",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "Either entirely of the species�Pinusparviflora�Sieb. & Zucc. (Pinus pentaphylla�Mayr), or of�Pinus parviflora�Sieb & Zucc. grafted on a rootstock of a Pinus species other than�Pinus parviflora�Sieb. & Zucc."
+    },
+    {
+      "HOST_REF": 19178,
+      "COUNTRY_NAME": "South Korea",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "Either entirely of the species�Pinusparviflora�Sieb. & Zucc. (Pinus pentaphylla�Mayr), or of�Pinus parviflora�Sieb & Zucc. grafted on a rootstock of a Pinus species other than�Pinus parviflora�Sieb. & Zucc."
+    },
+    {
+      "HOST_REF": 19178,
+      "COUNTRY_NAME": "South Korea",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "Either entirely of the species�Pinusparviflora�Sieb. & Zucc. (Pinus pentaphylla�Mayr), or of�Pinus parviflora�Sieb & Zucc. grafted on a rootstock of a Pinus species other than�Pinus parviflora�Sieb. & Zucc."
+    },
+    {
+      "HOST_REF": 19213,
+      "COUNTRY_NAME": "Japan",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "either entirely of the species�Pinus thunbergia�Parl. or of�Pinus thunbergia�Parl. grafted on a rootstock of a�Pinus�species other than�Pinus thunbergia�Parl."
+    },
+    {
+      "HOST_REF": 19213,
+      "COUNTRY_NAME": "Japan",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "either entirely of the species�Pinus thunbergia�Parl. or of�Pinus thunbergia�Parl. grafted on a rootstock of a�Pinus�species other than�Pinus thunbergia�Parl."
+    },
+    {
+      "HOST_REF": 19213,
+      "COUNTRY_NAME": "Japan",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "either entirely of the species�Pinus thunbergia�Parl. or of�Pinus thunbergia�Parl. grafted on a rootstock of a�Pinus�species other than�Pinus thunbergia�Parl."
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19824,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6A11",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "Y",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "Canada",
+      "A6_RULE": "6A3",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "Canada",
+      "A6_RULE": "6A3",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "Mexico",
+      "A6_RULE": "6A3",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "Mexico",
+      "A6_RULE": "6A3",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6A3",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6A3",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "Canada",
+      "A6_RULE": "6A3 + 6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "Mexico",
+      "A6_RULE": "6A3 + 6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6A3 + 6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 19832,
+      "COUNTRY_NAME": "Americas",
+      "A6_RULE": "6A7",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20104,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20104,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20152,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A8 + 6A9 + 6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20152,
+      "COUNTRY_NAME": "Europe non-EUSL",
+      "A6_RULE": "6A8 + 6A9 + 6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20384,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20384,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20384,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 27887,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 27887,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "Dormant prohibited from Hawaii",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Tunisia",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Syria",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "New Zealand",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Morocco",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Libya",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Lebanon",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Jordan",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Israel",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Egypt",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Canada",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Australia",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20643,
+      "COUNTRY_NAME": "Algeria",
+      "A6_RULE": "6A8 + 6A9",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20685,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A2",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20685,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A2",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20685,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A2 + 6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20685,
+      "COUNTRY_NAME": "Europe non-EUSL",
+      "A6_RULE": "6A2 + 6B1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20685,
+      "COUNTRY_NAME": "Canada",
+      "A6_RULE": "6A5",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20685,
+      "COUNTRY_NAME": "Mexico",
+      "A6_RULE": "6A5",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20685,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6A5 + 6C2",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20685,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6C2",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20819,
+      "COUNTRY_NAME": "Canada",
+      "A6_RULE": "6A5",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 20819,
+      "COUNTRY_NAME": "Mexico",
+      "A6_RULE": "6A5",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 21704,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 21718,
+      "COUNTRY_NAME": "Israel",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 21775,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A8",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "Dormant",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 22362,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 22600,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 22600,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23491,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A18",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Algeria",
+      "A6_RULE": "6A18",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Israel",
+      "A6_RULE": "6A18",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Jordan",
+      "A6_RULE": "6A18",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Lebanon",
+      "A6_RULE": "6A18",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Libya",
+      "A6_RULE": "6A18",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Morocco",
+      "A6_RULE": "6A18",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Syria",
+      "A6_RULE": "6A18",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": null,
+      "COUNTRY_NAME": "Tunisia",
+      "A6_RULE": "6A18",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23765,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6A16",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "Y",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "Stolon or tuber forming species"
+    },
+    {
+      "HOST_REF": 23765,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6A17",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23765,
+      "COUNTRY_NAME": "Algeria",
+      "A6_RULE": "6A17",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23765,
+      "COUNTRY_NAME": "Bosnia & Herzegovina",
+      "A6_RULE": "6A17",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23765,
+      "COUNTRY_NAME": "Egypt",
+      "A6_RULE": "6A17",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23765,
+      "COUNTRY_NAME": "Israel",
+      "A6_RULE": "6A17",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23765,
+      "COUNTRY_NAME": "Libya",
+      "A6_RULE": "6A17",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23765,
+      "COUNTRY_NAME": "Morocco",
+      "A6_RULE": "6A17",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23765,
+      "COUNTRY_NAME": "Serbia",
+      "A6_RULE": "6A17",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23765,
+      "COUNTRY_NAME": "Syria",
+      "A6_RULE": "6A17",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "not prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 23916,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6A15",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 24031,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 24170,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 24602,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 25063,
+      "COUNTRY_NAME": "USA",
+      "A6_RULE": "6C2",
+      "SERVICE_FORMAT": "Bark",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 25061,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 25421,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 22677,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 22677,
+      "COUNTRY_NAME": "All",
+      "A6_RULE": "INNS",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 25982,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 25982,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 25982,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A1",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 25982,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 25982,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 25982,
+      "COUNTRY_NAME": "Russia",
+      "A6_RULE": "6B5",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 26112,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B2",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 26112,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B2",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 26112,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B2",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 26113,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6B1",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "Bonsai",
+        "INVITRO_INDICATOR": "Invitro"
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 26154,
+      "COUNTRY_NAME": "Non-Europe",
+      "A6_RULE": "6A14",
+      "SERVICE_FORMAT": "Plants for planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "Seeds",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": "other than ornamental perennial grasses"
+    },
+    {
+      "HOST_REF": 26870,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6A10",
+      "SERVICE_FORMAT": "Plants for Planting",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 26870,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6A10",
+      "SERVICE_FORMAT": "Parts of a plant",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    },
+    {
+      "HOST_REF": 26870,
+      "COUNTRY_NAME": "Non-EUSL",
+      "A6_RULE": "6A10",
+      "SERVICE_FORMAT": "Produce",
+      "OVERALL": "Prohibited",
+      "PROHIBITION_CLARIFICATION": "",
+      "HYBRID_INDICATOR": "",
+      "EXCLUDED_SUBFORMAT": {
+        "DORMANT_INDICATOR": "",
+        "SEEDS_INDICATOR": "",
+        "FRUIT_INDICATOR": "Fruit",
+        "BONSAI_INDICATOR": "",
+        "INVITRO_INDICATOR": ""
+      },
+      "FORMAT_CLARIFICATION": ""
+    }
+  ]
+}

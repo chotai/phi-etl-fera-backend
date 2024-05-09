@@ -32,7 +32,7 @@ const mongoPlugin = {
 async function createIndexes(db) {
   const collections = await db.listCollections().toArray()
   collections?.forEach((collection) => {
-    db.collection(collection?.name).createIndexes({ id: 1 })
+    // db.collection(collection?.name).createIndexes({ id: 1 })
   })
 }
 
