@@ -4,7 +4,6 @@ import path from 'path'
 import { config } from '~/src/config'
 import { MongoClient } from 'mongodb'
 import fs from 'fs/promises'
-import { createMongoDBIndexes } from './create-ds-indexes'
 
 const logger = createLogger()
 const filePathPlant = path.join(__dirname, 'data', 'plants.json')
@@ -42,7 +41,7 @@ const populateDb = {
         )
 
         await server.start()
-        //await populateApi(server.mongoClient, server.db)
+        // await populateApi(server.mongoClient, server.db)
       } catch (error) {
         logger.error(error)
       }
