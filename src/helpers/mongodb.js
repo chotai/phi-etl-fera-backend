@@ -18,11 +18,13 @@ const mongoPlugin = {
     server.logger.info('Setting up mongodb')
     const client = await MongoClient.connect(mongoUrl.toString(), mongoOptions)
     const db = client.db(databaseName)
-    await createMongoDBIndexes(db)
+
     server.logger.info(`mongodb connected to ${databaseName}`)
     server.decorate('server', 'mongoClient', client)
     server.decorate('server', 'db', db)
     server.decorate('request', 'db', db)
+
+    await createMongoDBIndexes(db)
   }
 }
 

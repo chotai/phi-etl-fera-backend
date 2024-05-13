@@ -40,7 +40,7 @@ async function getDataFromOpenSearch(searchParams) {
   let result
   try {
     const response = await osClient.search(query)
-    return result = response.body.hits.hits.map((hit) => hit._source)
+    return (result = response.body.hits.hits.map((hit) => hit._source))
   } catch (error) {
     console.error('OpenSearch query failed, error')
     return new Error('search query failed')

@@ -7,17 +7,27 @@ async function createMongoDBIndexes(db) {
 
   const collections = await db.listCollections().toArray()
   try {
-    collections?.forEach((collection) => {
-      console.log('collection:', collection?.name)
-      if (collection?.name === 'PLANT_DETAIL') {
-        console.log('collectionName:', collection?.name)
-        // db.collection(collection?.name).createIndexes([{ LATIN_NAME: 1 }])
+    collections?.forEach(async (collectionInfo) => {
+      console.log('collection:', collectionInfo.name)
+
+      // Gheck for Plant_Detail collection
+      if (collectionInfo.name === 'PLANT_DETAIL') {
+        console.log('collectionName:', collectionInfo.name)
+
+        // Get the collection reference
+        const collection = db.collection(collectionInfo.name)
+
+        // Create an index on the specified field
+        await collection.createIndex({ LATIN_NAME: 1 })
+
+        console.log('Index created on LATIN_NAME')
+
+        indexDataFromMongoDB(db)
       }
     })
   } catch (error) {
-    console.error('erroring:createMongoDBIndexes....', error);
+    console.error('erroring:createMongoDBIndexes....', error)
   }
-  //indexDataFromMongoDB(db)
 }
 
 // create opensearch indexes from mongodb collection
@@ -25,26 +35,42 @@ async function indexDataFromMongoDB(db) {
   try {
     // Initialise OpenSearch Client
     const osClient = new Client({ node: config.get('openSearchUri') })
-
     const collections = await db.listCollections().toArray()
 
-    for (const collectionName of collections) {
-      console.log('collectionName:', collectionName)
-      const collection = db.collection(collectionName)
-      const cursor = collection.find({})
-      console.log('cursor:', cursor)
-      while (await cursor.hasNext()) {
-        console.log('cursor::', cursor?.hasNext())
-        const doc = await cursor.next()
+    for (const collectionObj of collections) {
+      console.log('THE OS COLLECTION:', collectionObj.name)
 
-        await osClient.index({
-          index: collectionName.toLowerCase(), // creating an index for each collection
-          body: doc
-        })
+      if (collectionObj.name === 'PLANT_DETAIL') {
+        const collection = db.collection(collectionObj.name)
+        const cursor = collection.find({})
+
+        const isConnected = await testConnection(osClient)
+
+        if (isConnected){
+          while (await cursor.hasNext()) {
+            //console.log('cursor hasnext', cursor.hasNext())
+            const doc = await cursor.next()
+            console.log(doc)
+            
+            await osClient.index({
+              index: collectionObj.name.toLowerCase(), // creating an index for each collection
+              body: doc
+            })}
+        }
       }
     }
   } catch (error) {
     console.error('Error creating OS Indexes from MongoDB collections:', error)
+  }
+}
+async function testConnection(osClient) {
+  try {
+    const response = await osClient.info()
+    console.log(response)
+    return true
+  } catch (error) {
+    console.error('Connection failed:', error)
+    return false
   }
 }
 

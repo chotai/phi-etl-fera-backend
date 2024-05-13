@@ -6,7 +6,7 @@ import { MongoClient } from 'mongodb'
 import fs from 'fs/promises'
 
 const logger = createLogger()
-const filePathPlant = path.join(__dirname, 'data', 'plants.json')
+const filePathPlant = path.join(__dirname, 'data', 'plantsv1.json')
 const filePathCountry = path.join(__dirname, 'data', 'countries.json')
 const filePathService = path.join(__dirname, 'data', 'serviceFormat.json')
 
@@ -24,7 +24,7 @@ const populateDb = {
     name: 'Populate MongoDb',
     register: async (server) => {
       try {
-        await loadData(filePathPlant, mongoUri, dbName, collectionNamePlant, 1)
+        await loadData(filePathPlant, mongoUri, dbName, collectionNamePlant, 2)
         await loadData(
           filePathService,
           mongoUri,
@@ -40,7 +40,7 @@ const populateDb = {
           1
         )
 
-        await server.start()
+        //await server.start()
         // await populateApi(server.mongoClient, server.db)
       } catch (error) {
         logger.error(error)
@@ -51,7 +51,7 @@ const populateDb = {
 
 async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
   const fileContents = await fs.readFile(filePath, 'utf-8')
-  const jsonData = JSON.parse(fileContents)
+  const jsonData = await JSON.parse(fileContents)
 
   const client = new MongoClient(mongoUri, {
     useNewUrlParser: true,
