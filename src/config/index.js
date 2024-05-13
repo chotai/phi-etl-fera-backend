@@ -70,6 +70,12 @@ const config = convict({
     nullable: true,
     default: null,
     env: 'CDP_HTTPS_PROXY'
+  },
+  openSearchUri: {
+    doc: 'URI for opensearch',
+    format: '*',
+    default: 'http://localhost:9200/',
+    env: 'OPEN_SEARCH_URI'
   }
 })
 
