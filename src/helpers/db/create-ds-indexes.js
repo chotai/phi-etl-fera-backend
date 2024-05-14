@@ -11,11 +11,11 @@ async function createMongoDBIndexes(db) {
   const collections = await db.listCollections().toArray()
   try {
     collections?.forEach(async (collectionInfo) => {
-      logger.log('collection:', collectionInfo.name)
+      logger.info('collection:', collectionInfo.name)
 
       // Gheck for Plant_Detail collection
       if (collectionInfo.name === 'PLANT_DETAIL') {
-        logger.log('collectionName:', collectionInfo.name)
+        logger.info('collectionName:', collectionInfo.name)
 
         // Get the collection reference
         const collection = db.collection(collectionInfo.name)
@@ -23,7 +23,7 @@ async function createMongoDBIndexes(db) {
         // Create an index on the specified field
         await collection.createIndex({ LATIN_NAME: 1 })
 
-        logger.log('Index created on LATIN_NAME')
+        logger.info('Index created on LATIN_NAME')
 
         indexDataFromMongoDB(db)
       }
@@ -42,7 +42,7 @@ async function indexDataFromMongoDB(db) {
     const collections = await db.listCollections().toArray()
 
     for (const collectionObj of collections) {
-      logger.log('THE OS COLLECTION:', collectionObj.name)
+      logger.info('THE OS COLLECTION:', collectionObj.name)
 
       if (collectionObj.name === 'PLANT_DETAIL') {
         const collection = db.collection(collectionObj.name)
@@ -53,7 +53,7 @@ async function indexDataFromMongoDB(db) {
         if (isConnected) {
           while (await cursor.hasNext()) {
             const doc = await cursor.next()
-            logger.log(doc)
+            logger.info(doc)
 
             await osClient.index({
               index: collectionObj.name.toLowerCase(), // creating an index for each collection
@@ -70,7 +70,7 @@ async function indexDataFromMongoDB(db) {
 async function testConnection(osClient) {
   try {
     const response = await osClient.info()
-    logger.log(response)
+    logger.info(response)
     return true
   } catch (error) {
     logger.error('Connection failed:', error)
