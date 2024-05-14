@@ -19,9 +19,7 @@ export async function loadDataFromJson(
     const db = client.db(dbName)
     const collection = db.collection(collectionName)
     await collection.insertMany(jsonData)
-    console.log('Data successfully loaded into MongoDB')
   } catch (error) {
-    console.error('Failed to load data into MongoDB:', error)
   } finally {
     await client.close()
   }

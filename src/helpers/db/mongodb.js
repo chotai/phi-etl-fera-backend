@@ -21,7 +21,6 @@ const mongoPlugin = {
     const db = client.db(databaseName)
 
     await createIndexes(db)
-    //console.log ('index creation completed');
 
     server.logger.info(`mongodb connected to ${databaseName}`)
 
