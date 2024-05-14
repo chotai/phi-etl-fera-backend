@@ -1,5 +1,8 @@
 import { Client } from '@opensearch-project/opensearch'
+import { createLogger } from '~/src/helpers/logging/logger'
 import { config } from '~/src/config'
+
+const logger = createLogger()
 
 async function getDataFromOpenSearch(searchParams) {
   // Initialise OpenSearch Client
@@ -7,11 +10,11 @@ async function getDataFromOpenSearch(searchParams) {
 
   // Build OpenSearch query from the request payload
   const query = {
-    index: 'plant_details', //TODO: To be read from Config
+    index: 'plant_details', // TODO: To be read from Config
     body: {
       query: {
         bool: {
-          must: []
+          should: []
         }
       }
     }
@@ -19,30 +22,29 @@ async function getDataFromOpenSearch(searchParams) {
 
   // Add search parameters to query
   // TODO to be replaced with Actual ParamNames from Frontend
-  // Repeat If condition for all params
+  // Repeat If condition for all params, as necessary
+  // TODO: Refine the search criteria, (to be done in iternations)
 
-  if (searchParams.latinName) {
-    query.body.query.bool.must.push({
-      match: { latinName: searchParams.latinName }
+  if (searchParams.searchtext) {
+    query.body.query.bool.should.push({
+      match: { latinname: searchParams.searchtext }
     })
-  }
-  if (searchParams.commonName) {
-    query.body.query.bool.must.push({
-      match: { common_name: searchParams.commonName }
+
+    query.body.query.bool.should.push({
+      match: { common_name: searchParams.searchtext }
     })
-  }
-  if (searchParams.synonym) {
-    query.body.query.bool.must.push({
-      match: { synonym_name: searchParams.synonym }
+
+    query.body.query.bool.should.push({
+      match: { synonym_name: searchParams.searchtext }
     })
   }
 
-  let result
   try {
+    let result
     const response = await osClient.search(query)
     return (result = response.body.hits.hits.map((hit) => hit._source))
   } catch (error) {
-    console.error('OpenSearch query failed, error')
+    logger.error('OpenSearch query failed, error')
     return new Error('search query failed')
   }
 }

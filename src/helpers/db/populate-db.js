@@ -40,7 +40,6 @@ const populateDb = {
           1
         )
 
-        //await server.start()
         // await populateApi(server.mongoClient, server.db)
       } catch (error) {
         logger.error(error)
@@ -54,8 +53,8 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
   const jsonData = await JSON.parse(fileContents)
 
   const client = new MongoClient(mongoUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true
   })
   try {
     await client.connect()
