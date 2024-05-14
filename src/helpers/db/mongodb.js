@@ -11,7 +11,7 @@ const mongoPlugin = {
   register: async function (server, options) {
     server.logger.info('Setting up mongodb')
 
-  // options defined in config/index.js
+    // options defined in config/index.js
     const client = await MongoClient.connect(options.mongoUrl, {
       retryWrites: options.retryWrites,
       readPreference: options.readPreference,
@@ -20,7 +20,6 @@ const mongoPlugin = {
     const databaseName = options.databaseName
     const db = client.db(databaseName)
 
-    //console.log ('starting index creation');
     await createIndexes(db)
     //console.log ('index creation completed');
 
