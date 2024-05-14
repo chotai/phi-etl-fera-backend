@@ -1,9 +1,10 @@
-import { getDataFromOpenSearch } from '~/src/api/example/helpers/get-os-data'
+import { getDataFromOpenSearch } from '~/src/api/search/helpers/get-os-data'
 import { createLogger } from '~/src/helpers/logging/logger'
 
-const openSearchController = {
+const logger = createLogger()
+
+const search = {
   handler: async (request, h) => {
-    const logger = createLogger()
     try {
       const searchparams = request.payload
 
@@ -16,4 +17,4 @@ const openSearchController = {
   }
 }
 
-export { openSearchController }
+export { search }
