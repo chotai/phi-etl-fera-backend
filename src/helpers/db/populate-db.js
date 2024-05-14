@@ -131,24 +131,28 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     await client.connect()
     const db = client.db(dbName)
     const collection = db.collection(collectionName)
+    await dropCollections(db, collectionName, client)
     if (indicator === 1) {
       await collection.insertOne(jsonData)
     } else if (indicator === 2) {
       await collection.insertMany(jsonData)
     }
-    await db.dropCollection('your_collection_name', function (err, result) {
-      if (err) {
-        // eslint-disable-next-line no-console
-        console.error('Error occurred while dropping the collection', err)
-        return
-      }
-      // eslint-disable-next-line no-console
-      console.log('Collection dropped successfully')
-      client.close()
-    })
   } catch (error) {
   } finally {
     await client.close()
   }
+}
+
+async function dropCollections(db, collection, client) {
+  await db.dropCollection(collection, function (err, result) {
+    if (err) {
+      // eslint-disable-next-line no-console
+      console.error('Error occurred while dropping the collection', err)
+      return
+    }
+    // eslint-disable-next-line no-console
+    console.log('Collection dropped successfully')
+    client.close()
+  })
 }
 export { populateDb }

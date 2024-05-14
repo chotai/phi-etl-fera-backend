@@ -6,7 +6,6 @@ import { router } from '~/src/api/router'
 import { requestLogger } from '~/src/helpers/logging/request-logger'
 import { mongoPlugin } from '~/src/helpers/mongodb'
 import { failAction } from '~/src/helpers/fail-action'
-import { populateDb } from '~/src/helpers/db/populate-db'
 import { secureContext } from '~/src/helpers/secure-context'
 
 const isProduction = config.get('isProduction')
@@ -49,8 +48,6 @@ async function createServer() {
   await server.register({ plugin: mongoPlugin, options: {} })
 
   await server.register(router)
-
-  await server.register(populateDb)
 
   return server
 }
