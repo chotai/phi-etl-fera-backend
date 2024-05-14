@@ -54,7 +54,7 @@ const config = convict({
   mongoDatabase: {
     doc: 'database for mongodb',
     format: String,
-    default: 'PHIDB',
+    default: 'phiDB',
     env: 'MONGO_DATABASE'
   },
   httpProxy: {
