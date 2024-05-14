@@ -38,6 +38,9 @@ async function createServer() {
     }
   })
 
+  // Registering additional plugins
+  await server.register([Inert, Boom]);
+
   await server.register(requestLogger)
 
   if (isProduction) {
