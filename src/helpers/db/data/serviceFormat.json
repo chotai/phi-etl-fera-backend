@@ -1,0 +1,26 @@
+{
+  "SERVICE_FORMAT": {
+    "SERVICE_FORMAT": [
+      {
+        "SERVICE_FORMAT_CODE": "F01",
+        "SERVICE_FORMAT_NAME": "Plant for planting"
+      },
+      {
+        "SERVICE_FORMAT_CODE": "F02",
+        "SERVICE_FORMAT_NAME": "Parts of a plant"
+      },
+      {
+        "SERVICE_FORMAT_CODE": "F03",
+        "SERVICE_FORMAT_NAME": "Produce"
+      },
+      {
+        "SERVICE_FORMAT_CODE": "F04",
+        "SERVICE_FORMAT_NAME": "Isolated bark"
+      },
+      {
+        "SERVICE_FORMAT_CODE": "F05",
+        "SERVICE_FORMAT_NAME": "Wood"
+      }
+    ]
+  }
+}
