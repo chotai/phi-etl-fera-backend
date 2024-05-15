@@ -36,37 +36,49 @@ async function createMongoDBIndexes(db) {
 
 // create opensearch indexes from mongodb collection
 async function indexDataFromMongoDB(db) {
-  try {
-    // Initialise OpenSearch Client
-    const osClient = new Client({ node: config.get('openSearchUri') })
-    const collections = await db.listCollections().toArray()
+  if (!config.get('openSearchUserName') || !config.get('openSearchPwd')) {
+    logger.error('OpenSearch credentials are required but not provided!')
+    // process.exit(1);  // Exit the application if credentials are not set
+  } else {
+    try {
+      // Initialise OpenSearch Client
+      const osClient = new Client({
+        node: config.get('openSearchUri'),
+        auth: {
+          username: config.get('openSearchUserName'),
+          password: config.get('openSearchPwd')
+        }
+      })
+      const collections = await db.listCollections().toArray()
 
-    for (const collectionObj of collections) {
-      logger.info('THE OS COLLECTION:', collectionObj.name)
+      for (const collectionObj of collections) {
+        // logger.info('THE OS COLLECTION:', collectionObj.name)
 
-      if (collectionObj.name === 'PLANT_DETAIL') {
-        const collection = db.collection(collectionObj.name)
-        const cursor = collection.find({})
+        if (collectionObj.name === 'PLANT_DETAIL') {
+          const collection = db.collection(collectionObj.name)
+          const cursor = collection.find({})
 
-        const isConnected = await testConnection(osClient)
+          const isConnected = await testConnection(osClient)
 
-        if (isConnected) {
-          while (await cursor.hasNext()) {
-            const doc = await cursor.next()
-            logger.info(doc)
+          if (isConnected) {
+            while (await cursor.hasNext()) {
+              const doc = await cursor.next()
+              logger.info(doc)
 
-            await osClient.index({
-              index: collectionObj.name.toLowerCase(), // creating an index for each collection
-              body: doc
-            })
+              await osClient.index({
+                index: collectionObj.name.toLowerCase(), // creating an index for each collection
+                body: doc
+              })
+            }
           }
         }
       }
+    } catch (error) {
+      logger.error('Error creating OS Indexes from MongoDB collections:', error)
     }
-  } catch (error) {
-    logger.error('Error creating OS Indexes from MongoDB collections:', error)
   }
 }
+
 async function testConnection(osClient) {
   try {
     const response = await osClient.info()

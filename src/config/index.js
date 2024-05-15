@@ -54,8 +54,26 @@ const config = convict({
   mongoDatabase: {
     doc: 'database for mongodb',
     format: String,
-    default: 'phiDB',
+    default: 'phi-etl-fera-backend',
     env: 'MONGO_DATABASE'
+  },
+  openSearchUri: {
+    doc: 'OpenSearch URI',
+    format: '*',
+    default: 'http://127.0.0.1:9200/',
+    env: 'OS_URI'
+  },
+  openSearchUserName: {
+    doc: 'OpenSearch user name',
+    format: '*',
+    default: '',
+    env: 'OS_USERNAME'
+  },
+  openSearchPwd: {
+    doc: 'OpenSearch password',
+    format: '*',
+    default: '',
+    env: 'OS_PASSOWRD'
   },
   httpProxy: {
     doc: 'HTTP Proxy',
