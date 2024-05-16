@@ -16,11 +16,7 @@ const filePathServiceAnnex11 = path.join(
   'plant_annex11.json'
 )
 const filePathServicePestName = path.join(__dirname, 'data', 'pest_name.json')
-const filePathServicePlantName = path.join(
-  __dirname,
-  'data',
-  'plant_name_small.json'
-)
+const filePathServicePlantName = path.join(__dirname, 'data', 'plant_name.json')
 const filePathServicePlantPestLink = path.join(
   __dirname,
   'data',
@@ -144,15 +140,18 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
 }
 
 async function dropCollections(db, collection, client) {
-  await db.dropCollection(collection, function (err, result) {
-    if (err) {
+  const collections = await db.listCollections({ name: collection }).toArray()
+  if (collections.length > 0) {
+    await db.dropCollection(collection, function (err, result) {
+      if (err) {
+        // eslint-disable-next-line no-console
+        console.error('Error occurred while dropping the collection', err)
+        return
+      }
       // eslint-disable-next-line no-console
-      console.error('Error occurred while dropping the collection', err)
-      return
-    }
-    // eslint-disable-next-line no-console
-    console.log('Collection dropped successfully')
-    client.close()
-  })
+      console.log('Collection dropped successfully')
+      client.close()
+    })
+  }
 }
 export { populateDb }

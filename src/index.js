@@ -2,6 +2,8 @@ import { config } from '~/src/config'
 import { createServer } from '~/src/api/server'
 import { createLogger } from '~/src/helpers/logging/logger'
 import { populateDb } from '~/src/helpers/db/populate-db'
+import { updateDb } from '~/src/helpers/db/updata-db'
+
 
 const logger = createLogger()
 
@@ -20,6 +22,7 @@ async function startServer() {
     `Access your backend on http://localhost:${config.get('port')}`
   )
   await server.register(populateDb)
+  await server.register(updateDb)
 }
 
 startServer().catch((error) => {
