@@ -2,7 +2,6 @@ import { createLogger } from '~/src/helpers/logging/logger'
 import path from 'path'
 import { config } from '~/src/config'
 import { MongoClient } from 'mongodb'
-import plantDetail from '../models/plantDetail'
 const logger = createLogger()
 const filePathPlant = path.join(__dirname, 'data', 'plants.json')
 
@@ -41,14 +40,33 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
 
     // Select the collection
     const collection = db.collection('PLANT_NAME')
-
     // Find all documents in the collection
     const documents = await collection.find({}).toArray()
+    // Read Plants
     const plantList = documents[0]?.PLANT_NAME
 
     const collectionName = 'PLANT_DETAIL_NEW'
     const collectionPlant = db.collection(collectionName)
 
+    // Select the Annex
+    const collectionAnnex11 = db.collection('PLANT_ANNEX11')
+    const collectionAnnex6 = db.collection('PLANT_ANNEX6')
+
+    // Find all the Annex documents
+
+    const collectionAnnex11Documents = await collectionAnnex11
+      .find({})
+      .toArray()
+    const collectionAnnex6Documents = await collectionAnnex6.find({}).toArray()
+
+    // Read Annex 11 and 6
+    const annex11List = collectionAnnex11Documents[0]?.PLANT_ANNEX11
+
+    const annex6List = collectionAnnex6Documents[0]?.PLANT_ANNEX6
+
+    console.log('Annex11:', annex11List?.length)
+    console.log('Annex6:', annex6List?.length)
+    console.log('plantList:', plantList.length)
     // Drop the collection if it exists
     const collections = await db
       .listCollections({ name: collectionName })
@@ -140,6 +158,51 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       plDetail.LATIN_NAME = plant?.LATIN_NAME
       return plDetail
     })
+    console.log('resultList:', resultList?.length)
+
+    // ANNEX6 mapping
+    const myList = annex6List.filter((n6) => n6.HOST_REF === 28)
+    const myList11 = annex11List.filter((n11) => +n11.HOST_REF === 380)
+    console.log('myListNx11:', myList11)
+    console.log('myListNx6:', myList)
+
+    const annex6ResultList = resultList.map((nx6) => {
+      const nx6List = annex6List.filter((n6) => n6.HOST_REF === nx6.HOST_REF)
+      if (nx6List?.length !== 0) {
+        console.log('nx6List:', nx6List.length)
+      }
+      return { HOST_REF: nx6.HOST_REF, ANNEX6: nx6List }
+    })
+    console.log('annex6ResultList:', annex6ResultList)
+
+    // ANNEX11 mapping
+
+    const annex11ResultList = resultList.map((nx11) => {
+      const nx11List = annex11List.filter(
+        (n11) => +n11.HOST_REF === +nx11.HOST_REF
+      )
+      return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
+    })
+
+    // update ResultList with ANNEX6 information
+    resultList.forEach((x) => {
+      annex6ResultList.forEach((nx6) => {
+        if (x.HOST_REF === nx6.HOST_REF) {
+          x.HOST_REGULATION.ANNEX6 = nx6.ANNEX6
+        }
+      })
+    })
+
+    // update ResultList with ANNEX11 information
+    resultList.forEach((x) => {
+      annex11ResultList.forEach((nx11) => {
+        if (x.HOST_REF === nx11.HOST_REF) {
+          x.HOST_REGULATION.ANNEX11 = nx11.ANNEX11
+        }
+      })
+    })
+
+    // Main resultList
     const result = await collectionNew.insertMany(resultList)
 
     logger.info(`${result.insertedCount} documents were inserted`)
