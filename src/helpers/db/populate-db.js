@@ -60,6 +60,10 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     await client.connect()
     const db = client.db(dbName)
     const collection = db.collection(collectionName)
+
+    logger.info('dropping collection, as it already exists')
+    await collection.drop()
+
     if (indicator === 1) {
       await collection.insertOne(jsonData)
     } else if (indicator === 2) {
