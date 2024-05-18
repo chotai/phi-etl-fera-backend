@@ -155,7 +155,18 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       plDetail.EPPO_CODE = plant?.EPPO_CODE
       plDetail.HOST_REF = plant?.HOST_REF
       plDetail.TAXONOMY = plant?.TAXONOMY
-      plDetail.LATIN_NAME = plant?.LATIN_NAME
+
+      const cnameList = plant?.COMMON_NAME?.NAME.map((name) => name).filter(
+        (x) => x !== ''
+      )
+      const snameList = plant?.SYNONYM_NAME?.NAME.map((name) => name).filter(
+        (x) => x !== ''
+      )
+      plDetail.PLANT_NAME = [
+        { type: 'LATIN_NAME', NAME: plant?.LATIN_NAME },
+        { type: 'COMMON_NAME', NAME: cnameList },
+        { type: 'SYNONYM_NAME', NAME: snameList }
+      ]
       return plDetail
     })
     console.log('resultList:', resultList?.length)
