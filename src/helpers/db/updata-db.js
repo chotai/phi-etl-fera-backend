@@ -61,12 +61,35 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
 
     // Read Annex 11 and 6
     const annex11List = collectionAnnex11Documents[0]?.PLANT_ANNEX11
-
     const annex6List = collectionAnnex6Documents[0]?.PLANT_ANNEX6
+
+    // Select and Find all Plants Pest Link
+    const collectionPlantPestLink = await db
+      .collection('PLANT_PEST_LINK')
+      .find({})
+      .toArray()
+    // Read all Plants Pest Link
+    const plantPestLinkList = collectionPlantPestLink[0]?.PLANT_PEST_LINK
+
+    const collectionPlantPestReg = await db
+      .collection('PLANT_PEST_REG')
+      .find({})
+      .toArray()
+    const plantPestRegList = collectionPlantPestReg[0]?.PLANT_PEST_REG
+
+    // Read Pest names
+    const collectionPestNames = await db
+      .collection('PEST_NAME')
+      .find({})
+      .toArray()
+    const pestNamesList = collectionPestNames[0]?.PEST_NAME
 
     console.log('Annex11:', annex11List?.length)
     console.log('Annex6:', annex6List?.length)
-    console.log('plantList:', plantList.length)
+    console.log('plantList:', plantList?.length)
+    console.log('plantPestLinkList:', plantPestLinkList?.length)
+    console.log('plantPestRegList:', plantPestRegList?.length)
+    console.log('pestNamesList:', pestNamesList?.length)
     // Drop the collection if it exists
     const collections = await db
       .listCollections({ name: collectionName })
@@ -116,9 +139,9 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
         LATIN_NAME: 'string',
         PARENT_HOST_REF: 'string',
         PEST_LINK: {
-          COMMON_NAME: {
-            NAME1: 'string',
-            NAME2: 'string'
+          PEST_NAME: {
+            TYPE: 'string',
+            NAME: 'string'
           },
           CSL_REF: 'string',
           EPPO_CODE: 'string',
@@ -141,7 +164,7 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
         PLANT_NAME: [
           {
             NAME: 'string',
-            NAME_TYPE: 'string'
+            TYPE: 'string'
           },
           {
             NAME: 'string',
@@ -174,17 +197,17 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     // ANNEX6 mapping
     const myList = annex6List.filter((n6) => n6.HOST_REF === 28)
     const myList11 = annex11List.filter((n11) => +n11.HOST_REF === 380)
-    console.log('myListNx11:', myList11)
-    console.log('myListNx6:', myList)
+    // console.log('myListNx11:', myList11)
+    // console.log('myListNx6:', myList)
 
     const annex6ResultList = resultList.map((nx6) => {
       const nx6List = annex6List.filter((n6) => n6.HOST_REF === nx6.HOST_REF)
       if (nx6List?.length !== 0) {
-        console.log('nx6List:', nx6List.length)
+        // console.log('nx6List:', nx6List.length)
       }
       return { HOST_REF: nx6.HOST_REF, ANNEX6: nx6List }
     })
-    console.log('annex6ResultList:', annex6ResultList)
+    // console.log('annex6ResultList:', annex6ResultList)
 
     // ANNEX11 mapping
 
@@ -213,6 +236,36 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       })
     })
 
+    // update ResultList with PLANT_PEST_LINK
+    resultList.forEach((x) => {
+      plantPestLinkList?.forEach((pest) => {
+        if (x?.HOST_REF === pest?.HOST_REF) {
+          x.PEST_LINK.CSL_REF = pest?.CSL_REF
+          x.PEST_LINK.HOST_CLASS = pest?.HOST_CLASS
+        }
+      })
+    })
+
+    // update ResultList with PEST_NAME
+    resultList.forEach((x) => {
+      pestNamesList?.forEach((pest) => {
+        if (x?.PEST_LINK.CSL_REF === pest?.CSL_REF) {
+          // populate Pest Names
+          const cnameList = pest?.COMMON_NAME?.COMMON_NAME.map(
+            (name) => name
+          ).filter((x) => x !== '')
+          const snameList = pest?.SYNONYM_NAME?.SYNONYM_NAME.map(
+            (name) => name
+          ).filter((x) => x !== '')
+          x.PEST_LINK.PEST_NAME = [
+            { type: 'LATIN_NAME', NAME: pest?.LATIN_NAME },
+            { type: 'COMMON_NAME', NAME: cnameList },
+            { type: 'SYNONYM_NAME', NAME: snameList }
+          ]
+          x.PEST_LINK.EPPO_CODE = pest.EPPO_CODE
+        }
+      })
+    })
     // Main resultList
     const result = await collectionNew.insertMany(resultList)
 
