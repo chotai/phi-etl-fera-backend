@@ -159,7 +159,9 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
               COUNTRY_STATUS: 'string'
             }
           ],
-          REGULATION_CATEGORY: 'string'
+          REGULATION: 'string',
+          QUARANTINE_INDICATOR: 'string',
+          REGULATED_INDICATOR: 'string'
         },
         PLANT_NAME: [
           {
@@ -263,6 +265,17 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
             { type: 'SYNONYM_NAME', NAME: snameList }
           ]
           x.PEST_LINK.EPPO_CODE = pest.EPPO_CODE
+        }
+      })
+    })
+
+    // update ResultList with PEST_REG
+    resultList.forEach((x) => {
+      plantPestRegList?.forEach((pest) => {
+        if (x?.PEST_LINK.CSL_REF === pest?.CSL_REF) {
+          x.PEST_LINK.REGULATION = pest?.REGULATION
+          x.PEST_LINK.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
+          x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
         }
       })
     })
