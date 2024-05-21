@@ -40,7 +40,6 @@ const populateDb = {
           1
         )
 
-        // await populateApi(server.mongoClient, server.db)
       } catch (error) {
         logger.error(error)
       }
@@ -61,6 +60,8 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     const db = client.db(dbName)
     const collection = db.collection(collectionName)
 
+    // TODO: Before dropping the collection check if it's necessary to 
+    // drop the index, if already exists. Else, it could result in exception.
     logger.info('dropping collection, as it already exists')
     await collection.drop()
 
