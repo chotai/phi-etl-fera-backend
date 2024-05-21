@@ -84,12 +84,22 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       .toArray()
     const pestNamesList = collectionPestNames[0]?.PEST_NAME
 
+    // Read PEST DISTRIBUTION
+    const collectionPestDistribution = await db
+      .collection('PEST_DISTRIBUTION')
+      .find({})
+      .toArray()
+    const pestDistributionList =
+      collectionPestDistribution[0]?.PEST_DISTRIBUTION
+
     console.log('Annex11:', annex11List?.length)
     console.log('Annex6:', annex6List?.length)
     console.log('plantList:', plantList?.length)
     console.log('plantPestLinkList:', plantPestLinkList?.length)
     console.log('plantPestRegList:', plantPestRegList?.length)
     console.log('pestNamesList:', pestNamesList?.length)
+    console.log('pestDistributionList:', pestDistributionList?.length)
+
     // Drop the collection if it exists
     const collections = await db
       .listCollections({ name: collectionName })
@@ -279,6 +289,34 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
         }
       })
     })
+
+    // update PEST Country with PEST_DISTRIBUTION
+    const countryResultList = resultList.map((plantItem) => {
+      const countries = pestDistributionList
+        .filter(
+          (cListItem) => cListItem.CSL_REF === plantItem.PEST_LINK.CSL_REF
+        )
+        .map((cListItem) => ({
+          COUNTRY_CODE: cListItem.COUNTRY_CODE,
+          COUNTRY_NAME: cListItem.COUNTRY_NAME,
+          STATUS: cListItem.STATUS
+        }))
+
+      return {
+        CSL_REF: plantItem.PEST_LINK.CSL_REF,
+        COUNTRIES: countries
+      }
+    })
+    // Map Pest Countries to the resultList
+    resultList.forEach((x) => {
+      countryResultList.forEach((pest) => {
+        if (x?.PEST_LINK?.CSL_REF === pest?.CSL_REF) {
+          x.PEST_LINK.PEST_COUNTRY = pest?.COUNTRIES
+        }
+      })
+    })
+    // console.log('countryResultList:', countryResultList)
+
     // Main resultList
     const result = await collectionNew.insertMany(resultList)
 
