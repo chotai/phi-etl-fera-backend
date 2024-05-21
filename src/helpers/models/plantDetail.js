@@ -1,6 +1,6 @@
 const plantDetail = {
   EPPO_CODE: 'string',
-  GENUS_NAME: 'string',
+  GENUS_NAME: 'plant',
   HOST_REF: 'string',
   HOST_REGULATION: {
     ANNEX11: {
@@ -35,9 +35,9 @@ const plantDetail = {
   LATIN_NAME: 'string',
   PARENT_HOST_REF: 'string',
   PEST_LINK: {
-    COMMON_NAME: {
-      NAME1: 'string',
-      NAME2: 'string'
+    PEST_NAME: {
+      TYPE: 'string',
+      NAME: 'string'
     },
     CSL_REF: 'string',
     EPPO_CODE: 'string',
@@ -55,12 +55,14 @@ const plantDetail = {
         COUNTRY_STATUS: 'string'
       }
     ],
-    REGULATION_CATEGORY: 'string'
+    REGULATION: 'string',
+    QUARANTINE_INDICATOR: 'string',
+    REGULATED_INDICATOR: 'string'
   },
   PLANT_NAME: [
     {
       NAME: 'string',
-      NAME_TYPE: 'string'
+      TYPE: 'string'
     },
     {
       NAME: 'string',
@@ -71,4 +73,4 @@ const plantDetail = {
   TAXONOMY: 'string'
 }
 
-module.exports = plantDetail
+module.exports = { plantDetail }
