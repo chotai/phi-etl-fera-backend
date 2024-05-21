@@ -98,7 +98,6 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     logger.info(`plantPestRegList: ${plantPestRegList?.length}`)
     logger.info(`pestNamesList: ${pestNamesList?.length}`)
     logger.info(`pestDistributionList: ${pestDistributionList?.length}`)
-
     // Drop the collection if it exists
     const collections = await db
       .listCollections({ name: collectionName })
@@ -202,7 +201,7 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       ]
       return plDetail
     })
-    logger.info('resultList:', resultList?.length)
+    logger.info(`resultList: ${resultList?.length}`)
 
     // ANNEX6 mapping
 
@@ -309,7 +308,7 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     // Main resultList
     const result = await collectionNew.insertMany(resultList)
 
-    logger.info(`${result.insertedCount} documents were inserted`)
+    logger.info(`${result.insertedCount} documents were inserted...`)
   } catch (err) {
     logger.error(err)
   } finally {

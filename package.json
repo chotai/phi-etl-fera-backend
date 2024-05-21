@@ -1,6 +1,6 @@
 {
-  "name": "cdp-node-backend-template",
-  "version": "0.1.0",
+  "name": "phi-etl-fera-backend",
+  "version": "0.0.0",
   "description": "CDP Backend Template",
   "main": "src/index.js",
   "engines": {
@@ -34,6 +34,7 @@
     "@elastic/ecs-pino-format": "1.5.0",
     "@hapi/boom": "10.0.1",
     "@hapi/hapi": "21.3.3",
+    "@opensearch-project/opensearch": "2.8.0",
     "aws4": "1.12.0",
     "babel-plugin-module-resolver": "5.0.0",
     "convict": "6.2.4",

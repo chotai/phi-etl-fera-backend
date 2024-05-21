@@ -1,12 +1,12 @@
 import { createLogger } from '~/src/helpers/logging/logger'
-import { populateApi } from '~/src/helpers/db/populate-api'
+
 import path from 'path'
 import { config } from '~/src/config'
 import { MongoClient } from 'mongodb'
 import fs from 'fs/promises'
 
 const logger = createLogger()
-const filePathPlant = path.join(__dirname, 'data', 'plants.json')
+const filePathPlant = path.join(__dirname, 'data', 'plantsv1.json')
 const filePathCountry = path.join(__dirname, 'data', 'countries.json')
 const filePathService = path.join(__dirname, 'data', 'serviceFormat.json')
 const filePathServiceAnnex6 = path.join(__dirname, 'data', 'plant_annex6.json')
@@ -54,7 +54,7 @@ const populateDb = {
     name: 'Populate MongoDb',
     register: async (server) => {
       try {
-        await loadData(filePathPlant, mongoUri, dbName, collectionNamePlant, 1)
+        await loadData(filePathPlant, mongoUri, dbName, collectionNamePlant, 2)
         await loadData(
           filePathService,
           mongoUri,
@@ -119,7 +119,7 @@ const populateDb = {
           1
         )
         await server.start()
-        await populateApi(server.mongoClient, server.db)
+        // await populateApi(server.mongoClient, server.db)
       } catch (error) {
         logger.error(error)
       }
@@ -129,11 +129,11 @@ const populateDb = {
 
 async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
   const fileContents = await fs.readFile(filePath, 'utf-8')
-  const jsonData = JSON.parse(fileContents)
+  const jsonData = await JSON.parse(fileContents)
 
   const client = new MongoClient(mongoUri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true
   })
   try {
     await client.connect()

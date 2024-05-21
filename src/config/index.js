@@ -1,5 +1,5 @@
+import path from 'node:path'
 import convict from 'convict'
-import path from 'path'
 
 const config = convict({
   env: {
@@ -11,13 +11,13 @@ const config = convict({
   port: {
     doc: 'The port to bind.',
     format: 'port',
-    default: 3001,
+    default: 3049,
     env: 'PORT'
   },
   serviceName: {
     doc: 'Api Service Name',
     format: String,
-    default: 'CDP Node.js Backend Template'
+    default: 'cdp-example-node-backend'
   },
   root: {
     doc: 'Project root',
@@ -54,8 +54,26 @@ const config = convict({
   mongoDatabase: {
     doc: 'database for mongodb',
     format: String,
-    default: 'PHIDB',
+    default: 'phi-etl-fera-backend',
     env: 'MONGO_DATABASE'
+  },
+  openSearchUri: {
+    doc: 'OpenSearch URI',
+    format: '*',
+    default: 'http://127.0.0.1:9200/',
+    env: 'OS_URI'
+  },
+  openSearchUserName: {
+    doc: 'OpenSearch user name',
+    format: '*',
+    default: '',
+    env: 'OS_USERNAME'
+  },
+  openSearchPwd: {
+    doc: 'OpenSearch password',
+    format: '*',
+    default: '',
+    env: 'OS_PASSOWRD'
   },
   httpProxy: {
     doc: 'HTTP Proxy',
