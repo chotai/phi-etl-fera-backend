@@ -238,44 +238,84 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     })
 
     // update ResultList with PLANT_PEST_LINK
+
+    const pestLinkResultList = resultList.map((plantItem) => {
+      const pplList = plantPestLinkList
+        .filter((cListItem) => cListItem.HOST_REF === plantItem.HOST_REF)
+        .map((cListItem) => ({
+          CSL_REF: cListItem.CSL_REF,
+          HOST_CLASS: cListItem.HOST_CLASS,
+          PEST_NAME: {
+            TYPE: '',
+            NAME: ''
+          },
+          EPPO_CODE: '',
+          FORMAT: {
+            FORMAT: '',
+            FORMAT_ID: ''
+          },
+          LATIN_NAME: '',
+          PARENT_CSL_REF: '',
+          PEST_COUNTRY: [
+            {
+              COUNTRY_CODE: '',
+              COUNTRY_NAME: '',
+              COUNTRY_STATUS: ''
+            }
+          ],
+          REGULATION: '',
+          QUARANTINE_INDICATOR: '',
+          REGULATED_INDICATOR: ''
+        }))
+
+      return {
+        HOST_REF: plantItem.HOST_REF,
+        PEST_LINK: pplList
+      }
+    })
+    logger.info(`pestLinkResultList:', ${pestLinkResultList?.length}`)
+
     resultList.forEach((x) => {
-      plantPestLinkList?.forEach((pest) => {
+      pestLinkResultList?.forEach((pest) => {
         if (x?.HOST_REF === pest?.HOST_REF) {
-          x.PEST_LINK.CSL_REF = pest?.CSL_REF
-          x.PEST_LINK.HOST_CLASS = pest?.HOST_CLASS
+          x.PEST_LINK = pest?.PEST_LINK
         }
       })
     })
 
     // update ResultList with PEST_NAME
-    resultList.forEach((x) => {
+    resultList.forEach((pl) => {
       pestNamesList?.forEach((pest) => {
-        if (x?.PEST_LINK.CSL_REF === pest?.CSL_REF) {
-          // populate Pest Names
-          const cnameList = pest?.COMMON_NAME?.COMMON_NAME.map(
-            (name) => name
-          ).filter((x) => x !== '')
-          const snameList = pest?.SYNONYM_NAME?.SYNONYM_NAME.map(
-            (name) => name
-          ).filter((x) => x !== '')
-          x.PEST_LINK.PEST_NAME = [
-            { type: 'LATIN_NAME', NAME: pest?.LATIN_NAME },
-            { type: 'COMMON_NAME', NAME: cnameList },
-            { type: 'SYNONYM_NAME', NAME: snameList }
-          ]
-          x.PEST_LINK.EPPO_CODE = pest.EPPO_CODE
-        }
+        pl.PEST_LINK?.forEach((x) => {
+          if (x?.CSL_REF === pest?.CSL_REF) {
+            // populate Pest Names
+            const cnameList = pest?.COMMON_NAME?.COMMON_NAME.map(
+              (name) => name
+            ).filter((x) => x !== '')
+            const snameList = pest?.SYNONYM_NAME?.SYNONYM_NAME.map(
+              (name) => name
+            ).filter((x) => x !== '')
+            x.PEST_NAME = [
+              { type: 'LATIN_NAME', NAME: pest?.LATIN_NAME },
+              { type: 'COMMON_NAME', NAME: cnameList },
+              { type: 'SYNONYM_NAME', NAME: snameList }
+            ]
+            x.EPPO_CODE = pest.EPPO_CODE
+          }
+        })
       })
     })
 
     // update ResultList with PEST_REG
-    resultList.forEach((x) => {
+    resultList.forEach((pl) => {
       plantPestRegList?.forEach((pest) => {
-        if (x?.PEST_LINK.CSL_REF === pest?.CSL_REF) {
-          x.PEST_LINK.REGULATION = pest?.REGULATION
-          x.PEST_LINK.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
-          x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
-        }
+        pl.PEST_LINK?.forEach((x) => {
+          if (x?.CSL_REF === pest?.CSL_REF) {
+            x.REGULATION = pest?.REGULATION
+            x.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
+            x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
+          }
+        })
       })
     })
 
@@ -297,11 +337,13 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       }
     })
     // Map Pest Countries to the resultList
-    resultList.forEach((x) => {
+    resultList.forEach((pl) => {
       countryResultList.forEach((pest) => {
-        if (x?.PEST_LINK?.CSL_REF === pest?.CSL_REF) {
-          x.PEST_LINK.PEST_COUNTRY = pest?.COUNTRIES
-        }
+        pl.PEST_LINK.forEach((x) => {
+          if (x?.CSL_REF === pest?.CSL_REF) {
+            x.PEST_COUNTRY = pest?.COUNTRIES
+          }
+        })
       })
     })
 
