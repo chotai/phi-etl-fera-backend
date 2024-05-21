@@ -9,7 +9,6 @@ const mongoUri = config.get('mongoUri') // Get MongoDB URI from the config
 const dbName = config.get('mongoDatabase') // Get MongoDB database name from the config
 
 const collectionNamePlant = 'PLANT_DETAIL'
-const collectionNamePlantName = 'PLANT_NAME'
 
 // Populate the DB in this template on startup of the API.
 // This is an example to show developers an API with a DB, with data in it and endpoints that query the db.
@@ -45,7 +44,7 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     // Read Plants
     const plantList = documents[0]?.PLANT_NAME
 
-    const collectionName = 'PLANT_DETAIL_NEW'
+    const collectionName = 'PLANT_DATA'
     const collectionPlant = db.collection(collectionName)
 
     // Select the Annex
@@ -92,13 +91,13 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     const pestDistributionList =
       collectionPestDistribution[0]?.PEST_DISTRIBUTION
 
-    console.log('Annex11:', annex11List?.length)
-    console.log('Annex6:', annex6List?.length)
-    console.log('plantList:', plantList?.length)
-    console.log('plantPestLinkList:', plantPestLinkList?.length)
-    console.log('plantPestRegList:', plantPestRegList?.length)
-    console.log('pestNamesList:', pestNamesList?.length)
-    console.log('pestDistributionList:', pestDistributionList?.length)
+    logger.info(`Annex11: ${annex11List?.length}`)
+    logger.info(`Annex6: ${annex6List?.length}`)
+    logger.info(`plantList: ${plantList?.length}`)
+    logger.info(`plantPestLinkList: ${plantPestLinkList?.length}`)
+    logger.info(`plantPestRegList: ${plantPestRegList?.length}`)
+    logger.info(`pestNamesList: ${pestNamesList?.length}`)
+    logger.info(`pestDistributionList: ${pestDistributionList?.length}`)
 
     // Drop the collection if it exists
     const collections = await db
@@ -109,7 +108,7 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       logger.info(`Collection ${collectionName} dropped.`)
     }
     // eslint-disable-next-line camelcase
-    const collectionNew = db.collection('PLANT_DETAIL_NEW')
+    const collectionNew = db.collection('PLANT_DATA')
 
     const resultList = plantList.map((plant) => {
       const plDetail = {
@@ -186,7 +185,6 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
         SPECIES_NAME: 'string',
         TAXONOMY: 'string'
       }
-      // const plDetail = plantDetail
       plDetail.EPPO_CODE = plant?.EPPO_CODE
       plDetail.HOST_REF = plant?.HOST_REF
       plDetail.TAXONOMY = plant?.TAXONOMY
@@ -204,22 +202,14 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       ]
       return plDetail
     })
-    console.log('resultList:', resultList?.length)
+    logger.info('resultList:', resultList?.length)
 
     // ANNEX6 mapping
-    const myList = annex6List.filter((n6) => n6.HOST_REF === 28)
-    const myList11 = annex11List.filter((n11) => +n11.HOST_REF === 380)
-    // console.log('myListNx11:', myList11)
-    // console.log('myListNx6:', myList)
 
     const annex6ResultList = resultList.map((nx6) => {
       const nx6List = annex6List.filter((n6) => n6.HOST_REF === nx6.HOST_REF)
-      if (nx6List?.length !== 0) {
-        // console.log('nx6List:', nx6List.length)
-      }
       return { HOST_REF: nx6.HOST_REF, ANNEX6: nx6List }
     })
-    // console.log('annex6ResultList:', annex6ResultList)
 
     // ANNEX11 mapping
 
@@ -315,7 +305,6 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
         }
       })
     })
-    // console.log('countryResultList:', countryResultList)
 
     // Main resultList
     const result = await collectionNew.insertMany(resultList)

@@ -47,7 +47,6 @@ const collectionNamePlantPestLink = 'PLANT_PEST_LINK'
 const collectionNamePlantPestReg = 'PLANT_PEST_REG'
 const collectionPestDistribution = 'PEST_DISTRIBUTION'
 
-
 // Populate the DB in this template on startup of the API.
 // This is an example to show developers an API with a DB, with data in it and endpoints that query the db.
 const populateDb = {

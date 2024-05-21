@@ -4,7 +4,6 @@ import { createLogger } from '~/src/helpers/logging/logger'
 import { populateDb } from '~/src/helpers/db/populate-db'
 import { updateDb } from '~/src/helpers/db/updata-db'
 
-
 const logger = createLogger()
 
 process.on('unhandledRejection', (error) => {
