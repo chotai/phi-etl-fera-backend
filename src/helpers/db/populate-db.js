@@ -16,12 +16,7 @@ const filePathServiceAnnex11 = path.join(
   'plant_annex11.json'
 )
 const filePathServicePestName = path.join(__dirname, 'data', 'pest_name.json')
-const filePathServicePlantName = path.join(__dirname, 'data', 'plant_name.json')
-const filePathServicePlantPestLink = path.join(
-  __dirname,
-  'data',
-  'plant_pest_link.json'
-)
+
 const filePathServicePlantPestReg = path.join(
   __dirname,
   'data',
@@ -43,6 +38,7 @@ const collectionNamePlantAnnex6 = 'PLANT_ANNEX6'
 const collectionNamePlantAnnex11 = 'PLANT_ANNEX11'
 const collectionNamePestName = 'PEST_NAME'
 const collectionNamePlantName = 'PLANT_NAME'
+
 const collectionNamePlantPestLink = 'PLANT_PEST_LINK'
 const collectionNamePlantPestReg = 'PLANT_PEST_REG'
 const collectionPestDistribution = 'PEST_DISTRIBUTION'
@@ -90,20 +86,23 @@ const populateDb = {
           collectionNamePestName,
           1
         )
-        await loadData(
-          filePathServicePlantName,
+        // Load PLANT DATA - COMBINED - START
+        await loadCombinedDataForPlant(
           mongoUri,
           dbName,
           collectionNamePlantName,
           1
         )
-        await loadData(
-          filePathServicePlantPestLink,
+        // Load PLANT DATA - Combined - END
+
+        // Load PEST_LINK DATA - START
+        await loadCombinedDataForPestLink(
           mongoUri,
           dbName,
           collectionNamePlantPestLink,
           1
         )
+        // Load PEST_LINK DATA - END
         await loadData(
           filePathServicePlantPestReg,
           mongoUri,
@@ -119,12 +118,85 @@ const populateDb = {
           1
         )
         await server.start()
-        // await populateApi(server.mongoClient, server.db)
       } catch (error) {
         logger.error(error)
       }
     }
   }
+}
+
+async function loadCombinedDataForPlant(mongoUri, dbName, collectionName) {
+  const filePathServicePlantName = path.join(
+    __dirname,
+    'data',
+    'plant_name.json'
+  )
+  const filePathServicePlantNameRest = path.join(
+    __dirname,
+    'data',
+    'plant_name_rest.json'
+  )
+  const data1 = await readJsonFile(filePathServicePlantName)
+  const data2 = await readJsonFile(filePathServicePlantNameRest)
+
+  const combinedData = [...data1?.PLANT_NAME, ...data2?.PLANT_NAME]
+
+  const client = new MongoClient(mongoUri)
+  try {
+    await client.connect()
+    const db = client.db(dbName)
+    const collection = db.collection(collectionName)
+    await dropCollections(db, collectionName, client)
+    await collection.insertMany(combinedData)
+  } catch (error) {
+  } finally {
+    await client.close()
+  }
+}
+
+async function loadCombinedDataForPestLink(mongoUri, dbName, collectionName) {
+  const filePathServicePlantPestLink1 = path.join(
+    __dirname,
+    'data',
+    'plant_pest_link.json'
+  )
+  const filePathServicePlantPestLink2 = path.join(
+    __dirname,
+    'data',
+    'plant_pest_link2.json'
+  )
+  const filePathServicePlantPestLink3 = path.join(
+    __dirname,
+    'data',
+    'plant_pest_link3.json'
+  )
+
+  const data1 = await readJsonFile(filePathServicePlantPestLink1)
+  const data2 = await readJsonFile(filePathServicePlantPestLink2)
+  const data3 = await readJsonFile(filePathServicePlantPestLink3)
+
+  const combinedData = [
+    ...data1?.PLANT_PEST_LINK,
+    ...data2?.PLANT_PEST_LINK,
+    ...data3?.PLANT_PEST_LINK
+  ]
+
+  const client = new MongoClient(mongoUri)
+  try {
+    await client.connect()
+    const db = client.db(dbName)
+    const collection = db.collection(collectionName)
+    await dropCollections(db, collectionName, client)
+    await collection.insertMany(combinedData)
+  } catch (error) {
+  } finally {
+    await client.close()
+  }
+}
+
+async function readJsonFile(filePath) {
+  const data = await fs.readFile(filePath, 'utf8')
+  return JSON.parse(data)
 }
 
 async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {

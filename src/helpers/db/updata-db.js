@@ -1,13 +1,14 @@
 import { createLogger } from '~/src/helpers/logging/logger'
 import path from 'path'
 import { config } from '~/src/config'
+import { plantDetail } from '../models/plantDetail'
+
 import { MongoClient } from 'mongodb'
 const logger = createLogger()
 const filePathPlant = path.join(__dirname, 'data', 'plants.json')
 
 const mongoUri = config.get('mongoUri') // Get MongoDB URI from the config
 const dbName = config.get('mongoDatabase') // Get MongoDB database name from the config
-
 const collectionNamePlant = 'PLANT_DETAIL'
 
 // Populate the DB in this template on startup of the API.
@@ -42,7 +43,7 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     // Find all documents in the collection
     const documents = await collection.find({}).toArray()
     // Read Plants
-    const plantList = documents[0]?.PLANT_NAME
+    const plantList = documents
 
     const collectionName = 'PLANT_DATA'
     const collectionPlant = db.collection(collectionName)
@@ -63,13 +64,10 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     const annex6List = collectionAnnex6Documents[0]?.PLANT_ANNEX6
 
     // Select and Find all Plants Pest Link
-    const collectionPlantPestLink = await db
+    const plantPestLinkList = await db
       .collection('PLANT_PEST_LINK')
       .find({})
       .toArray()
-    // Read all Plants Pest Link
-    const plantPestLinkList = collectionPlantPestLink[0]?.PLANT_PEST_LINK
-
     const collectionPlantPestReg = await db
       .collection('PLANT_PEST_REG')
       .find({})
@@ -106,84 +104,10 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       await collectionPlant.drop()
       logger.info(`Collection ${collectionName} dropped.`)
     }
-    // eslint-disable-next-line camelcase
     const collectionNew = db.collection('PLANT_DATA')
 
     const resultList = plantList.map((plant) => {
-      const plDetail = {
-        EPPO_CODE: 'string',
-        GENUS_NAME: 'plant',
-        HOST_REF: 'string',
-        HOST_REGULATION: {
-          ANNEX11: {
-            A11_RULE: 'string',
-            BTOM: 'string',
-            BTOM_CLARIFICATION: 'string',
-            BTOM_NON_EUSL: 'string',
-            COUNTRY_CODE: 'string',
-            COUNTRY_NAME: 'string',
-            IMPORT_RULE: 'string',
-            IMPORT_RULE_NON_EUSL: 'string',
-            INFERRED: 'string',
-            SERVICE_FORMAT: 'string',
-            SERVICE_SUB_FORMAT: 'string',
-            SERVICE_SUB_FORMAT_EXCLUDED: 'string'
-          },
-          ANNEX6: {
-            A6_RULE: 'string',
-            COUNTRY_CODE: 'string',
-            COUNTRY_NAME: 'string',
-            FORMAT_CLARIFICATION: 'string',
-            FORMAT_EXCLUDED: {
-              FORMAT_ID: 'string',
-              FORMAT_NAME: 'string'
-            },
-            HYBRID_INDICATOR: 'string',
-            OVERALL_DECISION: 'string',
-            PROHIBITION_CLARIFICATION: 'string',
-            SERVICE_FORMAT: 'string'
-          }
-        },
-        LATIN_NAME: 'string',
-        PARENT_HOST_REF: 'string',
-        PEST_LINK: {
-          PEST_NAME: {
-            TYPE: 'string',
-            NAME: 'string'
-          },
-          CSL_REF: 'string',
-          EPPO_CODE: 'string',
-          FORMAT: {
-            FORMAT: 'string',
-            FORMAT_ID: 'string'
-          },
-          HOST_CLASS: 'string',
-          LATIN_NAME: 'string',
-          PARENT_CSL_REF: 'string',
-          PEST_COUNTRY: [
-            {
-              COUNTRY_CODE: 'string',
-              COUNTRY_NAME: 'string',
-              COUNTRY_STATUS: 'string'
-            }
-          ],
-          REGULATION: 'string',
-          QUARANTINE_INDICATOR: 'string',
-          REGULATED_INDICATOR: 'string'
-        },
-        PLANT_NAME: [
-          {
-            NAME: 'string',
-            TYPE: 'string'
-          },
-          {
-            NAME: 'string',
-            NAME_TYPE: 'string'
-          }
-        ],
-        SPECIES_NAME: 'string',
-        TAXONOMY: 'string'
-      }
+      const plDetail = plantDetail.get('plantDetail')
       plDetail.EPPO_CODE = plant?.EPPO_CODE
       plDetail.HOST_REF = plant?.HOST_REF
       plDetail.TAXONOMY = plant?.TAXONOMY
@@ -219,6 +143,10 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
     })
 
+    const annex11ResultListDefault = annex11List.filter(
+      (n11) => +n11.HOST_REF === 99999
+    )
+
     // update ResultList with ANNEX6 information
     resultList.forEach((x) => {
       annex6ResultList.forEach((nx6) => {
@@ -233,49 +161,91 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       annex11ResultList.forEach((nx11) => {
         if (x.HOST_REF === nx11.HOST_REF) {
           x.HOST_REGULATION.ANNEX11 = nx11.ANNEX11
+        } else {
+          x.HOST_REGULATION.ANNEX11 = annex11ResultListDefault
         }
       })
     })
 
     // update ResultList with PLANT_PEST_LINK
+
+    const pestLinkResultList = resultList.map((plantItem) => {
+      const pplList = plantPestLinkList
+        .filter((cListItem) => cListItem.HOST_REF === plantItem.HOST_REF)
+        .map((cListItem) => ({
+          CSL_REF: cListItem.CSL_REF,
+          HOST_CLASS: cListItem.HOST_CLASS,
+          PEST_NAME: {
+            TYPE: '',
+            NAME: ''
+          },
+          EPPO_CODE: '',
+          FORMAT: {
+            FORMAT: '',
+            FORMAT_ID: ''
+          },
+          LATIN_NAME: '',
+          PARENT_CSL_REF: '',
+          PEST_COUNTRY: [
+            {
+              COUNTRY_CODE: '',
+              COUNTRY_NAME: '',
+              COUNTRY_STATUS: ''
+            }
+          ],
+          REGULATION: '',
+          QUARANTINE_INDICATOR: '',
+          REGULATED_INDICATOR: ''
+        }))
+
+      return {
+        HOST_REF: plantItem.HOST_REF,
+        PEST_LINK: pplList
+      }
+    })
+    logger.info(`pestLinkResultList:' ${pestLinkResultList?.length}`)
+
     resultList.forEach((x) => {
-      plantPestLinkList?.forEach((pest) => {
+      pestLinkResultList?.forEach((pest) => {
         if (x?.HOST_REF === pest?.HOST_REF) {
-          x.PEST_LINK.CSL_REF = pest?.CSL_REF
-          x.PEST_LINK.HOST_CLASS = pest?.HOST_CLASS
+          x.PEST_LINK = pest?.PEST_LINK
         }
       })
     })
 
     // update ResultList with PEST_NAME
-    resultList.forEach((x) => {
+    resultList.forEach((pl) => {
       pestNamesList?.forEach((pest) => {
-        if (x?.PEST_LINK.CSL_REF === pest?.CSL_REF) {
-          // populate Pest Names
-          const cnameList = pest?.COMMON_NAME?.COMMON_NAME.map(
-            (name) => name
-          ).filter((x) => x !== '')
-          const snameList = pest?.SYNONYM_NAME?.SYNONYM_NAME.map(
-            (name) => name
-          ).filter((x) => x !== '')
-          x.PEST_LINK.PEST_NAME = [
-            { type: 'LATIN_NAME', NAME: pest?.LATIN_NAME },
-            { type: 'COMMON_NAME', NAME: cnameList },
-            { type: 'SYNONYM_NAME', NAME: snameList }
-          ]
-          x.PEST_LINK.EPPO_CODE = pest.EPPO_CODE
-        }
+        pl.PEST_LINK?.forEach((x) => {
+          if (x?.CSL_REF === pest?.CSL_REF) {
+            // populate Pest Names
+            const cnameList = pest?.COMMON_NAME?.COMMON_NAME.map(
+              (name) => name
+            ).filter((x) => x !== '')
+            const snameList = pest?.SYNONYM_NAME?.SYNONYM_NAME.map(
+              (name) => name
+            ).filter((x) => x !== '')
+            x.PEST_NAME = [
+              { type: 'LATIN_NAME', NAME: pest?.LATIN_NAME },
+              { type: 'COMMON_NAME', NAME: cnameList },
+              { type: 'SYNONYM_NAME', NAME: snameList }
+            ]
+            x.EPPO_CODE = pest.EPPO_CODE
+          }
+        })
       })
     })
 
     // update ResultList with PEST_REG
-    resultList.forEach((x) => {
+    resultList.forEach((pl) => {
       plantPestRegList?.forEach((pest) => {
-        if (x?.PEST_LINK.CSL_REF === pest?.CSL_REF) {
-          x.PEST_LINK.REGULATION = pest?.REGULATION
-          x.PEST_LINK.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
-          x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
-        }
+        pl.PEST_LINK?.forEach((x) => {
+          if (x?.CSL_REF === pest?.CSL_REF) {
+            x.REGULATION = pest?.REGULATION
+            x.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
+            x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
+          }
+        })
       })
     })
 
@@ -297,11 +267,13 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       }
     })
     // Map Pest Countries to the resultList
-    resultList.forEach((x) => {
+    resultList.forEach((pl) => {
       countryResultList.forEach((pest) => {
-        if (x?.PEST_LINK?.CSL_REF === pest?.CSL_REF) {
-          x.PEST_LINK.PEST_COUNTRY = pest?.COUNTRIES
-        }
+        pl.PEST_LINK.forEach((x) => {
+          if (x?.CSL_REF === pest?.CSL_REF) {
+            x.PEST_COUNTRY = pest?.COUNTRIES
+          }
+        })
       })
     })
 
