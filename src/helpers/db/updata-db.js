@@ -143,6 +143,10 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
     })
 
+    const annex11ResultListDefault = annex11List.filter(
+      (n11) => +n11.HOST_REF === 99999
+    )
+
     // update ResultList with ANNEX6 information
     resultList.forEach((x) => {
       annex6ResultList.forEach((nx6) => {
@@ -157,6 +161,8 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
       annex11ResultList.forEach((nx11) => {
         if (x.HOST_REF === nx11.HOST_REF) {
           x.HOST_REGULATION.ANNEX11 = nx11.ANNEX11
+        } else {
+          x.HOST_REGULATION.ANNEX11 = annex11ResultListDefault
         }
       })
     })
@@ -197,7 +203,7 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
         PEST_LINK: pplList
       }
     })
-    logger.info(`pestLinkResultList:', ${pestLinkResultList?.length}`)
+    logger.info(`pestLinkResultList:' ${pestLinkResultList?.length}`)
 
     resultList.forEach((x) => {
       pestLinkResultList?.forEach((pest) => {
