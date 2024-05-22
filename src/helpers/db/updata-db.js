@@ -43,7 +43,7 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     // Find all documents in the collection
     const documents = await collection.find({}).toArray()
     // Read Plants
-    const plantList = documents[0]?.PLANT_NAME
+    const plantList = documents
 
     const collectionName = 'PLANT_DATA'
     const collectionPlant = db.collection(collectionName)
@@ -64,13 +64,10 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     const annex6List = collectionAnnex6Documents[0]?.PLANT_ANNEX6
 
     // Select and Find all Plants Pest Link
-    const collectionPlantPestLink = await db
+    const plantPestLinkList = await db
       .collection('PLANT_PEST_LINK')
       .find({})
       .toArray()
-    // Read all Plants Pest Link
-    const plantPestLinkList = collectionPlantPestLink[0]?.PLANT_PEST_LINK
-
     const collectionPlantPestReg = await db
       .collection('PLANT_PEST_REG')
       .find({})
