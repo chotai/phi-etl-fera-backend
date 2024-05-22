@@ -6,12 +6,12 @@ const logger = createLogger()
 const searchController = {
   handler: async (request, h) => {
     try {
-      const message = request.payload // POST
-      const searchparams = message.search // search params part of search obj in message obj
-      const result = await searchPlantDetailsDb(searchparams)
+      const searchInput = request.payload // POST
+      const extractedText = searchInput.search
+      const result = await searchPlantDetailsDb(extractedText)
       return h.response({ plant_detail: result }).code(200)
     } catch (error) {
-      logger.error('Plant search did not yeild results', error)
+      logger.error(`Plant search did not yeild results ${error}`)
       return h.response({ error: error.message }).code(500)
     }
   }
