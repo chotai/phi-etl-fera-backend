@@ -250,22 +250,47 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     })
 
     // update PEST Country with PEST_DISTRIBUTION
-    const countryResultList = resultList.map((plantItem) => {
-      const countries = pestDistributionList
-        .filter(
-          (cListItem) => cListItem.CSL_REF === plantItem.PEST_LINK.CSL_REF
-        )
-        .map((cListItem) => ({
-          COUNTRY_CODE: cListItem.COUNTRY_CODE,
-          COUNTRY_NAME: cListItem.COUNTRY_NAME,
-          STATUS: cListItem.STATUS
-        }))
 
-      return {
-        CSL_REF: plantItem.PEST_LINK.CSL_REF,
-        COUNTRIES: countries
-      }
+    const cslRefMap = {}
+
+    resultList.forEach((item) => {
+      item.PEST_LINK.forEach((pestLink) => {
+        pestDistributionList.forEach((distribution) => {
+          if (pestLink.CSL_REF === distribution.CSL_REF) {
+            if (!cslRefMap[pestLink.CSL_REF]) {
+              cslRefMap[pestLink.CSL_REF] = []
+            }
+            cslRefMap[pestLink.CSL_REF].push({
+              country_name: distribution.COUNTRY_NAME,
+              country_code: distribution.COUNTRY_CODE,
+              status: distribution.STATUS
+            })
+          }
+        })
+      })
     })
+
+    // Remove duplicates in the countries array based on country_code
+    Object.keys(cslRefMap).forEach((cslRef) => {
+      const seen = new Set()
+      // eslint-disable-next-line camelcase
+      cslRefMap[cslRef] = cslRefMap[cslRef].filter((country) => {
+        if (seen.has(country.country_code)) {
+          return false
+        } else {
+          seen.add(country.country_code)
+          return true
+        }
+      })
+    })
+
+    // Convert the mapping to the desired array of objects format
+    const countryResultList = Object.keys(cslRefMap).map((cslRef) => ({
+      CSL_REF: parseInt(cslRef),
+      // eslint-disable-next-line camelcase
+      COUNTRIES: cslRefMap[cslRef]
+    }))
+
     // Map Pest Countries to the resultList
     resultList.forEach((pl) => {
       countryResultList.forEach((pest) => {
