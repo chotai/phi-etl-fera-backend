@@ -2,7 +2,7 @@ import convict from 'convict'
 const pestDetail = convict({
   pestDetail: {
     EPPO_CODE: 'string',
-    GENUS_NAME: 'plant',
+    GENUS_NAME: 'string',
     CSL_REF: 'string',
     LATIN_NAME: 'string',
     PARENT_CSL_REF: 'string',

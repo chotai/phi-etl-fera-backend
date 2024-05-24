@@ -13,9 +13,9 @@ const collectionNamePlant = 'PLANT_DETAIL'
 
 // Populate the DB in this template on startup of the API.
 // This is an example to show developers an API with a DB, with data in it and endpoints that query the db.
-const updateDb = {
+const updateDbPlant = {
   plugin: {
-    name: 'Update DB',
+    name: 'Update Plant DB',
     register: async (server) => {
       try {
         await loadData(filePathPlant, mongoUri, dbName, collectionNamePlant, 1)
@@ -313,4 +313,4 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     await client.close()
   }
 }
-export { updateDb }
+export { updateDbPlant }
