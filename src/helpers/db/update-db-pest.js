@@ -44,6 +44,13 @@ async function loadData(mongoUri, dbName, collectionName, indicator) {
     const collectionPest = db.collection(collectionName)
 
     logger.info(`pestList: ${pestList?.length}`)
+
+    // Select and Find all Plants Pest Link
+    const plantPestLinkList = await db
+      .collection('PLANT_PEST_LINK')
+      .find({})
+      .toArray()
+
     // Drop the collection if it exists
     const collections = await db
       .listCollections({ name: collectionName })
@@ -76,6 +83,35 @@ async function loadData(mongoUri, dbName, collectionName, indicator) {
     })
     logger.info(`pest resultList: ${resultList?.length}`)
 
+    // update ResultList with PLANT_PEST_LINK
+    const pestLinkResultList = resultList.map((pest) => {
+      const pplList = plantPestLinkList
+        .filter((cListItem) => cListItem.CSL_REF === pest.CSL_REF)
+        .map((cListItem) => ({
+          PLANT_NAME: {
+            TYPE: 'string',
+            NAME: 'string'
+          },
+          HOST_REF: cListItem?.HOST_REF,
+          EPPO_CODE: pest?.EPPO_CODE,
+          HOST_CLASS: cListItem?.HOST_CLASS,
+          LATIN_NAME: pest?.LATIN_NAME,
+          PARENT_HOST_REF: 'string'
+        }))
+
+      return {
+        CSL_REF: pest.CSL_REF,
+        PLANT_LINK: pplList
+      }
+    })
+
+    resultList.forEach((x) => {
+      pestLinkResultList?.forEach((pest) => {
+        if (x?.CSL_REF === pest?.CSL_REF) {
+          x.PLANT_LINK = pest?.PLANT_LINK
+        }
+      })
+    })
     // Main resultList
     const result = await collectionNew.insertMany(resultList)
 

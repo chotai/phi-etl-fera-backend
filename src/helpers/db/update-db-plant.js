@@ -305,7 +305,7 @@ async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
     // Main resultList
     const result = await collectionNew.insertMany(resultList)
 
-    logger.info(`${result.insertedCount} documents were inserted...`)
+    logger.info(`${result.insertedCount} plant documents were inserted...`)
   } catch (err) {
     logger.error(err)
   } finally {
