@@ -73,7 +73,7 @@ async function loadData(mongoUri, dbName, collectionName, indicator) {
       const snameList = pest?.SYNONYM_NAME?.SYNONYM_NAME?.map(
         (name) => name
       ).filter((x) => x !== '')
-      psDetail.PLANT_NAME = [
+      psDetail.PEST_NAME = [
         { type: 'LATIN_NAME', NAME: pest?.LATIN_NAME },
         { type: 'COMMON_NAME', NAME: cnameList },
         { type: 'SYNONYM_NAME', NAME: snameList }
@@ -112,6 +112,39 @@ async function loadData(mongoUri, dbName, collectionName, indicator) {
         }
       })
     })
+
+    // update PEST Country with PEST_DISTRIBUTION
+    const collectionPestDistribution = await db
+      .collection('PEST_DISTRIBUTION')
+      .find({})
+      .toArray()
+
+    const pestDistributionList =
+      collectionPestDistribution[0]?.PEST_DISTRIBUTION
+
+    const countryResultList = resultList.map((pest) => {
+      const countries = pestDistributionList
+        .filter((cListItem) => cListItem.CSL_REF === pest.CSL_REF)
+        .map((cListItem) => ({
+          COUNTRY_CODE: cListItem.COUNTRY_CODE,
+          COUNTRY_NAME: cListItem.COUNTRY_NAME,
+          COUNTRY_STATUS: cListItem.STATUS
+        }))
+
+      return {
+        CSL_REF: pest.CSL_REF,
+        COUNTRIES: countries
+      }
+    })
+
+    resultList.forEach((pl) => {
+      countryResultList.forEach((pest) => {
+        if (pl?.CSL_REF === pest?.CSL_REF) {
+          pl.PEST_COUNTRY_DISTRIBUTION = pest?.COUNTRIES
+        }
+      })
+    })
+
     // Main resultList
     const result = await collectionNew.insertMany(resultList)
 
