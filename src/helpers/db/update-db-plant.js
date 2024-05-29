@@ -1,15 +1,11 @@
 import { createLogger } from '~/src/helpers/logging/logger'
-import path from 'path'
 import { config } from '~/src/config'
 import { plantDetail } from '../models/plantDetail'
 
 import { MongoClient } from 'mongodb'
 const logger = createLogger()
-const filePathPlant = path.join(__dirname, 'data', 'plants.json')
-
 const mongoUri = config.get('mongoUri') // Get MongoDB URI from the config
 const dbName = config.get('mongoDatabase') // Get MongoDB database name from the config
-const collectionNamePlant = 'PLANT_DETAIL'
 
 // Populate the DB in this template on startup of the API.
 // This is an example to show developers an API with a DB, with data in it and endpoints that query the db.
@@ -18,14 +14,14 @@ const updateDbPlant = {
     name: 'Update Plant DB',
     register: async (server) => {
       try {
-        await loadData(filePathPlant, mongoUri, dbName, collectionNamePlant, 1)
+        await loadData(mongoUri, dbName)
       } catch (error) {
         logger.error(error)
       }
     }
   }
 }
-async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
+async function loadData(mongoUri, dbName) {
   const client = new MongoClient(mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true

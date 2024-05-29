@@ -23,7 +23,7 @@ const updateDbPest = {
     }
   }
 }
-async function loadData(mongoUri, dbName, collectionName, indicator) {
+async function loadData(mongoUri, dbName) {
   const client = new MongoClient(mongoUri)
   try {
     // Connect the client to the server
@@ -52,8 +52,18 @@ async function loadData(mongoUri, dbName, collectionName, indicator) {
       .toArray()
 
     const collectionPlant = db.collection('PLANT_NAME')
+    const collectionPestPras = db.collection('PEST_PRA_DATA')
+    const collectionPestFCPD = db.collection('PEST_DOCUMENT_FCPD')
 
     const plantList = await collectionPlant.find({}).toArray()
+    const collectionPestPrasDocs = await collectionPestPras.find({}).toArray()
+    const collectionPestFCPDDocs = await collectionPestFCPD.find({}).toArray()
+
+    const pestPrasList = collectionPestPrasDocs[0]?.PEST_PRA_DATA
+    const pestFcpdList = collectionPestFCPDDocs[0]?.PEST_DOCUMENT_FCPD
+
+    logger.info(`pestPrasList: ${pestPrasList?.length}`)
+    logger.info(`pestFcpdList: ${pestFcpdList?.length}`)
 
     // Drop the collection if it exists
     const collections = await db
@@ -116,6 +126,66 @@ async function loadData(mongoUri, dbName, collectionName, indicator) {
         }
       })
     })
+    // update DOCUMENT_LINK with PrasList
+    const documentLinkResultList = resultList.map((pest) => {
+      const documentLinkList = pestPrasList
+        .filter((dListItem) => dListItem.CSL_REF === pest.CSL_REF)
+        .map((dListItem) => ({
+          DOCUMENT_TYPE: dListItem?.DOCUMENT_TYPE,
+          DOCUMENT_TITLE: dListItem?.DOCUMENT_TITLE,
+          DOCUMENT_HYPER_LINK: dListItem?.DOCUMENT_HYPER_LINK,
+          VISIBLE_ON_PHI_INDICATOR: dListItem?.VISIBLE_ON_PHI_INDICATOR,
+          PUBLICATION_DATE: dListItem?.PUBLICATION_DATE,
+          DOCUMENT_SIZE: dListItem?.DOCUMENT_SIZE,
+          NO_OF_PAGE: 'string',
+          DOCUMENT_FORMAT: dListItem?.DOCUMENT_FORMAT,
+          PARENT_CSL_REF: 'string'
+        }))
+
+      return {
+        CSL_REF: pest.CSL_REF,
+        DOCUMENT_LINK: documentLinkList
+      }
+    })
+
+    const documentLinkFcpdResultList = resultList.map((pest) => {
+      const documentLinkList = pestFcpdList
+        .filter((dListItem) => dListItem.CSL_REF === pest.CSL_REF)
+        .map((dListItem) => ({
+          DOCUMENT_TYPE: dListItem?.DOCUMENT_TYPE,
+          DOCUMENT_TITLE: dListItem?.DOCUMENT_TITLE,
+          DOCUMENT_HYPER_LINK: dListItem?.DOCUMENT_HYPER_LINK,
+          VISIBLE_ON_PHI_INDICATOR: dListItem?.VISIBLE_ON_PHI_INDICATOR,
+          PUBLICATION_DATE: dListItem?.PUBLICATION_DATE,
+          DOCUMENT_SIZE: dListItem?.DOCUMENT_SIZE,
+          NO_OF_PAGE: 'string',
+          DOCUMENT_FORMAT: dListItem?.DOCUMENT_FORMAT,
+          PARENT_CSL_REF: 'string'
+        }))
+
+      return {
+        CSL_REF: pest.CSL_REF,
+        DOCUMENT_LINK: documentLinkList
+      }
+    })
+
+    resultList.forEach((x) => {
+      documentLinkResultList?.forEach((pest) => {
+        if (x?.CSL_REF === pest?.CSL_REF) {
+          x.DOCUMENT_LINK = pest?.DOCUMENT_LINK
+        } else {
+          x.DOCUMENT_LINK = []
+        }
+      })
+    })
+
+    resultList.forEach((x) => {
+      documentLinkFcpdResultList?.forEach((pest) => {
+        if (x?.CSL_REF === pest?.CSL_REF) {
+          x.DOCUMENT_LINK.push(...pest?.DOCUMENT_LINK)
+        }
+      })
+    })
 
     // update PEST Country with PEST_DISTRIBUTION
     const collectionPestDistribution = await db
@@ -151,25 +221,23 @@ async function loadData(mongoUri, dbName, collectionName, indicator) {
 
     // update PLANT_LINK -> PLANT_NAME
 
-
-      resultList.map((pest) => {
-        pest?.PLANT_LINK?.map((pl) => {  
-          plantList.forEach((plant) => {
+    resultList.forEach((pest) => {
+      pest?.PLANT_LINK?.forEach((pl) => {
+        plantList.forEach((plant) => {
           if (pl.HOST_REF === plant.HOST_REF) {
-            const cnameList = plant?.COMMON_NAME?.NAME.map((name) => name).filter(
-              (x) => x !== ''
-            )
-            const snameList = plant?.SYNONYM_NAME?.NAME.map((name) => name).filter(
-              (x) => x !== ''
-            )
+            const cnameList = plant?.COMMON_NAME?.NAME.map(
+              (name) => name
+            ).filter((x) => x !== '')
+            const snameList = plant?.SYNONYM_NAME?.NAME.map(
+              (name) => name
+            ).filter((x) => x !== '')
 
             pl.PLANT_NAME = [
               { type: 'LATIN_NAME', NAME: plant?.LATIN_NAME },
               { type: 'COMMON_NAME', NAME: cnameList },
-              { type: 'SYNONYM_NAME', NAME: snameList }    
+              { type: 'SYNONYM_NAME', NAME: snameList }
             ]
           }
-
         })
       })
     })
