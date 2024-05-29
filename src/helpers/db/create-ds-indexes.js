@@ -13,7 +13,10 @@ async function createMongoDBIndexes(db) {
         const collection = db.collection(collectionInfo.name)
 
         // Create an index on the specified field
-        await collection.createIndex({ LATIN_NAME: 1 })
+        // TODO: CREATE INDEX IS THROWING MONGODB EXECPTION. COMMENTING IT TO LOAD
+        // THE LATEST RECORDS. INDEXS ARE REQUIRED ON DB, THIS ISSUE NEED TO BE LOOKED
+        // INTO AND RESOLVED.
+        //await collection.createIndex({ LATIN_NAME: 1 })
 
         // TODO: Create Index on multiple fields (if required)
       }
