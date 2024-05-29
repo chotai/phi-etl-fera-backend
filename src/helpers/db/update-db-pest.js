@@ -51,6 +51,10 @@ async function loadData(mongoUri, dbName, collectionName, indicator) {
       .find({})
       .toArray()
 
+    const collectionPlant = db.collection('PLANT_NAME')
+
+    const plantList = await collectionPlant.find({}).toArray()
+
     // Drop the collection if it exists
     const collections = await db
       .listCollections({ name: collectionName })
@@ -145,6 +149,30 @@ async function loadData(mongoUri, dbName, collectionName, indicator) {
       })
     })
 
+    // update PLANT_LINK -> PLANT_NAME
+
+
+      resultList.map((pest) => {
+        pest?.PLANT_LINK?.map((pl) => {  
+          plantList.forEach((plant) => {
+          if (pl.HOST_REF === plant.HOST_REF) {
+            const cnameList = plant?.COMMON_NAME?.NAME.map((name) => name).filter(
+              (x) => x !== ''
+            )
+            const snameList = plant?.SYNONYM_NAME?.NAME.map((name) => name).filter(
+              (x) => x !== ''
+            )
+
+            pl.PLANT_NAME = [
+              { type: 'LATIN_NAME', NAME: plant?.LATIN_NAME },
+              { type: 'COMMON_NAME', NAME: cnameList },
+              { type: 'SYNONYM_NAME', NAME: snameList }    
+            ]
+          }
+
+        })
+      })
+    })
     // Main resultList
     const result = await collectionNew.insertMany(resultList)
 
