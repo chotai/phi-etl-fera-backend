@@ -257,9 +257,9 @@ async function loadData(mongoUri, dbName) {
               cslRefMap[pestLink.CSL_REF] = []
             }
             cslRefMap[pestLink.CSL_REF].push({
-              country_name: distribution.COUNTRY_NAME,
-              country_code: distribution.COUNTRY_CODE,
-              status: distribution.STATUS
+              COUNTRY_NAME: distribution.COUNTRY_NAME,
+              COUNTRY_CODE: distribution.COUNTRY_CODE,
+              STATUS: distribution.STATUS
             })
           }
         })
@@ -271,10 +271,10 @@ async function loadData(mongoUri, dbName) {
       const seen = new Set()
       // eslint-disable-next-line camelcase
       cslRefMap[cslRef] = cslRefMap[cslRef].filter((country) => {
-        if (seen.has(country.country_code)) {
+        if (seen.has(country.COUNTRY_CODE)) {
           return false
         } else {
-          seen.add(country.country_code)
+          seen.add(country.COUNTRY_CODE)
           return true
         }
       })
