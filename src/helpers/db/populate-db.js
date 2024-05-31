@@ -179,7 +179,7 @@ async function loadCombinedDataForPestLink(mongoUri, dbName, collectionName) {
   const filePathServicePlantPestLink1 = path.join(
     __dirname,
     'data',
-    'plant_pest_link.json'
+    'plant_pest_link1.json'
   )
   const filePathServicePlantPestLink2 = path.join(
     __dirname,
