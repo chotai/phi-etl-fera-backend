@@ -28,6 +28,10 @@ const filePathPestDistribution = path.join(
   'pest_distribution.json'
 )
 
+const filePathPestFCPD = path.join(__dirname, 'data', 'pest_fcpd.json')
+
+const filePathPestPras = path.join(__dirname, 'data', 'pest_pras.json')
+
 const mongoUri = config.get('mongoUri') // Get MongoDB URI from the config
 const dbName = config.get('mongoDatabase') // Get MongoDB database name from the config
 
@@ -42,6 +46,8 @@ const collectionNamePlantName = 'PLANT_NAME'
 const collectionNamePlantPestLink = 'PLANT_PEST_LINK'
 const collectionNamePlantPestReg = 'PLANT_PEST_REG'
 const collectionPestDistribution = 'PEST_DISTRIBUTION'
+const collectionPestFCPD = 'PEST_DOCUMENT_FCPD'
+const collectionPestPras = 'PEST_PRA_DATA'
 
 // Populate the DB in this template on startup of the API.
 // This is an example to show developers an API with a DB, with data in it and endpoints that query the db.
@@ -117,6 +123,21 @@ const populateDb = {
           collectionPestDistribution,
           1
         )
+        await loadData(
+          filePathPestFCPD,
+          mongoUri,
+          dbName,
+          collectionPestFCPD,
+          1
+        )
+        await loadData(
+          filePathPestPras,
+          mongoUri,
+          dbName,
+          collectionPestPras,
+          1
+        )
+
         await server.start()
       } catch (error) {
         logger.error(error)
