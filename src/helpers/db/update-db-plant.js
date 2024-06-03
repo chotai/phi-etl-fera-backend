@@ -187,7 +187,7 @@ async function loadData(db) {
         PEST_LINK: pplList
       }
     })
-    logger.info(`pestLinkResultList:' ${pestLinkResultList?.length}`)
+    logger.info(`pestLinkResultList: ${pestLinkResultList?.length}`)
 
     resultList.forEach((x) => {
       pestLinkResultList?.forEach((pest) => {
