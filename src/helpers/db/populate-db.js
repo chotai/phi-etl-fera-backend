@@ -33,7 +33,6 @@ const filePathPestFCPD = path.join(__dirname, 'data', 'pest_fcpd.json')
 const filePathPestPras = path.join(__dirname, 'data', 'pest_pras.json')
 
 const mongoUri = config.get('mongoUri') // Get MongoDB URI from the config
-const dbName = config.get('mongoDatabase') // Get MongoDB database name from the config
 
 const collectionNamePlant = 'PLANT_DETAIL'
 const collectionNameCountry = 'COUNTRIES'
@@ -56,46 +55,52 @@ const populateDb = {
     name: 'Populate MongoDb',
     register: async (server) => {
       try {
-        await loadData(filePathPlant, mongoUri, dbName, collectionNamePlant, 2)
+        await loadData(
+          filePathPlant,
+          mongoUri,
+          server.db,
+          collectionNamePlant,
+          2
+        )
         await loadData(
           filePathService,
           mongoUri,
-          dbName,
+          server.db,
           collectionNameServiceFormat,
           1
         )
         await loadData(
           filePathCountry,
           mongoUri,
-          dbName,
+          server.db,
           collectionNameCountry,
           1
         )
         await loadData(
           filePathServiceAnnex6,
           mongoUri,
-          dbName,
+          server.db,
           collectionNamePlantAnnex6,
           1
         )
         await loadData(
           filePathServiceAnnex11,
           mongoUri,
-          dbName,
+          server.db,
           collectionNamePlantAnnex11,
           1
         )
         await loadData(
           filePathServicePestName,
           mongoUri,
-          dbName,
+          server.db,
           collectionNamePestName,
           1
         )
         // Load PLANT DATA - COMBINED - START
         await loadCombinedDataForPlant(
           mongoUri,
-          dbName,
+          server.db,
           collectionNamePlantName,
           1
         )
@@ -104,7 +109,7 @@ const populateDb = {
         // Load PEST_LINK DATA - START
         await loadCombinedDataForPestLink(
           mongoUri,
-          dbName,
+          server.db,
           collectionNamePlantPestLink,
           1
         )
@@ -112,28 +117,28 @@ const populateDb = {
         await loadData(
           filePathServicePlantPestReg,
           mongoUri,
-          dbName,
+          server.db,
           collectionNamePlantPestReg,
           1
         )
         await loadData(
           filePathPestDistribution,
           mongoUri,
-          dbName,
+          server.db,
           collectionPestDistribution,
           1
         )
         await loadData(
           filePathPestFCPD,
           mongoUri,
-          dbName,
+          server.db,
           collectionPestFCPD,
           1
         )
         await loadData(
           filePathPestPras,
           mongoUri,
-          dbName,
+          server.db,
           collectionPestPras,
           1
         )
@@ -146,7 +151,7 @@ const populateDb = {
   }
 }
 
-async function loadCombinedDataForPlant(mongoUri, dbName, collectionName) {
+async function loadCombinedDataForPlant(mongoUri, db, collectionName) {
   const filePathServicePlantName = path.join(
     __dirname,
     'data',
@@ -166,7 +171,6 @@ async function loadCombinedDataForPlant(mongoUri, dbName, collectionName) {
   const client = new MongoClient(mongoUri)
   try {
     await client.connect()
-    const db = client.db(dbName)
     const collection = db.collection(collectionName)
     await dropCollections(db, collectionName, client)
     await collection.insertMany(combinedData)
@@ -176,7 +180,7 @@ async function loadCombinedDataForPlant(mongoUri, dbName, collectionName) {
   }
 }
 
-async function loadCombinedDataForPestLink(mongoUri, dbName, collectionName) {
+async function loadCombinedDataForPestLink(mongoUri, db, collectionName) {
   const filePathServicePlantPestLink1 = path.join(
     __dirname,
     'data',
@@ -206,7 +210,6 @@ async function loadCombinedDataForPestLink(mongoUri, dbName, collectionName) {
   const client = new MongoClient(mongoUri)
   try {
     await client.connect()
-    const db = client.db(dbName)
     const collection = db.collection(collectionName)
     await dropCollections(db, collectionName, client)
     await collection.insertMany(combinedData)
@@ -221,28 +224,22 @@ async function readJsonFile(filePath) {
   return JSON.parse(data)
 }
 
-async function loadData(filePath, mongoUri, dbName, collectionName, indicator) {
+async function loadData(filePath, mongoUri, db, collectionName, indicator) {
   const fileContents = await fs.readFile(filePath, 'utf-8')
   const jsonData = await JSON.parse(fileContents)
 
-  const client = new MongoClient(mongoUri)
   try {
-    await client.connect()
-    const db = client.db(dbName)
     const collection = db.collection(collectionName)
-    await dropCollections(db, collectionName, client)
+    await dropCollections(db, collectionName)
     if (indicator === 1) {
       await collection.insertOne(jsonData)
     } else if (indicator === 2) {
       await collection.insertMany(jsonData)
     }
-  } catch (error) {
-  } finally {
-    await client.close()
-  }
+  } catch (error) {}
 }
 
-async function dropCollections(db, collection, client) {
+async function dropCollections(db, collection) {
   const collections = await db.listCollections({ name: collection }).toArray()
   if (collections.length > 0) {
     await db.dropCollection(collection, function (err, result) {
@@ -253,7 +250,6 @@ async function dropCollections(db, collection, client) {
       }
       // eslint-disable-next-line no-console
       console.log('Collection dropped successfully')
-      client.close()
     })
   }
 }
