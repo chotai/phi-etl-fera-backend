@@ -1,13 +1,7 @@
 import { createLogger } from '~/src/helpers/logging/logger'
-import { config } from '~/src/config'
 import { pestDetail } from '../models/pestDetail'
 
-import { MongoClient } from 'mongodb'
 const logger = createLogger()
-
-const mongoUri = config.get('mongoUri') // Get MongoDB URI from the config
-const dbName = config.get('mongoDatabase') // Get MongoDB database name from the config
-const collectionName = 'PEST_DETAIL'
 
 // Populate the DB in this template on startup of the API.
 // This is an example to show developers an API with a DB, with data in it and endpoints that query the db.
@@ -16,22 +10,17 @@ const updateDbPest = {
     name: 'Update Pest DB',
     register: async (server) => {
       try {
-        await loadData(mongoUri, dbName, collectionName, 1)
+        await loadData(server.db)
       } catch (error) {
         logger.error(error)
       }
     }
   }
 }
-async function loadData(mongoUri, dbName) {
-  const client = new MongoClient(mongoUri)
+async function loadData(db) {
   try {
     // Connect the client to the server
-    await client.connect()
     logger.info('Connected successfully to server')
-
-    // Select the database
-    const db = client.db(dbName)
 
     // Select the collection
     const collection = db.collection('PEST_NAME')
@@ -247,9 +236,6 @@ async function loadData(mongoUri, dbName) {
     logger.info(`${result.insertedCount} pest documents were inserted...`)
   } catch (err) {
     logger.error(err)
-  } finally {
-    // Close the connection
-    await client.close()
   }
 }
 export { updateDbPest }
