@@ -157,16 +157,15 @@ async function loadCombinedDataForPlant(mongoUri, db, collectionName) {
     'data',
     'plant_name.json'
   )
-  // Only load 9K Plants, Uncomment to load all 27K Plants
-  // const filePathServicePlantNameRest = path.join(
-  //   __dirname,
-  //   'data',
-  //   'plant_name_rest.json'
-  // )
+  const filePathServicePlantNameRest = path.join(
+    __dirname,
+    'data',
+    'plant_name_rest.json'
+  )
   const data1 = await readJsonFile(filePathServicePlantName)
-  // const data2 = await readJsonFile(filePathServicePlantNameRest)
+  const data2 = await readJsonFile(filePathServicePlantNameRest)
 
-  const combinedData = [...data1?.PLANT_NAME]
+  const combinedData = [...data1?.PLANT_NAME, ...data2?.PLANT_NAME]
 
   const client = new MongoClient(mongoUri)
   try {
