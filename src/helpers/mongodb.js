@@ -1,6 +1,5 @@
 import { MongoClient } from 'mongodb'
 import { config } from '~/src/config'
-import { createMongoDBIndexes } from './db/create-ds-indexes'
 
 const mongoPlugin = {
   name: 'mongodb',
@@ -23,8 +22,6 @@ const mongoPlugin = {
     server.decorate('server', 'mongoClient', client)
     server.decorate('server', 'db', db)
     server.decorate('request', 'db', db)
-
-    await createMongoDBIndexes(db)
   }
 }
 
