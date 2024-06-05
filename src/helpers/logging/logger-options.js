@@ -8,10 +8,13 @@ const loggerOptions = {
     paths: ['req.headers.authorization', 'req.headers.cookie', 'res.headers'],
     remove: true
   },
-  level: config.get('logLevel'),
+  level: config.get('logLevel') || 'undefined',
   ...(config.get('isDevelopment')
     ? { transport: { target: 'pino-pretty' } }
-    : ecsFormat())
+    : ecsFormat()),
+  customLevels: {
+    undefined: 30 // Adding undefined level with a standard priority
+  }
 }
 
 export { loggerOptions }

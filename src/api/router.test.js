@@ -1,0 +1,21 @@
+// tests/router.test.js
+import { search } from '~/src/api/search'
+import { router } from './router' // Adjust the import according to the actual file location
+
+jest.mock('~/src/api/search')
+
+describe('router', () => {
+  let server
+
+  beforeEach(() => {
+    server = {
+      register: jest.fn()
+    }
+  })
+
+  it('should register the search plugin', async () => {
+    await router.plugin.register(server)
+
+    expect(server.register).toHaveBeenCalledWith([search])
+  })
+})
