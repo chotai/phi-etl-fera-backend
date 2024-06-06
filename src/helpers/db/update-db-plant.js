@@ -146,7 +146,7 @@ async function loadData(db) {
       annex11ResultList.forEach((nx11) => {
         if (x.HOST_REF === nx11.HOST_REF) {
           x.HOST_REGULATION.ANNEX11 = nx11.ANNEX11
-        } else {
+        } else if (x.HOST_REGULATION.ANNEX11.length === 0) {
           x.HOST_REGULATION.ANNEX11 = annex11ResultListDefault
         }
       })
