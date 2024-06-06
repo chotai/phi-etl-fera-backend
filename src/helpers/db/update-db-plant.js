@@ -96,6 +96,7 @@ async function loadData(db) {
       plDetail.EPPO_CODE = plant?.EPPO_CODE
       plDetail.HOST_REF = plant?.HOST_REF
       plDetail.TAXONOMY = plant?.TAXONOMY
+      plDetail.PARENT_HOST_REF = plant?.PARENT_HOST_REF
 
       const cnameList = plant?.COMMON_NAME?.NAME.map((name) => name).filter(
         (x) => x !== ''
@@ -128,12 +129,24 @@ async function loadData(db) {
       return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
     })
     // Rule 2
-    const annex11ResultListParentHost = resultList.map((nx11) => {
-      const nx11List = annex11List.filter(
-        (n11) => +n11.PARENT_HOST_REF === +nx11.PARENT_HOST_REF
-      )
-      return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
-    })
+    const annex11ResultListParentHost = resultList
+      .map((nx11) => {
+        if (nx11.PARENT_HOST_REF && nx11.PARENT_HOST_REF !== '') {
+          const nx11List = annex11List.filter(
+            (n11) => +n11.PARENT_HOST_REF === +nx11.PARENT_HOST_REF
+          )
+
+          // Only return the object if nx11List is not empty
+          if (nx11List.length > 0) {
+            return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
+          }
+        }
+        // Return null or undefined for elements that do not meet the condition
+        return null
+      })
+      .filter((item) => item !== null) // Remove null values from the result
+
+    // console.log(annex11ResultListParentHost)
 
     // Rule 3 - Find a matching HOST_REF (FAMILY) in PLANT_NAME Collection from PLANT_DATA using PARENT_HOST_REF - This is only one record
     let resultListParent = []
@@ -146,6 +159,18 @@ async function loadData(db) {
         (element) => element !== undefined
       )
     })
+
+    // console.log('resultListParent:', resultListParent)
+
+    const annex11ResultListParent = resultListParent.map((nx11) => {
+      const nx11List = annex11List.filter(
+        (n11) => +n11.HOST_REF === +nx11.HOST_REF
+      )
+      return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
+    })
+    console.log('annex11ResultListParent:ANNEX11', annex11ResultListParent)
+
+    // build annex11 default List
 
     const annex11ResultListDefault = annex11List.filter(
       (n11) => +n11.HOST_REF === 99999
@@ -178,6 +203,17 @@ async function loadData(db) {
     })
 
     // update ResultList with ANNEX11 - Rule 3 information
+
+    resultList.forEach((x) => {
+      annex11ResultListParent.forEach((nx11) => {
+        if (x.HOST_REF === nx11.HOST_REF) {
+          x.HOST_REGULATION.ANNEX11 = [
+            ...x.HOST_REGULATION.ANNEX11,
+            ...nx11?.ANNEX11
+          ]
+        }
+      })
+    })
 
     // update ResultList with ANNEX6 information
     resultList.forEach((x) => {
