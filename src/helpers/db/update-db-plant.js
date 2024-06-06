@@ -120,34 +120,70 @@ async function loadData(db) {
     })
 
     // ANNEX11 mapping
-
+    // Rule 1
     const annex11ResultList = resultList.map((nx11) => {
       const nx11List = annex11List.filter(
         (n11) => +n11.HOST_REF === +nx11.HOST_REF
       )
       return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
     })
+    // Rule 2
+    const annex11ResultListParentHost = resultList.map((nx11) => {
+      const nx11List = annex11List.filter(
+        (n11) => +n11.PARENT_HOST_REF === +nx11.PARENT_HOST_REF
+      )
+      return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
+    })
+
+    // Rule 3 - Find a matching HOST_REF (FAMILY) in PLANT_NAME Collection from PLANT_DATA using PARENT_HOST_REF - This is only one record
+    let resultListParent = []
+    resultList.forEach((pl) => {
+      resultListParent = [
+        ...resultListParent,
+        plantList.find((r) => +r.HOST_REF === +pl.PARENT_HOST_REF)
+      ]
+      resultListParent = resultListParent.filter(
+        (element) => element !== undefined
+      )
+    })
 
     const annex11ResultListDefault = annex11List.filter(
       (n11) => +n11.HOST_REF === 99999
     )
+
+    // update ResultList with ANNEX11 - Rule 1 information, also append Default rules
+    resultList.forEach((x) => {
+      annex11ResultList.forEach((nx11) => {
+        if (x.HOST_REF === nx11.HOST_REF) {
+          x.HOST_REGULATION.ANNEX11 = [
+            ...nx11.ANNEX11,
+            ...annex11ResultListDefault
+          ]
+        } else if (x.HOST_REGULATION.ANNEX11.length === 0) {
+          x.HOST_REGULATION.ANNEX11 = annex11ResultListDefault
+        }
+      })
+    })
+
+    // update ResultList with ANNEX11 - Rule 2 information
+    resultList.forEach((x) => {
+      annex11ResultListParentHost.forEach((nx11) => {
+        if (x.HOST_REF === nx11.HOST_REF) {
+          x.HOST_REGULATION.ANNEX11 = [
+            ...x.HOST_REGULATION.ANNEX11,
+            ...nx11.ANNEX11
+          ]
+        }
+      })
+    })
+
+    // update ResultList with ANNEX11 - Rule 3 information
 
     // update ResultList with ANNEX6 information
     resultList.forEach((x) => {
       annex6ResultList.forEach((nx6) => {
         if (x.HOST_REF === nx6.HOST_REF) {
           x.HOST_REGULATION.ANNEX6 = nx6.ANNEX6
-        }
-      })
-    })
-
-    // update ResultList with ANNEX11 information
-    resultList.forEach((x) => {
-      annex11ResultList.forEach((nx11) => {
-        if (x.HOST_REF === nx11.HOST_REF) {
-          x.HOST_REGULATION.ANNEX11 = nx11.ANNEX11
-        } else if (x.HOST_REGULATION.ANNEX11.length === 0) {
-          x.HOST_REGULATION.ANNEX11 = annex11ResultListDefault
         }
       })
     })
