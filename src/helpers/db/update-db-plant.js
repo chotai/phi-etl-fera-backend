@@ -4,8 +4,6 @@ import { createMongoDBIndexes } from './create-ds-indexes'
 
 const logger = createLogger()
 
-// Populate the DB in this template on startup of the API.
-// This is an example to show developers an API with a DB, with data in it and endpoints that query the db.
 const updateDbPlant = {
   plugin: {
     name: 'Update Plant DB',
@@ -18,366 +16,389 @@ const updateDbPlant = {
     }
   }
 }
+
 async function loadData(db) {
   try {
-    // Connect the client to the server
     logger.info('Connected successfully to server')
 
-    // Select the collection
-    const collection = db.collection('PLANT_NAME')
-    // Find all documents in the collection
-    const documents = await collection.find({}).toArray()
-    // Read Plants
-    const plantList = documents
+    const collections = await loadCollections(db)
 
-    const collectionName = 'PLANT_DATA'
-    const collectionPlant = db.collection(collectionName)
-
-    // Select the Annex
-    const collectionAnnex11 = db.collection('PLANT_ANNEX11')
-    const collectionAnnex6 = db.collection('PLANT_ANNEX6')
-
-    // Find all the Annex documents
-
-    const collectionAnnex11Documents = await collectionAnnex11
-      .find({})
-      .toArray()
-    const collectionAnnex6Documents = await collectionAnnex6.find({}).toArray()
-
-    // Read Annex 11 and 6
-    const annex11List = collectionAnnex11Documents[0]?.PLANT_ANNEX11
-    const annex6List = collectionAnnex6Documents[0]?.PLANT_ANNEX6
-
-    // Select and Find all Plants Pest Link
-    const plantPestLinkList = await db
-      .collection('PLANT_PEST_LINK')
-      .find({})
-      .toArray()
-    const collectionPlantPestReg = await db
-      .collection('PLANT_PEST_REG')
-      .find({})
-      .toArray()
-    const plantPestRegList = collectionPlantPestReg[0]?.PLANT_PEST_REG
-
-    // Read Pest names
-    const collectionPestNames = await db
-      .collection('PEST_NAME')
-      .find({})
-      .toArray()
-    const pestNamesList = collectionPestNames[0]?.PEST_NAME
-
-    // Read PEST DISTRIBUTION
-    const collectionPestDistribution = await db
-      .collection('PEST_DISTRIBUTION')
-      .find({})
-      .toArray()
+    const plantList = collections.plantDocuments
+    const annex11List = collections.annex11Documents[0]?.PLANT_ANNEX11 || []
+    const annex6List = collections.annex6Documents[0]?.PLANT_ANNEX6 || []
+    const plantPestLinkList = collections.plantPestLinkDocuments
+    const plantPestRegList =
+      collections.plantPestRegDocuments[0]?.PLANT_PEST_REG || []
+    const pestNamesList = collections.pestNameDocuments[0]?.PEST_NAME || []
     const pestDistributionList =
-      collectionPestDistribution[0]?.PEST_DISTRIBUTION
+      collections.pestDistributionDocuments[0]?.PEST_DISTRIBUTION || []
 
-    logger.info(`Annex11: ${annex11List?.length}`)
-    logger.info(`Annex6: ${annex6List?.length}`)
-    logger.info(`plantList: ${plantList?.length}`)
-    logger.info(`plantPestLinkList: ${plantPestLinkList?.length}`)
-    logger.info(`plantPestRegList: ${plantPestRegList?.length}`)
-    logger.info(`pestNamesList: ${pestNamesList?.length}`)
-    logger.info(`pestDistributionList: ${pestDistributionList?.length}`)
-    // Drop the collection if it exists
-    const collections = await db
-      .listCollections({ name: collectionName })
-      .toArray()
-    if (collections.length > 0) {
-      await collectionPlant.drop()
-      logger.info(`Collection ${collectionName} dropped.`)
-    }
-    const collectionNew = db.collection('PLANT_DATA')
+    await clearCollectionIfExists(db, 'PLANT_DATA')
+    const resultList = buildResultList(plantList)
 
-    const resultList = plantList.map((plant) => {
-      const plDetail = plantDetail.get('plantDetail')
-      plDetail.EPPO_CODE = plant?.EPPO_CODE
-      plDetail.HOST_REF = plant?.HOST_REF
-      plDetail.TAXONOMY = plant?.TAXONOMY
-      plDetail.PARENT_HOST_REF = plant?.PARENT_HOST_REF
+    logger.info(`resultList: ${resultList.length}`)
 
-      const cnameList = plant?.COMMON_NAME?.NAME.map((name) => name).filter(
-        (x) => x !== ''
-      )
-      const snameList = plant?.SYNONYM_NAME?.NAME.map((name) => name).filter(
-        (x) => x !== ''
-      )
-      plDetail.PLANT_NAME = [
-        { type: 'LATIN_NAME', NAME: plant?.LATIN_NAME },
-        { type: 'COMMON_NAME', NAME: cnameList },
-        { type: 'SYNONYM_NAME', NAME: snameList }
-      ]
-      return plDetail
-    })
-    logger.info(`resultList: ${resultList?.length}`)
-
-    // ANNEX6 mapping
-
-    const annex6ResultList = resultList.map((nx6) => {
-      const nx6List = annex6List.filter((n6) => n6.HOST_REF === nx6.HOST_REF)
-      return { HOST_REF: nx6.HOST_REF, ANNEX6: nx6List }
-    })
-
-    // ANNEX11 mapping
-    // Rule 1
-    const annex11ResultList = resultList.map((nx11) => {
-      const nx11List = annex11List.filter(
-        (n11) => +n11.HOST_REF === +nx11.HOST_REF
-      )
-      return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
-    })
-    // Rule 2
-    const annex11ResultListParentHost = resultList
-      .map((nx11) => {
-        if (nx11.PARENT_HOST_REF && nx11.PARENT_HOST_REF !== '') {
-          const nx11List = annex11List.filter(
-            (n11) => +n11.PARENT_HOST_REF === +nx11.PARENT_HOST_REF
-          )
-
-          // Only return the object if nx11List is not empty
-          if (nx11List.length > 0) {
-            return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
-          }
-        }
-        // Return null or undefined for elements that do not meet the condition
-        return null
-      })
-      .filter((item) => item !== null) // Remove null values from the result
-
-    // console.log(annex11ResultListParentHost)
-
-    // Rule 3 - Find a matching HOST_REF (FAMILY) in PLANT_NAME Collection from PLANT_DATA using PARENT_HOST_REF - This is only one record
-    let resultListParent = []
-    resultList.forEach((pl) => {
-      resultListParent = [
-        ...resultListParent,
-        plantList.find((r) => +r.HOST_REF === +pl.PARENT_HOST_REF)
-      ]
-      resultListParent = resultListParent.filter(
-        (element) => element !== undefined
-      )
-    })
-
-    // console.log('resultListParent:', resultListParent)
-
-    const annex11ResultListParent = resultListParent.map((nx11) => {
-      const nx11List = annex11List.filter(
-        (n11) => +n11.HOST_REF === +nx11.HOST_REF
-      )
-      return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
-    })
-    console.log('annex11ResultListParent:ANNEX11', annex11ResultListParent)
-
-    // build annex11 default List
-
+    // ANNEX 6 and ANNEX 11
+    const annex6ResultList = mapAnnex6(resultList, annex6List)
+    const annex11ResultList = mapAnnex11(resultList, annex11List)
+    const annex11ResultListParentHost = mapAnnex11ParentHost(
+      resultList,
+      annex11List
+    )
+    const annex11ResultListParent = mapAnnex11Parent(
+      resultList,
+      plantList,
+      annex11List
+    )
     const annex11ResultListDefault = annex11List.filter(
       (n11) => +n11.HOST_REF === 99999
     )
 
-    // update ResultList with ANNEX11 - Rule 1 information, also append Default rules
-    resultList.forEach((x) => {
-      annex11ResultList.forEach((nx11) => {
-        if (x.HOST_REF === nx11.HOST_REF) {
-          x.HOST_REGULATION.ANNEX11 = [
-            ...nx11.ANNEX11,
-            ...annex11ResultListDefault
-          ]
-        } else if (x.HOST_REGULATION.ANNEX11.length === 0) {
-          x.HOST_REGULATION.ANNEX11 = annex11ResultListDefault
-        }
-      })
-    })
+    // Rule 1(HOST_REF) and Rule 4(DefaultAnnex11)
+    updateResultListWithAnnex11(
+      resultList,
+      annex11ResultList,
+      annex11ResultListDefault
+    )
+    // Rule 2(PARENT_HOST_REF)
+    updateResultListWithAnnex11ParentHost(
+      resultList,
+      annex11ResultListParentHost
+    )
+    updateResultListWithAnnex11Parent(resultList, annex11ResultListParent)
 
-    // update ResultList with ANNEX11 - Rule 2 information
-    resultList.forEach((x) => {
-      annex11ResultListParentHost.forEach((nx11) => {
-        if (x.HOST_REF === nx11.HOST_REF) {
-          x.HOST_REGULATION.ANNEX11 = [
-            ...x.HOST_REGULATION.ANNEX11,
-            ...nx11.ANNEX11
-          ]
-        }
-      })
-    })
+    updateResultListWithAnnex6(resultList, annex6ResultList)
 
-    // update ResultList with ANNEX11 - Rule 3 information
+    const pestLinkResultList = mapPestLink(resultList, plantPestLinkList)
+    logger.info(`pestLinkResultList: ${pestLinkResultList.length}`)
+    updateResultListWithPestLink(resultList, pestLinkResultList)
 
-    resultList.forEach((x) => {
-      annex11ResultListParent.forEach((nx11) => {
-        if (x.HOST_REF === nx11.HOST_REF) {
-          x.HOST_REGULATION.ANNEX11 = [
-            ...x.HOST_REGULATION.ANNEX11,
-            ...nx11?.ANNEX11
-          ]
-        }
-      })
-    })
+    updateResultListWithPestNames(resultList, pestNamesList)
+    updateResultListWithPestReg(resultList, plantPestRegList)
+    updateResultListWithPestCountry(resultList, pestDistributionList)
 
-    // update ResultList with ANNEX6 information
-    resultList.forEach((x) => {
-      annex6ResultList.forEach((nx6) => {
-        if (x.HOST_REF === nx6.HOST_REF) {
-          x.HOST_REGULATION.ANNEX6 = nx6.ANNEX6
-        }
-      })
-    })
-
-    // update ResultList with PLANT_PEST_LINK
-
-    const pestLinkResultList = resultList.map((plantItem) => {
-      const pplList = plantPestLinkList
-        .filter((cListItem) => cListItem.HOST_REF === plantItem.HOST_REF)
-        .map((cListItem) => ({
-          CSL_REF: cListItem.CSL_REF,
-          HOST_CLASS: cListItem.HOST_CLASS,
-          PEST_NAME: {
-            TYPE: '',
-            NAME: ''
-          },
-          EPPO_CODE: '',
-          FORMAT: {
-            FORMAT: '',
-            FORMAT_ID: ''
-          },
-          LATIN_NAME: '',
-          PARENT_CSL_REF: '',
-          PEST_COUNTRY: [
-            {
-              COUNTRY_CODE: '',
-              COUNTRY_NAME: '',
-              COUNTRY_STATUS: ''
-            }
-          ],
-          REGULATION: '',
-          QUARANTINE_INDICATOR: '',
-          REGULATED_INDICATOR: ''
-        }))
-
-      return {
-        HOST_REF: plantItem.HOST_REF,
-        PEST_LINK: pplList
-      }
-    })
-    logger.info(`pestLinkResultList: ${pestLinkResultList?.length}`)
-
-    resultList.forEach((x) => {
-      pestLinkResultList?.forEach((pest) => {
-        if (x?.HOST_REF === pest?.HOST_REF) {
-          x.PEST_LINK = pest?.PEST_LINK
-        }
-      })
-    })
-
-    // update ResultList with PEST_NAME
-    resultList.forEach((pl) => {
-      pestNamesList?.forEach((pest) => {
-        pl.PEST_LINK?.forEach((x) => {
-          if (x?.CSL_REF === pest?.CSL_REF) {
-            // populate Pest Names
-            const cnameList = pest?.COMMON_NAME?.COMMON_NAME.map(
-              (name) => name
-            ).filter((x) => x !== '')
-            const snameList = pest?.SYNONYM_NAME?.SYNONYM_NAME.map(
-              (name) => name
-            ).filter((x) => x !== '')
-            x.PEST_NAME = [
-              { type: 'LATIN_NAME', NAME: pest?.LATIN_NAME },
-              { type: 'COMMON_NAME', NAME: cnameList },
-              { type: 'SYNONYM_NAME', NAME: snameList }
-            ]
-            x.EPPO_CODE = pest.EPPO_CODE
-          }
-        })
-      })
-    })
-
-    // update ResultList with PEST_REG
-    resultList.forEach((pl) => {
-      plantPestRegList?.forEach((pest) => {
-        pl.PEST_LINK?.forEach((x) => {
-          if (x?.CSL_REF === pest?.CSL_REF) {
-            if (
-              pest?.QUARANTINE_INDICATOR === 'Q' ||
-              pest?.QUARANTINE_INDICATOR === 'P'
-            ) {
-              x.REGULATION = pest?.REGULATION
-              x.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
-              x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
-            } else if (pest?.QUARANTINE_INDICATOR === 'R') {
-              if (pl?.HOST_REF === pest?.HOST_REF) {
-                x.REGULATION = pest?.REGULATION
-                x.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
-                x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
-              }
-            }
-          }
-        })
-      })
-    })
-
-    // update PEST Country with PEST_DISTRIBUTION
-
-    const cslRefMap = {}
-
-    resultList.forEach((item) => {
-      item.PEST_LINK.forEach((pestLink) => {
-        pestDistributionList.forEach((distribution) => {
-          if (pestLink.CSL_REF === distribution.CSL_REF) {
-            if (!cslRefMap[pestLink.CSL_REF]) {
-              cslRefMap[pestLink.CSL_REF] = []
-            }
-            cslRefMap[pestLink.CSL_REF].push({
-              COUNTRY_NAME: distribution.COUNTRY_NAME,
-              COUNTRY_CODE: distribution.COUNTRY_CODE,
-              STATUS: distribution.STATUS
-            })
-          }
-        })
-      })
-    })
-
-    // Remove duplicates in the countries array based on country_code
-    Object.keys(cslRefMap).forEach((cslRef) => {
-      const seen = new Set()
-      // eslint-disable-next-line camelcase
-      cslRefMap[cslRef] = cslRefMap[cslRef].filter((country) => {
-        if (seen.has(country.COUNTRY_CODE)) {
-          return false
-        } else {
-          seen.add(country.COUNTRY_CODE)
-          return true
-        }
-      })
-    })
-
-    // Convert the mapping to the desired array of objects format
-    const countryResultList = Object.keys(cslRefMap).map((cslRef) => ({
-      CSL_REF: parseInt(cslRef),
-      // eslint-disable-next-line camelcase
-      COUNTRIES: cslRefMap[cslRef]
-    }))
-
-    // Map Pest Countries to the resultList
-    resultList.forEach((pl) => {
-      countryResultList.forEach((pest) => {
-        pl.PEST_LINK.forEach((x) => {
-          if (x?.CSL_REF === pest?.CSL_REF) {
-            x.PEST_COUNTRY = pest?.COUNTRIES
-          }
-        })
-      })
-    })
-
-    // Main resultList
-    const result = await collectionNew.insertMany(resultList)
-
-    logger.info(`${result.insertedCount} plant documents were inserted...`)
-    await createMongoDBIndexes(collectionNew)
+    await insertResultList(db, resultList)
   } catch (err) {
     logger.error(err)
   }
+}
+
+async function loadCollections(db) {
+  const collections = {}
+  collections.plantDocuments = await db
+    .collection('PLANT_NAME')
+    .find({})
+    .toArray()
+  collections.annex11Documents = await db
+    .collection('PLANT_ANNEX11')
+    .find({})
+    .toArray()
+  collections.annex6Documents = await db
+    .collection('PLANT_ANNEX6')
+    .find({})
+    .toArray()
+  collections.plantPestLinkDocuments = await db
+    .collection('PLANT_PEST_LINK')
+    .find({})
+    .toArray()
+  collections.plantPestRegDocuments = await db
+    .collection('PLANT_PEST_REG')
+    .find({})
+    .toArray()
+  collections.pestNameDocuments = await db
+    .collection('PEST_NAME')
+    .find({})
+    .toArray()
+  collections.pestDistributionDocuments = await db
+    .collection('PEST_DISTRIBUTION')
+    .find({})
+    .toArray()
+  return collections
+}
+
+async function clearCollectionIfExists(db, collectionName) {
+  const collections = await db
+    .listCollections({ name: collectionName })
+    .toArray()
+  if (collections.length > 0) {
+    await db.collection(collectionName).drop()
+    logger.info(`Collection ${collectionName} dropped.`)
+  }
+}
+
+function buildResultList(plantList) {
+  return plantList.map((plant) => {
+    const plDetail = plantDetail.get('plantDetail')
+    plDetail.EPPO_CODE = plant?.EPPO_CODE
+    plDetail.HOST_REF = plant?.HOST_REF
+    plDetail.TAXONOMY = plant?.TAXONOMY
+    plDetail.PARENT_HOST_REF = plant?.PARENT_HOST_REF
+
+    plDetail.PLANT_NAME = [
+      { type: 'LATIN_NAME', NAME: plant?.LATIN_NAME },
+      {
+        type: 'COMMON_NAME',
+        NAME: plant?.COMMON_NAME?.NAME.filter((name) => name !== '')
+      },
+      {
+        type: 'SYNONYM_NAME',
+        NAME: plant?.SYNONYM_NAME?.NAME.filter((name) => name !== '')
+      }
+    ]
+
+    return plDetail
+  })
+}
+
+function mapAnnex6(resultList, annex6List) {
+  return resultList.map((nx6) => {
+    const nx6List = annex6List.filter((n6) => n6.HOST_REF === nx6.HOST_REF)
+    return { HOST_REF: nx6.HOST_REF, ANNEX6: nx6List }
+  })
+}
+
+function mapAnnex11(resultList, annex11List) {
+  return resultList.map((nx11) => {
+    const nx11List = annex11List.filter(
+      (n11) => +n11.HOST_REF === +nx11.HOST_REF
+    )
+    return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
+  })
+}
+
+// Rule 1(HOST_REF) and Rule 4(DefaultAnnex11)
+function updateResultListWithAnnex11(
+  resultList,
+  annex11ResultList,
+  annex11ResultListDefault
+) {
+  resultList.forEach((x) => {
+    annex11ResultList.forEach((nx11) => {
+      if (x.HOST_REF === nx11.HOST_REF) {
+        x.HOST_REGULATION.ANNEX11 = [
+          ...nx11.ANNEX11,
+          ...annex11ResultListDefault
+        ]
+      } else if (x.HOST_REGULATION.ANNEX11.length === 0) {
+        x.HOST_REGULATION.ANNEX11 = annex11ResultListDefault
+      }
+    })
+  })
+}
+
+// ANNEX11 - Rule 2 - using PARENT_HOST_REF
+function mapAnnex11ParentHost(resultList, annex11List) {
+  return resultList
+    .map((nx11) => {
+      if (nx11.PARENT_HOST_REF && nx11.PARENT_HOST_REF !== '') {
+        const nx11List = annex11List.filter(
+          (n11) => +n11.PARENT_HOST_REF === +nx11.PARENT_HOST_REF
+        )
+        if (nx11List.length > 0) {
+          return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
+        }
+      }
+      return null
+    })
+    .filter((item) => item !== null)
+}
+
+// ANNEX11 Rule 3 - Find a matching HOST_REF (FAMILY) in PLANT_NAME Collection from PLANT_DATA using PARENT_HOST_REF
+function mapAnnex11Parent(resultList, plantList, annex11List) {
+  const resultListParent = resultList
+    .map((pl) => plantList.find((r) => +r.HOST_REF === +pl.PARENT_HOST_REF))
+    .filter((element) => element !== undefined)
+
+  return resultListParent.map((nx11) => {
+    const nx11List = annex11List.filter(
+      (n11) => +n11.HOST_REF === +nx11.HOST_REF
+    )
+    return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
+  })
+}
+
+// MAP ANNEX11 Rule 2
+function updateResultListWithAnnex11ParentHost(
+  resultList,
+  annex11ResultListParentHost
+) {
+  resultList.forEach((x) => {
+    annex11ResultListParentHost.forEach((nx11) => {
+      if (x.HOST_REF === nx11.HOST_REF) {
+        x.HOST_REGULATION.ANNEX11 = [
+          ...x.HOST_REGULATION.ANNEX11,
+          ...nx11.ANNEX11
+        ]
+      }
+    })
+  })
+}
+
+// MAP ANNEX11 Rule 3
+function updateResultListWithAnnex11Parent(
+  resultList,
+  annex11ResultListParent
+) {
+  resultList.forEach((x) => {
+    annex11ResultListParent.forEach((nx11) => {
+      if (x.HOST_REF === nx11.HOST_REF) {
+        x.HOST_REGULATION.ANNEX11 = [
+          ...x.HOST_REGULATION.ANNEX11,
+          ...nx11.ANNEX11
+        ]
+      }
+    })
+  })
+}
+
+function updateResultListWithAnnex6(resultList, annex6ResultList) {
+  resultList.forEach((x) => {
+    annex6ResultList.forEach((nx6) => {
+      if (x.HOST_REF === nx6.HOST_REF) {
+        x.HOST_REGULATION.ANNEX6 = nx6.ANNEX6
+      }
+    })
+  })
+}
+
+function mapPestLink(resultList, plantPestLinkList) {
+  return resultList.map((plantItem) => {
+    const pplList = plantPestLinkList
+      .filter((cListItem) => cListItem.HOST_REF === plantItem.HOST_REF)
+      .map((cListItem) => ({
+        CSL_REF: cListItem.CSL_REF,
+        HOST_CLASS: cListItem.HOST_CLASS,
+        PEST_NAME: { TYPE: '', NAME: '' },
+        EPPO_CODE: '',
+        FORMAT: { FORMAT: '', FORMAT_ID: '' },
+        LATIN_NAME: '',
+        PARENT_CSL_REF: '',
+        PEST_COUNTRY: [
+          { COUNTRY_CODE: '', COUNTRY_NAME: '', COUNTRY_STATUS: '' }
+        ],
+        REGULATION: '',
+        QUARANTINE_INDICATOR: '',
+        REGULATED_INDICATOR: ''
+      }))
+
+    return {
+      HOST_REF: plantItem.HOST_REF,
+      PEST_LINK: pplList
+    }
+  })
+}
+
+function updateResultListWithPestLink(resultList, pestLinkResultList) {
+  resultList.forEach((x) => {
+    pestLinkResultList.forEach((pest) => {
+      if (x?.HOST_REF === pest?.HOST_REF) {
+        x.PEST_LINK = pest?.PEST_LINK
+      }
+    })
+  })
+}
+
+function updateResultListWithPestNames(resultList, pestNamesList) {
+  resultList.forEach((pl) => {
+    pestNamesList.forEach((pest) => {
+      pl.PEST_LINK?.forEach((x) => {
+        if (x?.CSL_REF === pest?.CSL_REF) {
+          x.PEST_NAME = [
+            { type: 'LATIN_NAME', NAME: pest?.LATIN_NAME },
+            {
+              type: 'COMMON_NAME',
+              NAME: pest?.COMMON_NAME?.COMMON_NAME.filter((name) => name !== '')
+            },
+            {
+              type: 'SYNONYM_NAME',
+              NAME: pest?.SYNONYM_NAME?.SYNONYM_NAME.filter(
+                (name) => name !== ''
+              )
+            }
+          ]
+          x.EPPO_CODE = pest.EPPO_CODE
+        }
+      })
+    })
+  })
+}
+
+function updateResultListWithPestReg(resultList, plantPestRegList) {
+  resultList.forEach((pl) => {
+    plantPestRegList.forEach((pest) => {
+      pl.PEST_LINK?.forEach((x) => {
+        if (x?.CSL_REF === pest?.CSL_REF) {
+          if (['Q', 'P'].includes(pest?.QUARANTINE_INDICATOR)) {
+            x.REGULATION = pest?.REGULATION
+            x.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
+            x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
+          } else if (
+            pest?.QUARANTINE_INDICATOR === 'R' &&
+            pl?.HOST_REF === pest?.HOST_REF
+          ) {
+            x.REGULATION = pest?.REGULATION
+            x.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
+            x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
+          }
+        }
+      })
+    })
+  })
+}
+
+function updateResultListWithPestCountry(resultList, pestDistributionList) {
+  const cslRefMap = {}
+
+  resultList.forEach((item) => {
+    item.PEST_LINK.forEach((pestLink) => {
+      pestDistributionList.forEach((distribution) => {
+        if (pestLink.CSL_REF === distribution.CSL_REF) {
+          if (!cslRefMap[pestLink.CSL_REF]) {
+            cslRefMap[pestLink.CSL_REF] = []
+          }
+          cslRefMap[pestLink.CSL_REF].push({
+            COUNTRY_NAME: distribution.COUNTRY_NAME,
+            COUNTRY_CODE: distribution.COUNTRY_CODE,
+            STATUS: distribution.STATUS
+          })
+        }
+      })
+    })
+  })
+
+  Object.keys(cslRefMap).forEach((cslRef) => {
+    const seen = new Set()
+    cslRefMap[cslRef] = cslRefMap[cslRef].filter((country) => {
+      if (seen.has(country.COUNTRY_CODE)) {
+        return false
+      } else {
+        seen.add(country.COUNTRY_CODE)
+        return true
+      }
+    })
+  })
+
+  const countryResultList = Object.keys(cslRefMap).map((cslRef) => ({
+    CSL_REF: parseInt(cslRef, 10),
+    COUNTRIES: cslRefMap[cslRef]
+  }))
+
+  resultList.forEach((pl) => {
+    countryResultList.forEach((pest) => {
+      pl.PEST_LINK.forEach((x) => {
+        if (x?.CSL_REF === pest?.CSL_REF) {
+          x.PEST_COUNTRY = pest?.COUNTRIES
+        }
+      })
+    })
+  })
+}
+
+async function insertResultList(db, resultList) {
+  const collectionNew = db.collection('PLANT_DATA')
+  const result = await collectionNew.insertMany(resultList)
+  logger.info(`${result.insertedCount} plant documents were inserted...`)
+  await createMongoDBIndexes(collectionNew)
 }
 
 export { updateDbPlant }
