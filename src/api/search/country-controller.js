@@ -1,12 +1,12 @@
 import { getCountries } from '~/src/api/search/helpers/search-mongodb'
-import { createLogger } from '~/src/helpers/logging/logger'
 
-const logger = createLogger()
+let logger = ''
 
 const countryController = {
   handler: async (request, h) => {
+    logger = request.logger
     try {
-      const result = await getCountries()
+      const result = await getCountries(logger)
       return h.response({ countries: result }).code(200)
     } catch (error) {
       logger.error(`Failed to fetch countries' ${error}`)

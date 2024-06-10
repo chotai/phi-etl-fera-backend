@@ -1,13 +1,16 @@
-import { createLogger } from '~/src/helpers/logging/logger'
 import { InnsStrategy } from '~/src/strategies/innsStrategy'
 import { ProhibitedStrategy } from '~/src/strategies/prohibitedStrategy'
 
-const logger = createLogger()
 let strategy = ''
 let plantInfo = ''
+let logger = ''
 
-class workflowStrategyFactory {
-  static initateStrategy(searchInput, db) {
+class WorkflowStrategyFactory {
+  constructor(cdpLogger) {
+    logger = cdpLogger
+  }
+
+  initateStrategy(searchInput, db) {
     const strategy = kickStart(searchInput, db)
     if (strategy) {
       return strategy
@@ -17,43 +20,86 @@ class workflowStrategyFactory {
   }
 }
 
-async function kickStart(searchInput, db) {
-  logger.info(searchInput)
-  // Check if there's an INNS rule for the plant, country and serivce format selected
-  // by the user on the frontend. This can be identified by HOST_REF feild in the collection
-  // as the data is normalised, we dont have to look into multiple collections
-  const plantDocument = await db.collection('PLANT_DATA').findOne({
-    HOST_REF: searchInput.plantDetails.hostRef
-  })
+async function doCountryRegionCheck(db, searchInput) {
+  logger.info(`get the country grouping , ${searchInput.plantDetails.country}`)
 
-  if (!plantDocument) {
-    logger.info(
-      `plant document not found for host_ref:, ${searchInput.plantDetails.hostRef}`
-    )
-  } else {
-    logger.info('trigger - INNS check')
-    strategy = new InnsStrategy(plantDocument, searchInput)
-    plantInfo = await strategy.execute()
-
-    if (plantInfo.outcome && plantInfo.outcome.length > 0) {
-      logger.info(
-        `INNS information available for host_ref , ${plantInfo.hostRef}`
-      )
-      return plantInfo
-    }
-
-    logger.info('trigger - prohibited check')
-    strategy = new ProhibitedStrategy(plantDocument, searchInput)
-    plantInfo = await strategy.execute()
-
-    if (plantInfo.outcome && plantInfo.outcome.length > 0) {
-      logger.info(
-        `Prohibited information available for host_ref, ${plantInfo.hostRef}`
-      )
-      return plantInfo
+  const query = {
+    'COUNTRY_GROUPING.COUNTRY_GROUPING': {
+      $elemMatch: { COUNTRY_NAME: searchInput.plantDetails.country }
     }
   }
-  return false
+
+  const countryDetails = await db.collection('COUNTRIES').findOne(query)
+  let filteredCountry = ''
+  countryDetails.COUNTRY_GROUPING.COUNTRY_GROUPING.filter((c) => {
+    if (
+      c.COUNTRY_NAME.toLowerCase() ===
+      searchInput.plantDetails.country.toLowerCase()
+    ) {
+      logger.info(`country item, ${c.COUNTRY_NAME.toLowerCase()}`)
+      filteredCountry = c
+      return c
+    }
+    return c
+  })
+
+  return filteredCountry
 }
 
-export { workflowStrategyFactory }
+async function kickStart(searchInput, db) {
+  try {
+    logger.info(searchInput)
+    // Check if there's an INNS rule for the plant, country and serivce format selected
+    // by the user on the frontend. This can be identified by HOST_REF feild in the collection
+    // as the data is normalised, we dont have to look into multiple collections
+    const plantDocument = await db.collection('PLANT_DATA').findOne({
+      HOST_REF: searchInput.plantDetails.hostRef
+    })
+
+    if (!plantDocument) {
+      logger.info(
+        `plant document not found for host_ref:, ${searchInput.plantDetails.hostRef}`
+      )
+    } else {
+      const countryMapping = await doCountryRegionCheck(db, searchInput)
+      logger.info('trigger - INNS check')
+      strategy = new InnsStrategy(
+        plantDocument,
+        searchInput,
+        countryMapping,
+        logger
+      )
+      plantInfo = await strategy.execute()
+
+      if (plantInfo.outcome && plantInfo.outcome.length > 0) {
+        logger.info(
+          `INNS rules available for host_ref, country , ${plantInfo.hostRef}, ${plantInfo.country}`
+        )
+        return plantInfo
+      }
+
+      logger.info('trigger - prohibited check')
+      strategy = new ProhibitedStrategy(
+        plantDocument,
+        searchInput,
+        countryMapping,
+        logger
+      )
+      plantInfo = await strategy.execute()
+
+      if (plantInfo.outcome && plantInfo.outcome.length > 0) {
+        logger.info(
+          `Prohibited rule available for host_ref, country ${plantInfo.hostRef}, ${plantInfo.country}`
+        )
+        return plantInfo
+      }
+
+      return plantInfo
+    }
+  } catch (error) {
+    logger.error(error)
+    throw error
+  }
+}
+
+export { WorkflowStrategyFactory }
