@@ -4,8 +4,8 @@ let logger = ''
 
 const countryController = {
   handler: async (request, h) => {
-    logger = request.logger
     try {
+      logger = request.logger
       const result = await getCountries(logger)
       return h.response({ countries: result }).code(200)
     } catch (error) {

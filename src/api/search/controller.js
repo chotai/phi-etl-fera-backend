@@ -3,8 +3,8 @@ let logger = ''
 
 const searchController = {
   handler: async (request, h) => {
-    logger = request.logger
     try {
+      logger = request.logger
       const searchInput = request.payload // POST
       const extractedText = searchInput.search
       const result = await searchPlantDetailsDb(extractedText, logger)
