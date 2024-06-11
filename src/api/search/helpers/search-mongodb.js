@@ -1,8 +1,7 @@
-import { createLogger } from '~/src/helpers/logging/logger'
 import { config } from '~/src/config'
 import { MongoClient } from 'mongodb'
 
-const logger = createLogger()
+let logger = ''
 
 async function connectToMongo(collectionName) {
   // initate mongodb connection to query it
@@ -25,7 +24,8 @@ async function connectToMongo(collectionName) {
     return error.message
   }
 }
-async function searchPlantDetailsDb(searchText) {
+async function searchPlantDetailsDb(searchText, cdpLogger) {
+  logger = cdpLogger
   // const searchText = searchInput
   const results = []
   try {
@@ -40,11 +40,22 @@ async function searchPlantDetailsDb(searchText) {
           $elemMatch: { type: 'LATIN_NAME', NAME: new RegExp(searchText, 'i') }
         }
       }
+
       logger.info(query)
       const latinNameResults = await collectionPlant.find(query).toArray()
 
       if (latinNameResults) {
-        results.push({ id: 'latin-name', results: latinNameResults })
+        const latinArr = []
+        // filter latinNameResults and get rid of uncesseary fields
+        latinNameResults.map((item) => {
+          latinArr.push({
+            plantName: item.PLANT_NAME,
+            hostRef: item.HOST_REF,
+            eppoCode: item.EPPO_CODE
+          })
+          return latinArr
+        })
+        results.push({ id: 'latin-name', results: latinArr })
       }
 
       query = {
@@ -58,7 +69,17 @@ async function searchPlantDetailsDb(searchText) {
       const commonNameResults = await collectionPlant.find(query).toArray()
 
       if (commonNameResults) {
-        results.push({ id: 'common-name', results: commonNameResults })
+        const commonArr = []
+        // filter commonNameResults and get rid of uncesseary fields
+        commonNameResults.map((item) => {
+          commonArr.push({
+            plantName: item.PLANT_NAME,
+            hostRef: item.HOST_REF,
+            eppoCode: item.EPPO_CODE
+          })
+          return commonArr
+        })
+        results.push({ id: 'common-name', results: commonArr })
       }
 
       query = {
@@ -70,9 +91,18 @@ async function searchPlantDetailsDb(searchText) {
         }
       }
       const synonymResults = await collectionPlant.find(query).toArray()
-
       if (synonymResults) {
-        results.push({ id: 'synonym-name', results: synonymResults })
+        const synonymArr = []
+        // filter synonymResults and get rid of uncesseary fields
+        synonymResults.map((item) => {
+          synonymArr.push({
+            plantName: item.PLANT_NAME,
+            hostRef: item.HOST_REF,
+            eppoCode: item.EPPO_CODE
+          })
+          return synonymArr
+        })
+        results.push({ id: 'synonym-name', results: synonymArr })
       }
     }
     return results
@@ -83,8 +113,9 @@ async function searchPlantDetailsDb(searchText) {
   }
 }
 
-async function getCountries() {
+async function getCountries(cdpLogger) {
   try {
+    logger = cdpLogger
     const collectionCountries = await connectToMongo('COUNTRIES')
 
     // Find the document containing the COUNTRY_GROUPING array
