@@ -1,16 +1,13 @@
-import { workflowStrategyFactory } from '~/src/factories/workflowStrategyFactory'
-import { createLogger } from '~/src/helpers/logging/logger'
+import { WorkflowStrategyFactory } from '~/src/factories/workflowStrategyFactory'
 
-const logger = createLogger()
-
+let logger = ''
 const processHandler = async (request, h) => {
+  logger = request.logger
   logger.info(`plant request: ${request.payload}`)
   const data = request.payload
   logger.info(`triggering the workflow...`)
-  const strategy = await workflowStrategyFactory.initateStrategy(
-    data,
-    request.db
-  )
+  const wfStrategy = new WorkflowStrategyFactory(logger)
+  const strategy = await wfStrategy.initateStrategy(data, request.db)
   return strategy
 }
 
