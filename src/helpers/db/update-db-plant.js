@@ -277,8 +277,9 @@ function mapPestLink(resultList, plantPestLinkList) {
           { COUNTRY_CODE: '', COUNTRY_NAME: '', COUNTRY_STATUS: '' }
         ],
         REGULATION: '',
+        REGULATION_CATEGORY: '',
         QUARANTINE_INDICATOR: '',
-        REGULATED_INDICATOR: ''
+        REGULATION_INDICATOR: ''
       }))
 
     return {
@@ -331,14 +332,16 @@ function updateResultListWithPestReg(resultList, plantPestRegList) {
           if (['Q', 'P'].includes(pest?.QUARANTINE_INDICATOR)) {
             x.REGULATION = pest?.REGULATION
             x.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
-            x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
+            x.REGULATION_INDICATOR = pest?.REGULATION_INDICATOR
+            x.REGULATION_CATEGORY = pest?.REGULATION_CATEGORY
           } else if (
             pest?.QUARANTINE_INDICATOR === 'R' &&
             pl?.HOST_REF === pest?.HOST_REF
           ) {
             x.REGULATION = pest?.REGULATION
             x.QUARANTINE_INDICATOR = pest?.QUARANTINE_INDICATOR
-            x.REGULATED_INDICATOR = pest?.REGULATED_INDICATOR
+            x.REGULATION_INDICATOR = pest?.REGULATION_INDICATOR
+            x.REGULATION_CATEGORY = pest?.REGULATION_CATEGORY
           }
         }
       })

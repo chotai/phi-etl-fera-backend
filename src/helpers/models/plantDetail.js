@@ -60,7 +60,8 @@ const plantDetail = convict({
         ],
         REGULATION: 'string',
         QUARANTINE_INDICATOR: 'string',
-        REGULATED_INDICATOR: 'string'
+        REGULATION_INDICATOR: 'string',
+        REGULATION_CATEGORY: 'string'
       }
     ],
     PLANT_NAME: [
