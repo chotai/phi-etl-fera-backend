@@ -159,23 +159,20 @@ async function loadData(db) {
     })
 
     resultList.forEach((x) => {
-      documentLinkResultList?.forEach((pest) => {
+      documentLinkFcpdResultList?.forEach((pest) => {
         if (x?.CSL_REF === pest?.CSL_REF) {
           x.DOCUMENT_LINK = pest?.DOCUMENT_LINK
-        } else {
-          x.DOCUMENT_LINK = []
         }
       })
     })
 
     resultList.forEach((x) => {
-      documentLinkFcpdResultList?.forEach((pest) => {
+      documentLinkResultList?.forEach((pest) => {
         if (x?.CSL_REF === pest?.CSL_REF) {
-          x.DOCUMENT_LINK.push(...pest?.DOCUMENT_LINK)
+          x.DOCUMENT_LINK = [...x.DOCUMENT_LINK, ...pest?.DOCUMENT_LINK]
         }
       })
     })
-
     // update PEST Country with PEST_DISTRIBUTION
     const collectionPestDistribution = await db
       .collection('PEST_DISTRIBUTION')
