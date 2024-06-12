@@ -96,10 +96,7 @@ async function loadData(db) {
             NAME: 'string'
           },
           HOST_REF: cListItem?.HOST_REF,
-          EPPO_CODE: pest?.EPPO_CODE,
-          HOST_CLASS: cListItem?.HOST_CLASS,
-          LATIN_NAME: pest?.LATIN_NAME,
-          PARENT_HOST_REF: 'string'
+          HOST_CLASS: cListItem?.HOST_CLASS
         }))
 
       return {
@@ -223,6 +220,10 @@ async function loadData(db) {
               { type: 'COMMON_NAME', NAME: cnameList },
               { type: 'SYNONYM_NAME', NAME: snameList }
             ]
+            pl.HOST_REF = plant.HOST_REF
+            pl.EPPO_CODE = plant.EPPO_CODE
+            pl.LATIN_NAME = plant.LATIN_NAME
+            pl.PARENT_HOST_REF = plant.PARENT_HOST_REF
           }
         })
       })
