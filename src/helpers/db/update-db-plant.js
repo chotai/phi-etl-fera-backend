@@ -8,11 +8,26 @@ const updateDbPlant = {
   plugin: {
     name: 'Update Plant DB',
     register: async (server) => {
-      try {
-        await loadData(server.db)
-      } catch (error) {
-        logger.error(error)
-      }
+      server.route({
+        method: 'POST',
+        path: '/updateDbPlant',
+        handler: async (request, h) => {
+          try {
+            await loadData(server.db)
+            return h
+              .response({
+                status: 'success',
+                message: 'Populate Plant Db successful'
+              })
+              .code(200)
+          } catch (error) {
+            logger.error(error)
+            return h
+              .response({ status: 'error', message: error.message })
+              .code(500)
+          }
+        }
+      })
     }
   }
 }
