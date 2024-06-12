@@ -92,7 +92,11 @@ class InnsStrategy extends workflowEngine {
               name: item.PEST_NAME,
               format: item.FORMAT,
               quarantine_indicator: item.QUARANTINE_INDICATOR,
-              regulated_indicator: item.REGULATED_INDICATOR
+              regulated_indicator: item.REGULATION_INDICATOR,
+              regulation_category: item.REGULATION_CATEGORY,
+              pest_country: cname.COUNTRY_NAME,
+              pest_countryCode: cname.COUNTRY_CODE,
+              status: cname.STATUS
             })
           }
           return cname
