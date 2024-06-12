@@ -9,14 +9,28 @@ const updateDbPest = {
   plugin: {
     name: 'Update Pest DB',
     register: async (server) => {
-      try {
-        await loadData(server.db)
-      } catch (error) {
-        logger.error(error)
-      }
+      server.route({
+        method: 'POST',
+        path: '/updateDbPest',
+        handler: async (request, h) => {
+          try {
+            await loadData(server.db)
+            return h.response({
+              status: 'success',
+              message: 'Update Pest Db successful'
+            })
+          } catch (error) {
+            logger.error(error)
+            return h
+              .response({ status: 'error', message: error.message })
+              .code(500)
+          }
+        }
+      })
     }
   }
 }
+
 async function loadData(db) {
   try {
     // Connect the client to the server
