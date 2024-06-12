@@ -145,7 +145,6 @@ const populateDb = {
               1
             )
 
-            // await server.start()
             return h
               .response({
                 status: 'success',
