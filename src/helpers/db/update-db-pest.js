@@ -3,29 +3,16 @@ import { pestDetail } from '../models/pestDetail'
 
 const logger = createLogger()
 
-const updateDbPest = {
-  plugin: {
-    name: 'Update Pest DB',
-    register: async (server) => {
-      server.route({
-        method: 'POST',
-        path: '/updateDbPest',
-        handler: async (request, h) => {
-          try {
-            await loadData(server.db)
-            return h.response({
-              status: 'success',
-              message: 'Update Pest Db successful'
-            })
-          } catch (error) {
-            logger.error(error)
-            return h
-              .response({ status: 'error', message: error.message })
-              .code(500)
-          }
-        }
-      })
-    }
+const updateDbPestHandler = async (request, h) => {
+  try {
+    await loadData(request.server.db)
+    return h.response({
+      status: 'success',
+      message: 'Update Pest Db successful'
+    })
+  } catch (error) {
+    logger.error(error)
+    return h.response({ status: 'error', message: error.message }).code(500)
   }
 }
 
@@ -271,4 +258,4 @@ async function insertResultList(db, collectionName, resultList) {
   logger.info(`${result.insertedCount} pest documents were inserted...`)
 }
 
-export { updateDbPest }
+export { updateDbPestHandler }
