@@ -38,6 +38,7 @@ async function loadData(db) {
     const plantList = await getPlantList(db)
     const pestPrasList = await getPestPrasList(db)
     const pestFcpdList = await getPestFcpdList(db)
+    const plantPestRegList = await getPlantPestRegList(db)
 
     await dropCollectionIfExists(db, 'PEST_DATA')
 
@@ -51,13 +52,20 @@ async function loadData(db) {
 
     const pestDistributionList = await getPestDistributionList(db)
     updateResultListWithDistribution(resultList, pestDistributionList)
-
     updatePlantLinksWithNames(resultList, plantList)
-
+    updatePestRegulations(resultList, plantPestRegList)
     await insertResultList(db, 'PEST_DATA', resultList)
   } catch (err) {
     logger.error(err)
   }
+}
+
+async function getPlantPestRegList(db) {
+  const collection = db.collection('PLANT_PEST_REG')
+  const documents = await collection.find({}).toArray()
+  const plantPestRegList = documents[0]?.PLANT_PEST_REG
+  logger.info(`plantPestRegList: ${plantPestRegList?.length}`)
+  return plantPestRegList
 }
 
 async function getPestList(db) {
@@ -246,7 +254,17 @@ function updatePlantLinksWithNames(resultList, plantList) {
     })
   })
 }
-
+function updatePestRegulations(resultList, plantPestRegList) {
+  resultList.forEach((pest) => {
+    plantPestRegList.forEach((reg) => {
+      if (reg?.CSL_REF === pest?.CSL_REF) {
+        pest.QUARANTINE_INDICATOR = reg?.QUARANTINE_INDICATOR
+        pest.REGULATION_INDICATOR = reg?.REGULATION_INDICATOR
+        pest.REGULATION_CATEGORY = reg?.REGULATION_CATEGORY
+      }
+    })
+  })
+}
 async function insertResultList(db, collectionName, resultList) {
   const collection = db.collection(collectionName)
   const result = await collection.insertMany(resultList)

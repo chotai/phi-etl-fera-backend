@@ -7,7 +7,8 @@ const pestDetail = convict({
     LATIN_NAME: 'string',
     PARENT_CSL_REF: 'string',
     QUARANTINE_INDICATOR: 'string',
-    REGULATED_INDICATOR: 'string',
+    REGULATION_CATEGORY: 'string',
+    REGULATION_INDICATOR: 'string',
     PEST_NAME: [
       {
         NAME: 'string',
