@@ -48,106 +48,105 @@ const collectionPestDistribution = 'PEST_DISTRIBUTION'
 const collectionPestFCPD = 'PEST_DOCUMENT_FCPD'
 const collectionPestPras = 'PEST_PRA_DATA'
 
-// Populate the DB in this template on startup of the API.
-// This is an example to show developers an API with a DB, with data in it and endpoints that query the db.
-const populateDb = {
-  plugin: {
-    name: 'Populate MongoDb',
-    register: async (server) => {
-      try {
-        await loadData(
-          filePathPlant,
-          mongoUri,
-          server.db,
-          collectionNamePlant,
-          2
-        )
-        await loadData(
-          filePathService,
-          mongoUri,
-          server.db,
-          collectionNameServiceFormat,
-          1
-        )
-        await loadData(
-          filePathCountry,
-          mongoUri,
-          server.db,
-          collectionNameCountry,
-          1
-        )
-        await loadData(
-          filePathServiceAnnex6,
-          mongoUri,
-          server.db,
-          collectionNamePlantAnnex6,
-          1
-        )
-        await loadData(
-          filePathServiceAnnex11,
-          mongoUri,
-          server.db,
-          collectionNamePlantAnnex11,
-          1
-        )
-        await loadData(
-          filePathServicePestName,
-          mongoUri,
-          server.db,
-          collectionNamePestName,
-          1
-        )
-        // Load PLANT DATA - COMBINED - START
-        await loadCombinedDataForPlant(
-          mongoUri,
-          server.db,
-          collectionNamePlantName,
-          1
-        )
-        // Load PLANT DATA - Combined - END
+const populateDbHandler = async (request, h) => {
+  try {
+    await loadData(
+      filePathPlant,
+      mongoUri,
+      request.server.db,
+      collectionNamePlant,
+      2
+    )
+    await loadData(
+      filePathService,
+      mongoUri,
+      request.server.db,
+      collectionNameServiceFormat,
+      1
+    )
+    await loadData(
+      filePathCountry,
+      mongoUri,
+      request.server.db,
+      collectionNameCountry,
+      1
+    )
+    await loadData(
+      filePathServiceAnnex6,
+      mongoUri,
+      request.server.db,
+      collectionNamePlantAnnex6,
+      1
+    )
+    await loadData(
+      filePathServiceAnnex11,
+      mongoUri,
+      request.server.db,
+      collectionNamePlantAnnex11,
+      1
+    )
+    await loadData(
+      filePathServicePestName,
+      mongoUri,
+      request.server.db,
+      collectionNamePestName,
+      1
+    )
+    // Load PLANT DATA - COMBINED - START
+    await loadCombinedDataForPlant(
+      mongoUri,
+      request.server.db,
+      collectionNamePlantName,
+      1
+    )
+    // Load PLANT DATA - Combined - END
 
-        // Load PEST_LINK DATA - START
-        await loadCombinedDataForPestLink(
-          mongoUri,
-          server.db,
-          collectionNamePlantPestLink,
-          1
-        )
-        // Load PEST_LINK DATA - END
-        await loadData(
-          filePathServicePlantPestReg,
-          mongoUri,
-          server.db,
-          collectionNamePlantPestReg,
-          1
-        )
-        await loadData(
-          filePathPestDistribution,
-          mongoUri,
-          server.db,
-          collectionPestDistribution,
-          1
-        )
-        await loadData(
-          filePathPestFCPD,
-          mongoUri,
-          server.db,
-          collectionPestFCPD,
-          1
-        )
-        await loadData(
-          filePathPestPras,
-          mongoUri,
-          server.db,
-          collectionPestPras,
-          1
-        )
+    // Load PEST_LINK DATA - START
+    await loadCombinedDataForPestLink(
+      mongoUri,
+      request.server.db,
+      collectionNamePlantPestLink,
+      1
+    )
+    // Load PEST_LINK DATA - END
+    await loadData(
+      filePathServicePlantPestReg,
+      mongoUri,
+      request.server.db,
+      collectionNamePlantPestReg,
+      1
+    )
+    await loadData(
+      filePathPestDistribution,
+      mongoUri,
+      request.server.db,
+      collectionPestDistribution,
+      1
+    )
+    await loadData(
+      filePathPestFCPD,
+      mongoUri,
+      request.server.db,
+      collectionPestFCPD,
+      1
+    )
+    await loadData(
+      filePathPestPras,
+      mongoUri,
+      request.server.db,
+      collectionPestPras,
+      1
+    )
 
-        await server.start()
-      } catch (error) {
-        logger.error(error)
-      }
-    }
+    return h
+      .response({
+        status: 'success',
+        message: 'Populate Mongo Db successful'
+      })
+      .code(200)
+  } catch (error) {
+    logger.error(error)
+    return h.response({ status: 'error', message: error.message }).code(500)
   }
 }
 
@@ -252,4 +251,4 @@ async function dropCollections(db, collection) {
     })
   }
 }
-export { populateDb }
+export { populateDbHandler }

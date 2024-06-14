@@ -4,16 +4,18 @@ import { createMongoDBIndexes } from './create-ds-indexes'
 
 const logger = createLogger()
 
-const updateDbPlant = {
-  plugin: {
-    name: 'Update Plant DB',
-    register: async (server) => {
-      try {
-        await loadData(server.db)
-      } catch (error) {
-        logger.error(error)
-      }
-    }
+const updateDbPlantHandler = async (request, h) => {
+  try {
+    await loadData(request.server.db)
+    return h
+      .response({
+        status: 'success',
+        message: 'Populate Plant Db successful'
+      })
+      .code(200)
+  } catch (error) {
+    logger.error(error)
+    return h.response({ status: 'error', message: error.message }).code(500)
   }
 }
 
@@ -404,4 +406,4 @@ async function insertResultList(db, resultList) {
   await createMongoDBIndexes(collectionNew)
 }
 
-export { updateDbPlant }
+export { updateDbPlantHandler }

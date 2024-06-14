@@ -3,239 +3,259 @@ import { pestDetail } from '../models/pestDetail'
 
 const logger = createLogger()
 
-// Populate the DB in this template on startup of the API.
-// This is an example to show developers an API with a DB, with data in it and endpoints that query the db.
-const updateDbPest = {
-  plugin: {
-    name: 'Update Pest DB',
-    register: async (server) => {
-      try {
-        await loadData(server.db)
-      } catch (error) {
-        logger.error(error)
-      }
-    }
+const updateDbPestHandler = async (request, h) => {
+  try {
+    await loadData(request.server.db)
+    return h.response({
+      status: 'success',
+      message: 'Update Pest Db successful'
+    })
+  } catch (error) {
+    logger.error(error)
+    return h.response({ status: 'error', message: error.message }).code(500)
   }
 }
+
 async function loadData(db) {
   try {
-    // Connect the client to the server
     logger.info('Connected successfully to server')
 
-    // Select the collection
-    const collection = db.collection('PEST_NAME')
-    // Find all documents in the collection
-    const documents = await collection.find({}).toArray()
-    // Read Plants
-    const pestList = documents[0]?.PEST_NAME
+    const pestList = await getPestList(db)
+    const plantPestLinkList = await getPlantPestLinkList(db)
+    const plantList = await getPlantList(db)
+    const pestPrasList = await getPestPrasList(db)
+    const pestFcpdList = await getPestFcpdList(db)
+    const plantPestRegList = await getPlantPestRegList(db)
 
-    const collectionName = 'PEST_DATA'
-    const collectionPest = db.collection(collectionName)
+    await dropCollectionIfExists(db, 'PEST_DATA')
 
-    logger.info(`pestList: ${pestList?.length}`)
+    const resultList = preparePestDetails(pestList)
+    updateResultListWithLinks(
+      resultList,
+      plantPestLinkList,
+      pestPrasList,
+      pestFcpdList
+    )
 
-    // Select and Find all Plants Pest Link
-    const plantPestLinkList = await db
-      .collection('PLANT_PEST_LINK')
-      .find({})
-      .toArray()
-
-    const collectionPlant = db.collection('PLANT_NAME')
-    const collectionPestPras = db.collection('PEST_PRA_DATA')
-    const collectionPestFCPD = db.collection('PEST_DOCUMENT_FCPD')
-
-    const plantList = await collectionPlant.find({}).toArray()
-    const collectionPestPrasDocs = await collectionPestPras.find({}).toArray()
-    const collectionPestFCPDDocs = await collectionPestFCPD.find({}).toArray()
-
-    const pestPrasList = collectionPestPrasDocs[0]?.PEST_PRA_DATA
-    const pestFcpdList = collectionPestFCPDDocs[0]?.PEST_DOCUMENT_FCPD
-
-    logger.info(`pestPrasList: ${pestPrasList?.length}`)
-    logger.info(`pestFcpdList: ${pestFcpdList?.length}`)
-
-    // Drop the collection if it exists
-    const collections = await db
-      .listCollections({ name: collectionName })
-      .toArray()
-    if (collections.length > 0) {
-      await collectionPest.drop()
-      logger.info(`Collection ${collectionName} dropped.`)
-    }
-    const collectionNew = db.collection('PEST_DATA')
-
-    const resultList = pestList.map((pest) => {
-      const psDetail = pestDetail.get('pestDetail')
-      psDetail.EPPO_CODE = pest?.EPPO_CODE
-      psDetail.CSL_REF = pest?.CSL_REF
-      psDetail.LATIN_NAME = pest?.LATIN_NAME
-
-      const cnameList = pest?.COMMON_NAME?.COMMON_NAME?.map(
-        (name) => name
-      ).filter((x) => x !== '')
-      const snameList = pest?.SYNONYM_NAME?.SYNONYM_NAME?.map(
-        (name) => name
-      ).filter((x) => x !== '')
-      psDetail.PEST_NAME = [
-        { type: 'LATIN_NAME', NAME: pest?.LATIN_NAME },
-        { type: 'COMMON_NAME', NAME: cnameList },
-        { type: 'SYNONYM_NAME', NAME: snameList }
-      ]
-
-      return psDetail
-    })
-    logger.info(`pest resultList: ${resultList?.length}`)
-
-    // update ResultList with PLANT_PEST_LINK
-    const pestLinkResultList = resultList.map((pest) => {
-      const pplList = plantPestLinkList
-        .filter((cListItem) => cListItem.CSL_REF === pest.CSL_REF)
-        .map((cListItem) => ({
-          PLANT_NAME: {
-            TYPE: 'string',
-            NAME: 'string'
-          },
-          HOST_REF: cListItem?.HOST_REF,
-          EPPO_CODE: pest?.EPPO_CODE,
-          HOST_CLASS: cListItem?.HOST_CLASS,
-          LATIN_NAME: pest?.LATIN_NAME,
-          PARENT_HOST_REF: 'string'
-        }))
-
-      return {
-        CSL_REF: pest.CSL_REF,
-        PLANT_LINK: pplList
-      }
-    })
-
-    resultList.forEach((x) => {
-      pestLinkResultList?.forEach((pest) => {
-        if (x?.CSL_REF === pest?.CSL_REF) {
-          x.PLANT_LINK = pest?.PLANT_LINK
-        }
-      })
-    })
-    // update DOCUMENT_LINK with PrasList
-    const documentLinkResultList = resultList.map((pest) => {
-      const documentLinkList = pestPrasList
-        .filter((dListItem) => dListItem.CSL_REF === pest.CSL_REF)
-        .map((dListItem) => ({
-          DOCUMENT_TYPE: dListItem?.DOCUMENT_TYPE,
-          DOCUMENT_TITLE: dListItem?.DOCUMENT_TITLE,
-          DOCUMENT_HYPER_LINK: dListItem?.DOCUMENT_HYPER_LINK,
-          VISIBLE_ON_PHI_INDICATOR: dListItem?.VISIBLE_ON_PHI_INDICATOR,
-          PUBLICATION_DATE: dListItem?.PUBLICATION_DATE,
-          DOCUMENT_SIZE: dListItem?.DOCUMENT_SIZE,
-          NO_OF_PAGE: 'string',
-          DOCUMENT_FORMAT: dListItem?.DOCUMENT_FORMAT,
-          PARENT_CSL_REF: 'string'
-        }))
-
-      return {
-        CSL_REF: pest.CSL_REF,
-        DOCUMENT_LINK: documentLinkList
-      }
-    })
-
-    const documentLinkFcpdResultList = resultList.map((pest) => {
-      const documentLinkList = pestFcpdList
-        .filter((dListItem) => dListItem.CSL_REF === pest.CSL_REF)
-        .map((dListItem) => ({
-          DOCUMENT_TYPE: dListItem?.DOCUMENT_TYPE,
-          DOCUMENT_TITLE: dListItem?.DOCUMENT_TITLE,
-          DOCUMENT_HYPER_LINK: dListItem?.DOCUMENT_HYPER_LINK,
-          VISIBLE_ON_PHI_INDICATOR: dListItem?.VISIBLE_ON_PHI_INDICATOR,
-          PUBLICATION_DATE: dListItem?.PUBLICATION_DATE,
-          DOCUMENT_SIZE: dListItem?.DOCUMENT_SIZE,
-          NO_OF_PAGE: 'string',
-          DOCUMENT_FORMAT: dListItem?.DOCUMENT_FORMAT,
-          PARENT_CSL_REF: 'string'
-        }))
-
-      return {
-        CSL_REF: pest.CSL_REF,
-        DOCUMENT_LINK: documentLinkList
-      }
-    })
-
-    resultList.forEach((x) => {
-      documentLinkResultList?.forEach((pest) => {
-        if (x?.CSL_REF === pest?.CSL_REF) {
-          x.DOCUMENT_LINK = pest?.DOCUMENT_LINK
-        } else {
-          x.DOCUMENT_LINK = []
-        }
-      })
-    })
-
-    resultList.forEach((x) => {
-      documentLinkFcpdResultList?.forEach((pest) => {
-        if (x?.CSL_REF === pest?.CSL_REF) {
-          x.DOCUMENT_LINK.push(...pest?.DOCUMENT_LINK)
-        }
-      })
-    })
-
-    // update PEST Country with PEST_DISTRIBUTION
-    const collectionPestDistribution = await db
-      .collection('PEST_DISTRIBUTION')
-      .find({})
-      .toArray()
-
-    const pestDistributionList =
-      collectionPestDistribution[0]?.PEST_DISTRIBUTION
-
-    const countryResultList = resultList.map((pest) => {
-      const countries = pestDistributionList
-        .filter((cListItem) => cListItem.CSL_REF === pest.CSL_REF)
-        .map((cListItem) => ({
-          COUNTRY_CODE: cListItem.COUNTRY_CODE,
-          COUNTRY_NAME: cListItem.COUNTRY_NAME,
-          COUNTRY_STATUS: cListItem.STATUS
-        }))
-
-      return {
-        CSL_REF: pest.CSL_REF,
-        COUNTRIES: countries
-      }
-    })
-
-    resultList.forEach((pl) => {
-      countryResultList.forEach((pest) => {
-        if (pl?.CSL_REF === pest?.CSL_REF) {
-          pl.PEST_COUNTRY_DISTRIBUTION = pest?.COUNTRIES
-        }
-      })
-    })
-
-    // update PLANT_LINK -> PLANT_NAME
-
-    resultList.forEach((pest) => {
-      pest?.PLANT_LINK?.forEach((pl) => {
-        plantList.forEach((plant) => {
-          if (pl.HOST_REF === plant.HOST_REF) {
-            const cnameList = plant?.COMMON_NAME?.NAME.map(
-              (name) => name
-            ).filter((x) => x !== '')
-            const snameList = plant?.SYNONYM_NAME?.NAME.map(
-              (name) => name
-            ).filter((x) => x !== '')
-
-            pl.PLANT_NAME = [
-              { type: 'LATIN_NAME', NAME: plant?.LATIN_NAME },
-              { type: 'COMMON_NAME', NAME: cnameList },
-              { type: 'SYNONYM_NAME', NAME: snameList }
-            ]
-          }
-        })
-      })
-    })
-    // Main resultList
-    const result = await collectionNew.insertMany(resultList)
-
-    logger.info(`${result.insertedCount} pest documents were inserted...`)
+    const pestDistributionList = await getPestDistributionList(db)
+    updateResultListWithDistribution(resultList, pestDistributionList)
+    updatePlantLinksWithNames(resultList, plantList)
+    updatePestRegulations(resultList, plantPestRegList)
+    await insertResultList(db, 'PEST_DATA', resultList)
   } catch (err) {
     logger.error(err)
   }
 }
-export { updateDbPest }
+
+async function getPlantPestRegList(db) {
+  const collection = db.collection('PLANT_PEST_REG')
+  const documents = await collection.find({}).toArray()
+  const plantPestRegList = documents[0]?.PLANT_PEST_REG
+  logger.info(`plantPestRegList: ${plantPestRegList?.length}`)
+  return plantPestRegList
+}
+
+async function getPestList(db) {
+  const collection = db.collection('PEST_NAME')
+  const documents = await collection.find({}).toArray()
+  const pestList = documents[0]?.PEST_NAME
+  logger.info(`pestList: ${pestList?.length}`)
+  return pestList
+}
+
+async function getPlantPestLinkList(db) {
+  const collection = db.collection('PLANT_PEST_LINK')
+  return await collection.find({}).toArray()
+}
+
+async function getPlantList(db) {
+  const collection = db.collection('PLANT_NAME')
+  return await collection.find({}).toArray()
+}
+
+async function getPestPrasList(db) {
+  const collection = db.collection('PEST_PRA_DATA')
+  const documents = await collection.find({}).toArray()
+  const pestPrasList = documents[0]?.PEST_PRA_DATA
+  logger.info(`pestPrasList: ${pestPrasList?.length}`)
+  return pestPrasList
+}
+
+async function getPestFcpdList(db) {
+  const collection = db.collection('PEST_DOCUMENT_FCPD')
+  const documents = await collection.find({}).toArray()
+  const pestFcpdList = documents[0]?.PEST_DOCUMENT_FCPD
+  logger.info(`pestFcpdList: ${pestFcpdList?.length}`)
+  return pestFcpdList
+}
+
+async function dropCollectionIfExists(db, collectionName) {
+  const collections = await db
+    .listCollections({ name: collectionName })
+    .toArray()
+  if (collections.length > 0) {
+    await db.collection(collectionName).drop()
+    logger.info(`Collection ${collectionName} dropped.`)
+  }
+}
+
+function preparePestDetails(pestList) {
+  return pestList.map((pest) => {
+    const psDetail = pestDetail.get('pestDetail')
+    psDetail.EPPO_CODE = pest?.EPPO_CODE
+    psDetail.CSL_REF = pest?.CSL_REF
+    psDetail.LATIN_NAME = pest?.LATIN_NAME
+
+    const cnameList = pest?.COMMON_NAME?.COMMON_NAME?.filter(
+      (name) => name !== ''
+    )
+    const snameList = pest?.SYNONYM_NAME?.SYNONYM_NAME?.filter(
+      (name) => name !== ''
+    )
+    psDetail.PEST_NAME = [
+      { type: 'LATIN_NAME', NAME: pest?.LATIN_NAME },
+      { type: 'COMMON_NAME', NAME: cnameList },
+      { type: 'SYNONYM_NAME', NAME: snameList }
+    ]
+
+    return psDetail
+  })
+}
+
+function updateResultListWithLinks(
+  resultList,
+  plantPestLinkList,
+  pestPrasList,
+  pestFcpdList
+) {
+  updateResultListWithPlantLinks(resultList, plantPestLinkList)
+  updateResultListWithDocuments(resultList, pestPrasList)
+  updateResultListWithDocuments(resultList, pestFcpdList)
+}
+
+function updateResultListWithPlantLinks(resultList, plantPestLinkList) {
+  const pestLinkResultList = resultList.map((pest) => {
+    const pplList = plantPestLinkList
+      .filter((link) => link.CSL_REF === pest.CSL_REF)
+      .map((link) => ({
+        PLANT_NAME: { TYPE: 'string', NAME: 'string' },
+        HOST_REF: link?.HOST_REF,
+        HOST_CLASS: link?.HOST_CLASS
+      }))
+
+    return { CSL_REF: pest.CSL_REF, PLANT_LINK: pplList }
+  })
+
+  resultList.forEach((pest) => {
+    const pestLink = pestLinkResultList.find(
+      (link) => link.CSL_REF === pest.CSL_REF
+    )
+    if (pestLink) {
+      pest.PLANT_LINK = pestLink.PLANT_LINK
+    }
+  })
+}
+
+function updateResultListWithDocuments(resultList, documentList) {
+  const documentResultList = resultList.map((pest) => {
+    const documentLinks = documentList
+      .filter((doc) => doc.CSL_REF === pest.CSL_REF)
+      .map((doc) => ({
+        DOCUMENT_TYPE: doc?.DOCUMENT_TYPE,
+        DOCUMENT_TITLE: doc?.DOCUMENT_TITLE,
+        DOCUMENT_HYPER_LINK: doc?.DOCUMENT_HYPER_LINK,
+        VISIBLE_ON_PHI_INDICATOR: doc?.VISIBLE_ON_PHI_INDICATOR,
+        PUBLICATION_DATE: doc?.PUBLICATION_DATE,
+        DOCUMENT_SIZE: doc?.DOCUMENT_SIZE,
+        NO_OF_PAGE: 'string',
+        DOCUMENT_FORMAT: doc?.DOCUMENT_FORMAT,
+        PARENT_CSL_REF: 'string'
+      }))
+
+    return { CSL_REF: pest.CSL_REF, DOCUMENT_LINK: documentLinks }
+  })
+
+  resultList.forEach((pest) => {
+    const documentLink = documentResultList.find(
+      (doc) => doc.CSL_REF === pest.CSL_REF
+    )
+    if (documentLink) {
+      if (!pest.DOCUMENT_LINK) {
+        pest.DOCUMENT_LINK = []
+      }
+      pest.DOCUMENT_LINK.push(...documentLink.DOCUMENT_LINK)
+    }
+  })
+}
+
+async function getPestDistributionList(db) {
+  const collection = db.collection('PEST_DISTRIBUTION')
+  const documents = await collection.find({}).toArray()
+  return documents[0]?.PEST_DISTRIBUTION
+}
+
+function updateResultListWithDistribution(resultList, pestDistributionList) {
+  const countryResultList = resultList.map((pest) => {
+    const countries = pestDistributionList
+      .filter((dist) => dist.CSL_REF === pest.CSL_REF)
+      .map((dist) => ({
+        COUNTRY_CODE: dist.COUNTRY_CODE,
+        COUNTRY_NAME: dist.COUNTRY_NAME,
+        COUNTRY_STATUS: dist.STATUS
+      }))
+
+    return { CSL_REF: pest.CSL_REF, COUNTRIES: countries }
+  })
+
+  resultList.forEach((pest) => {
+    const countryLink = countryResultList.find(
+      (link) => link.CSL_REF === pest.CSL_REF
+    )
+    if (countryLink) {
+      pest.PEST_COUNTRY_DISTRIBUTION = countryLink.COUNTRIES
+    }
+  })
+}
+
+function updatePlantLinksWithNames(resultList, plantList) {
+  resultList.forEach((pest) => {
+    pest?.PLANT_LINK?.forEach((link) => {
+      const plant = plantList.find((p) => p.HOST_REF === link.HOST_REF)
+      if (plant) {
+        const cnameList = plant?.COMMON_NAME?.NAME?.filter(
+          (name) => name !== ''
+        )
+        const snameList = plant?.SYNONYM_NAME?.NAME?.filter(
+          (name) => name !== ''
+        )
+        link.PLANT_NAME = [
+          { type: 'LATIN_NAME', NAME: plant?.LATIN_NAME },
+          { type: 'COMMON_NAME', NAME: cnameList },
+          { type: 'SYNONYM_NAME', NAME: snameList }
+        ]
+        link.HOST_REF = plant.HOST_REF
+        link.EPPO_CODE = plant.EPPO_CODE
+        link.LATIN_NAME = plant.LATIN_NAME
+        link.PARENT_HOST_REF = plant.PARENT_HOST_REF
+      }
+    })
+  })
+}
+function updatePestRegulations(resultList, plantPestRegList) {
+  resultList.forEach((pest) => {
+    plantPestRegList.forEach((reg) => {
+      if (reg?.CSL_REF === pest?.CSL_REF) {
+        pest.QUARANTINE_INDICATOR = reg?.QUARANTINE_INDICATOR
+        pest.REGULATION_INDICATOR = reg?.REGULATION_INDICATOR
+        pest.REGULATION_CATEGORY = reg?.REGULATION_CATEGORY
+      }
+    })
+  })
+}
+async function insertResultList(db, collectionName, resultList) {
+  const collection = db.collection(collectionName)
+  const result = await collection.insertMany(resultList)
+  logger.info(`${result.insertedCount} pest documents were inserted...`)
+}
+
+export { updateDbPestHandler }
