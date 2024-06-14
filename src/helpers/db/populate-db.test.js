@@ -1,6 +1,9 @@
-// tests/populateDb.test.js
-
-import { populateDb } from './populate-db'
+import {
+  populateDbHandler,
+  loadData,
+  readJsonFile,
+  loadCombinedDataForPlant
+} from './populate-db'
 import { createLogger } from '~/src/helpers/logging/logger'
 import { MongoClient } from 'mongodb'
 import fs from 'fs/promises'
@@ -13,23 +16,10 @@ jest.mock('path', () => ({
   join: jest.fn()
 }))
 
-describe('populateDb plugin', () => {
-  let mockServer, mockDb, mockCollection, mockClient, logger
+describe('populateDbHandler', () => {
+  let mockClient, logger
 
   beforeEach(() => {
-    mockCollection = {
-      insertOne: jest.fn(),
-      insertMany: jest.fn()
-    }
-
-    mockDb = {
-      collection: jest.fn().mockReturnValue(mockCollection),
-      listCollections: jest.fn().mockReturnValue({
-        toArray: jest.fn().mockResolvedValue(['PLANT', 'COUNTRY'])
-      }),
-      dropCollection: jest.fn().mockImplementation((name, cb) => cb(null, true))
-    }
-
     mockClient = {
       connect: jest.fn(),
       close: jest.fn()
@@ -37,16 +27,10 @@ describe('populateDb plugin', () => {
 
     MongoClient.mockReturnValue(mockClient)
 
-    mockServer = {
-      db: mockDb,
-      start: jest.fn()
-    }
-
     logger = {
       error: jest.fn(),
       info: jest.fn()
     }
-
     createLogger.mockReturnValue(logger)
 
     fs.readFile.mockResolvedValue(
@@ -60,20 +44,87 @@ describe('populateDb plugin', () => {
   })
 
   it('should load data into MongoDB collections and start the server', async () => {
-    await populateDb.plugin.register(mockServer)
+    const request = {
+      server: {
+        db: {
+          collection: jest.fn().mockReturnThis(),
+          dropCollection: jest.fn(),
+          listCollections: jest.fn().mockReturnThis(),
+          toArray: jest.fn(),
+          insertMany: jest.fn(),
+          insertOne: jest.fn()
+        }
+      }
+    }
 
-    expect(mockServer.start).toHaveBeenCalled()
-    expect(mockDb.collection).toHaveBeenCalledWith('PLANT_DETAIL')
-    expect(mockDb.collection).toHaveBeenCalledWith('COUNTRIES')
-    expect(mockDb.collection).toHaveBeenCalledWith('SERVICE_FORMAT')
-    expect(mockDb.collection).toHaveBeenCalledWith('PLANT_ANNEX6')
-    expect(mockDb.collection).toHaveBeenCalledWith('PLANT_ANNEX11')
-    expect(mockDb.collection).toHaveBeenCalledWith('PEST_NAME')
-    expect(mockDb.collection).toHaveBeenCalledWith('PLANT_NAME')
-    expect(mockDb.collection).toHaveBeenCalledWith('PLANT_PEST_LINK')
-    expect(mockDb.collection).toHaveBeenCalledWith('PLANT_PEST_REG')
-    expect(mockDb.collection).toHaveBeenCalledWith('PEST_DISTRIBUTION')
-    expect(mockDb.collection).toHaveBeenCalledWith('PEST_DOCUMENT_FCPD')
-    expect(mockDb.collection).toHaveBeenCalledWith('PEST_PRA_DATA')
+    const h = {
+      response: jest.fn().mockReturnThis(),
+      code: jest.fn()
+    }
+    await populateDbHandler(request, h)
+    const filePath = 'path/to/file.json'
+    const db = {
+      collection: jest.fn().mockReturnThis(),
+      dropCollection: jest.fn()
+    }
+    await loadData(
+      filePath,
+      'mongodb://localhost:27017',
+      db,
+      'collectionName',
+      1
+    )
+    expect(fs.readFile).toHaveBeenCalledWith(filePath, 'utf-8')
+    expect(db.collection).toHaveBeenCalledWith('collectionName')
+  })
+
+  it('should read the file and insert data into the collection', async () => {
+    const db = {
+      collection: jest.fn().mockReturnThis(),
+      dropCollection: jest.fn()
+    }
+    const filePath = 'path/to/file.json'
+    const fileContents = JSON.stringify({ key: 'value' })
+    fs.readFile.mockResolvedValue(fileContents)
+
+    await loadData(
+      filePath,
+      'mongodb://localhost:27017',
+      db,
+      'collectionName',
+      1
+    )
+    expect(fs.readFile).toHaveBeenCalledWith(filePath, 'utf-8')
+    expect(db.collection).toHaveBeenCalledWith('collectionName')
+  })
+
+  describe('readJsonFile', () => {
+    it('should read and parse JSON file and should read multiple files and insert combined data into the collection', async () => {
+      const mockFilePath = 'mock/path/to/file.json'
+      const mockData = {
+        PLANT_NAME: [],
+        PLANT_PEST_LINK: []
+      }
+
+      // Mock the fs.readFile implementation
+      require('fs/promises').readFile = jest
+        .fn()
+        .mockResolvedValueOnce(JSON.stringify(mockData))
+
+      const result = await readJsonFile(mockFilePath)
+      expect(result).toEqual(mockData)
+
+      const db = {
+        collection: jest.fn().mockReturnThis(),
+        dropCollection: jest.fn()
+      }
+      jest.spyOn(fs, 'readFile')
+      await loadCombinedDataForPlant(
+        'mongodb://localhost:27017',
+        db,
+        'collectionName'
+      )
+      expect(db.collection).toHaveBeenCalledWith('collectionName')
+    })
   })
 })

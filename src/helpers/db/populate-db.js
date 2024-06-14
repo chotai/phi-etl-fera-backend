@@ -251,4 +251,4 @@ async function dropCollections(db, collection) {
     })
   }
 }
-export { populateDbHandler }
+export { populateDbHandler, loadData, loadCombinedDataForPlant, readJsonFile }
