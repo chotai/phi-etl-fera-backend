@@ -14,17 +14,15 @@ const updateDbPlantHandler = async (request, h) => {
       })
       .code(200)
   } catch (error) {
-    logger.error(error)
+    logger?.error(error)
     return h.response({ status: 'error', message: error.message }).code(500)
   }
 }
 
 async function loadData(db) {
   try {
-    logger.info('Connected successfully to server')
-
+    logger?.info('Connected successfully to server')
     const collections = await loadCollections(db)
-
     const plantList = collections.plantDocuments
     const annex11List = collections.annex11Documents[0]?.PLANT_ANNEX11 || []
     const annex6List = collections.annex6Documents[0]?.PLANT_ANNEX6 || []
@@ -37,7 +35,6 @@ async function loadData(db) {
 
     await clearCollectionIfExists(db, 'PLANT_DATA')
     const resultList = buildResultList(plantList)
-
     logger.info(`resultList: ${resultList.length}`)
 
     // ANNEX 6 and ANNEX 11
@@ -81,7 +78,7 @@ async function loadData(db) {
 
     await insertResultList(db, resultList)
   } catch (err) {
-    logger.error(err)
+    logger?.error(err)
   }
 }
 
@@ -406,4 +403,24 @@ async function insertResultList(db, resultList) {
   await createMongoDBIndexes(collectionNew)
 }
 
-export { updateDbPlantHandler }
+export {
+  loadData,
+  updateDbPlantHandler,
+  loadCollections,
+  buildResultList,
+  mapAnnex6,
+  mapAnnex11,
+  mapAnnex11ParentHost,
+  mapAnnex11Parent,
+  mapPestLink,
+  clearCollectionIfExists,
+  updateResultListWithAnnex11,
+  updateResultListWithAnnex11ParentHost,
+  updateResultListWithAnnex11Parent,
+  updateResultListWithAnnex6,
+  updateResultListWithPestLink,
+  updateResultListWithPestNames,
+  updateResultListWithPestReg,
+  updateResultListWithPestCountry,
+  insertResultList
+}
