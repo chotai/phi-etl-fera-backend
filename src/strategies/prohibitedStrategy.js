@@ -140,7 +140,7 @@ class ProhibitedStrategy extends workflowEngine {
               quarantine_indicator:
                 plantDocument.PEST_LINK[i].QUARANTINE_INDICATOR,
               regulated_indicator:
-                plantDocument.PEST_LINK[i].REGULATED_INDICATOR,
+                plantDocument.PEST_LINK[i].REGULATION_INDICATOR,
               regulation_category:
                 plantDocument.PEST_LINK[i].REGUALTION_CATEGORY,
               pest_country: plantDocument.PEST_LINK[i].PEST_COUNTRY[j]
