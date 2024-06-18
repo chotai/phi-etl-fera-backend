@@ -64,6 +64,7 @@ async function loadData(db) {
       resultList,
       annex11ResultListParentHost
     )
+    // Rule 3
     updateResultListWithAnnex11Parent(resultList, annex11ResultListParent)
 
     updateResultListWithAnnex6(resultList, annex6ResultList)
@@ -204,15 +205,50 @@ function mapAnnex11ParentHost(resultList, annex11List) {
 
 // ANNEX11 Rule 3 - Find a matching HOST_REF (FAMILY) in PLANT_NAME Collection from PLANT_DATA using PARENT_HOST_REF
 function mapAnnex11Parent(resultList, plantList, annex11List) {
+  const matchingElement = plantList.find((pl) => +pl.HOST_REF === 360)
+  console.log('matchingElementL', matchingElement)
+
   const resultListParent = resultList
-    .map((pl) => plantList.find((r) => +r.HOST_REF === +pl.PARENT_HOST_REF))
+    // eslint-disable-next-line array-callback-return
+    .map((rl) => {
+      const matchingElement = plantList.find(
+        (pl) => +pl.HOST_REF === +rl.PARENT_HOST_REF
+      )
+      if (matchingElement) {
+        return {
+          ...matchingElement,
+          HOST_CHILD_REF: rl.HOST_REF
+        }
+      }
+    })
     .filter((element) => element !== undefined)
 
-  return resultListParent.map((nx11) => {
+  resultListParent.forEach((x, i) => {
+    if (x?.PARENT_HOST_REF === 7351) {
+      console.log(
+        'PARENT_HOST_REF:',
+        x.PARENT_HOST_REF,
+        'HOST_REF:',
+        x.HOST_REF,
+        'HOST_CHILD_REF:',
+        x.HOST_CHILD_REF
+      )
+    }
+  })
+  // let myT = resultListParent.find((x) => (x.PARENT_HOST_REF = 360))
+  // console.log('resultListParent:', myT)
+  return resultListParent.map((rl) => {
     const nx11List = annex11List.filter(
-      (n11) => +n11.HOST_REF === +nx11.HOST_REF
+      (nx11) => +rl.HOST_REF === +nx11.HOST_REF
     )
-    return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
+    const nx11ListParent = annex11List.filter(
+      (nx11) => +rl.PARENT_HOST_REF === +nx11.HOST_REF
+    )
+    const nx11ListChild = annex11List.filter(
+      (nx11) => +rl.HOST_CHILD_REF === +nx11.HOST_REF
+    )
+    const finalAnnex11List = [...nx11List, ...nx11ListChild, ...nx11ListParent]
+    return { HOST_REF: rl.HOST_CHILD_REF, ANNEX11: finalAnnex11List }
   })
 }
 
