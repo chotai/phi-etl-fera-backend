@@ -2,8 +2,7 @@ import { workflowEngine } from './workflowEngine'
 
 let logger = ''
 let plantInfo = ''
-let pestDetails = []
-const pestArray = []
+const pestDetails = []
 let [property, expectedValue] = ''
 
 class ProhibitedStrategy extends workflowEngine {
@@ -110,28 +109,50 @@ class ProhibitedStrategy extends workflowEngine {
     }
     const importCountry = this.country.toLowerCase()
     // Get the pests corresponding to the country
-    pestDetails = {
-      pestNames: plantDocument.PEST_LINK.filter(function (item) {
-        const hasMatch = item.PEST_COUNTRY?.filter(function (cname) {
-          if (cname.COUNTRY_NAME.toLowerCase() === importCountry) {
-            pestArray.push({
-              name: item.PEST_NAME,
-              format: item.FORMAT,
-              quarantine_indicator: item.QUARANTINE_INDICATOR,
-              regulated_indicator: item.REGULATED_INDICATOR,
-              regulation_category: item.REGUALTION_CATEGORY,
-              pest_country: cname.COUNTRY_NAME,
-              pest_countryCode: cname.COUNTRY_CODE,
-              status: cname.STATUS
-            })
-          }
-          return cname
-        })
-        return hasMatch
-      })
+    let pestArray = []
+
+    function compareQuarantineIndicator(a, b) {
+      if (a.quarantine_indicator < b.quarantine_indicator) {
+        return -1
+      }
+      if (a.quarantine_indicator > b.quarantine_indicator) {
+        return 1
+      }
+      return 0
     }
 
-    plantInfo.pestDetails = pestArray
+    function pestNames(plantDocument) {
+      for (let i = 0; i < plantDocument.PEST_LINK.length; i++) {
+        for (
+          let j = 0;
+          j < plantDocument.PEST_LINK[i].PEST_COUNTRY.length;
+          j++
+        ) {
+          if (
+            plantDocument.PEST_LINK[i].PEST_COUNTRY[
+              j
+            ].COUNTRY_NAME.toLowerCase() === importCountry &&
+            plantDocument.PEST_LINK[i].QUARANTINE_INDICATOR !== ''
+          ) {
+            pestArray.push({
+              name: plantDocument.PEST_LINK[i].PEST_NAME,
+              format: plantDocument.PEST_LINK[i].FORMAT,
+              quarantine_indicator:
+                plantDocument.PEST_LINK[i].QUARANTINE_INDICATOR,
+              regulated_indicator:
+                plantDocument.PEST_LINK[i].REGULATION_INDICATOR,
+              regulation_category:
+                plantDocument.PEST_LINK[i].REGUALTION_CATEGORY,
+              pest_country: plantDocument.PEST_LINK[i].PEST_COUNTRY[j]
+            })
+          }
+        }
+      }
+      pestArray = pestArray.sort(compareQuarantineIndicator)
+      return pestArray
+    }
+
+    plantInfo.pestDetails = pestNames(plantDocument)
 
     logger.info('Annex6 (PROHIBITED) check performed')
     return plantInfo
