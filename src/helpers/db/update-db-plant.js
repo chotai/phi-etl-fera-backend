@@ -1,18 +1,31 @@
 import { createLogger } from '~/src/helpers/logging/logger'
-import { plantDetail } from '../models/plantDetail'
-import { createMongoDBIndexes } from './create-ds-indexes'
+import { plantDetail } from '~/src/helpers/models/plantDetail'
+import { createMongoDBIndexes } from '~/src/helpers/db/create-ds-indexes'
+import { join } from 'node:path'
+import { createTranspiledWorker } from '~/src/helpers/db/update-db-plant-worker'
 
 const logger = createLogger()
 
 const updateDbPlantHandler = async (request, h) => {
   try {
-    await loadData(request.server.db)
+    const worker = createTranspiledWorker(
+      join(__dirname, `/update-db-plant-worker`)
+    )
+    worker.postMessage('Load plant db data')
+    worker.once('message', (data) => {
+      logger.info(
+        `worker [${worker.threadId}] completed loading plant data - ${data}`
+      )
+    })
+    worker.once('error', (err) => {
+      logger.error(err)
+    })
     return h
       .response({
         status: 'success',
-        message: 'Populate Plant Db successful'
+        message: 'Populate Plant DB initiated'
       })
-      .code(200)
+      .code(202)
   } catch (error) {
     logger?.error(error)
     return h.response({ status: 'error', message: error.message }).code(500)
