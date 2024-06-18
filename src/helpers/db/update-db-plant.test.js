@@ -3,10 +3,15 @@
 import {
   updateDbPlantHandler,
   loadCollections,
-  buildResultList
+  buildResultList,
+  mapAnnex6,
+  mapAnnex11
 } from './update-db-plant'
 import { createLogger } from '~/src/helpers/logging/logger'
 import { plantList } from './mocks/plant_name'
+import { annex6List } from './mocks/plant_annex6'
+import { annex11List } from './mocks/plant_annex11'
+
 jest.mock('~/src/helpers/logging/logger', () => ({
   createLogger: jest.fn()
 }))
@@ -88,6 +93,24 @@ describe('updateDbPlantHandler', () => {
       const plantListMock = plantList
       const resultList = buildResultList(plantListMock)
       expect(resultList.length).toEqual(3)
+    })
+
+    it('should build a Annex6 plant list', async () => {
+      db.listCollections().toArray.mockResolvedValue([])
+      const plantListMock = plantList
+      const resultList = buildResultList(plantListMock)
+      const annex6ListMock = annex6List
+      const annex6ResultList = mapAnnex6(resultList, annex6ListMock)
+      expect(annex6ResultList.length).toEqual(3)
+    })
+
+    it('should build a Annex11 plant list', async () => {
+      db.listCollections().toArray.mockResolvedValue([])
+      const plantListMock = plantList
+      const resultList = buildResultList(plantListMock)
+      const annex11ListMock = annex11List
+      const annex11ResultList = mapAnnex11(resultList, annex11ListMock)
+      expect(annex11ResultList.length).toEqual(3)
     })
 
     it('should return error response when loadData throws an error', async () => {
