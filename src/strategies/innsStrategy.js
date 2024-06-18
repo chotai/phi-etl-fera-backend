@@ -105,7 +105,8 @@ class InnsStrategy extends workflowEngine {
           if (
             plantDocument.PEST_LINK[i].PEST_COUNTRY[
               j
-            ].COUNTRY_NAME.toLowerCase() === importCountry
+            ].COUNTRY_NAME.toLowerCase() === importCountry &&
+            plantDocument.PEST_LINK[i].QUARANTINE_INDICATOR !== ''
           ) {
             pestArray.push({
               name: plantDocument.PEST_LINK[i].PEST_NAME,
