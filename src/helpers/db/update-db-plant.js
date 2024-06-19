@@ -24,8 +24,11 @@ async function loadData(db) {
     logger?.info('Connected successfully to server')
     const collections = await loadCollections(db)
     const plantList = collections.plantDocuments
+
     const annex11List = collections.annex11Documents[0]?.PLANT_ANNEX11 || []
+
     const annex6List = collections.annex6Documents[0]?.PLANT_ANNEX6 || []
+
     const plantPestLinkList = collections.plantPestLinkDocuments
     const plantPestRegList =
       collections.plantPestRegDocuments[0]?.PLANT_PEST_REG || []
@@ -37,34 +40,66 @@ async function loadData(db) {
     const resultList = buildResultList(plantList)
     logger.info(`resultList: ${resultList.length}`)
 
-    // ANNEX 6 and ANNEX 11
+    // ANNEX 6
     const annex6ResultList = mapAnnex6(resultList, annex6List)
+    // ANNEX 11 - For Rule 1
     const annex11ResultList = mapAnnex11(resultList, annex11List)
+
+    annex11ResultList.forEach((x) => {
+      if (x.HOST_REF === 23145) {
+        console.log(
+          'RULE_1:HOST_REF:',
+          x.HOST_REF,
+          'ANNEX11:',
+          x.ANNEX11?.length
+        )
+      }
+    })
+    // ANNEX 11 - For Rule 2
     const annex11ResultListParentHost = mapAnnex11ParentHost(
       resultList,
       annex11List
     )
+
+    annex11ResultListParentHost.forEach((x) => {
+      if (x.HOST_REF === 23145) {
+        console.log(
+          'RULE_2:HOST_REF:',
+          x.HOST_REF,
+          'ANNEX11:',
+          x.ANNEX11?.length
+        )
+      }
+    })
+    // ANNEX 11 - For Rule 3
     const annex11ResultListParent = mapAnnex11Parent(
       resultList,
       plantList,
       annex11List
     )
+
+    annex11ResultListParent.forEach((x) => {
+      if (x.HOST_REF === 23145) {
+        console.log('RULE_3:HOST_REF:', x.HOST_REF, 'ANNEX11:', x.ANNEX11)
+      }
+    })
+
     const annex11ResultListDefault = annex11List.filter(
       (n11) => +n11.HOST_REF === 99999
     )
 
-    // Rule 1(HOST_REF) and Rule 4(DefaultAnnex11)
+    // Map Rule 1(HOST_REF) and Rule 4(DefaultAnnex11)
     updateResultListWithAnnex11(
       resultList,
       annex11ResultList,
       annex11ResultListDefault
     )
-    // Rule 2(PARENT_HOST_REF)
+    // Map Rule 2(PARENT_HOST_REF)
     updateResultListWithAnnex11ParentHost(
       resultList,
       annex11ResultListParentHost
     )
-    // Rule 3
+    // Map Rule 3
     updateResultListWithAnnex11Parent(resultList, annex11ResultListParent)
 
     updateResultListWithAnnex6(resultList, annex6ResultList)
@@ -188,25 +223,18 @@ function updateResultListWithAnnex11(
 
 // ANNEX11 - Rule 2 - using PARENT_HOST_REF
 function mapAnnex11ParentHost(resultList, annex11List) {
-  return resultList
-    .map((nx11) => {
-      if (nx11.PARENT_HOST_REF && nx11.PARENT_HOST_REF !== '') {
-        const nx11List = annex11List.filter(
-          (n11) => +n11.PARENT_HOST_REF === +nx11.PARENT_HOST_REF
-        )
-        if (nx11List.length > 0) {
-          return { HOST_REF: nx11.HOST_REF, ANNEX11: nx11List }
-        }
-      }
-      return null
-    })
-    .filter((item) => item !== null)
+  return resultList.map((rl) => {
+    const nx11List = annex11List.filter(
+      (nx11) => +nx11.HOST_REF === +rl.PARENT_HOST_REF
+    )
+    return { HOST_REF: rl.HOST_REF, ANNEX11: nx11List }
+  })
 }
 
 // ANNEX11 Rule 3 - Find a matching HOST_REF (FAMILY) in PLANT_NAME Collection from PLANT_DATA using PARENT_HOST_REF
 function mapAnnex11Parent(resultList, plantList, annex11List) {
-  const matchingElement = plantList.find((pl) => +pl.HOST_REF === 360)
-  console.log('matchingElementL', matchingElement)
+  // const matchingElement = plantList.find((pl) => +pl.HOST_REF === 360)
+  // console.log('matchingElementL', matchingElement)
 
   const resultListParent = resultList
     // eslint-disable-next-line array-callback-return
@@ -224,7 +252,7 @@ function mapAnnex11Parent(resultList, plantList, annex11List) {
     .filter((element) => element !== undefined)
 
   resultListParent.forEach((x, i) => {
-    if (x?.PARENT_HOST_REF === 7351) {
+    if (x?.HOST_CHILD_REF === 23145) {
       console.log(
         'PARENT_HOST_REF:',
         x.PARENT_HOST_REF,
@@ -235,20 +263,11 @@ function mapAnnex11Parent(resultList, plantList, annex11List) {
       )
     }
   })
-  // let myT = resultListParent.find((x) => (x.PARENT_HOST_REF = 360))
-  // console.log('resultListParent:', myT)
   return resultListParent.map((rl) => {
-    const nx11List = annex11List.filter(
-      (nx11) => +rl.HOST_REF === +nx11.HOST_REF
-    )
-    const nx11ListParent = annex11List.filter(
-      (nx11) => +rl.PARENT_HOST_REF === +nx11.HOST_REF
-    )
-    const nx11ListChild = annex11List.filter(
-      (nx11) => +rl.HOST_CHILD_REF === +nx11.HOST_REF
-    )
-    const finalAnnex11List = [...nx11List, ...nx11ListChild, ...nx11ListParent]
-    return { HOST_REF: rl.HOST_CHILD_REF, ANNEX11: finalAnnex11List }
+    const nx11ListParent = annex11List
+      .filter((nx11) => +rl.PARENT_HOST_REF === +nx11.HOST_REF)
+      .filter((x) => x.HOST_REF !== null)
+    return { HOST_REF: rl.HOST_CHILD_REF, ANNEX11: nx11ListParent }
   })
 }
 

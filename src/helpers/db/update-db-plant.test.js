@@ -106,11 +106,38 @@ describe('updateDbPlantHandler', () => {
 
     it('should build a Annex11 plant list', async () => {
       db.listCollections().toArray.mockResolvedValue([])
-      const plantListMock = plantList
-      const resultList = buildResultList(plantListMock)
-      const annex11ListMock = annex11List
-      const annex11ResultList = mapAnnex11(resultList, annex11ListMock)
+
+      const resultList = buildResultList(plantList)
+
+      const annex11ResultList = mapAnnex11(resultList, annex11List)
       expect(annex11ResultList.length).toEqual(3)
+      expect(annex11ResultList).toEqual([
+        {
+          HOST_REF: 381,
+          ANNEX11: [
+            {
+              PLANT: 'Acer L',
+              PHI_PLANT: 'Acer',
+              FERA_PLANT: 'Acer',
+              FERA_PLANT_ID: 380,
+              COUNTRY_NAME: 'all',
+              'A11 RULE': '11A50',
+              INFERRED_INDICATOR: 'y',
+              SERVICE_FORMAT: 'Wood',
+              SERVICE_SUBFORMAT: '',
+              SERVICE_SUBFORMAT_EXCLUDED: 'wood packaging',
+              BTOM_CLARIFICATION:
+                'where Anolplophora glabripennis not known to be present',
+              BTOM_EUSL: '11C',
+              BTOM_NON_EUSL: '11B',
+              HOST_REF: 381,
+              PARENT_HOST_REF: 380
+            }
+          ]
+        },
+        { HOST_REF: 2, ANNEX11: [] },
+        { HOST_REF: 3, ANNEX11: [] }
+      ])
     })
 
     it('should return error response when loadData throws an error', async () => {
