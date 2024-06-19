@@ -7,7 +7,10 @@ import {
   mapAnnex6,
   mapAnnex11,
   mapAnnex11ParentHost,
-  mapAnnex11GrandParent
+  mapAnnex11GrandParent,
+  updateResultListWithAnnex11,
+  updateResultListWithAnnex11ParentHost,
+  updateResultListWithAnnex11GrandParent
 } from './update-db-plant'
 import { createLogger } from '~/src/helpers/logging/logger'
 import { plantList } from './mocks/plant_name'
@@ -137,6 +140,26 @@ describe('updateDbPlantHandler', () => {
         { HOST_REF: 2, ANNEX11: [] },
         { HOST_REF: 3, ANNEX11: [] }
       ])
+      updateResultListWithAnnex11(resultList, annex11ResultList, [{}, {}])
+      expect(resultList[0].HOST_REGULATION.ANNEX11.length).toEqual(3)
+      expect(resultList[0].HOST_REGULATION.ANNEX11[0]).toEqual({
+        PLANT: 'Acer L',
+        PHI_PLANT: 'Acer',
+        FERA_PLANT: 'Acer',
+        FERA_PLANT_ID: 380,
+        COUNTRY_NAME: 'all',
+        'A11 RULE': '11A50',
+        INFERRED_INDICATOR: 'y',
+        SERVICE_FORMAT: 'Wood',
+        SERVICE_SUBFORMAT: '',
+        SERVICE_SUBFORMAT_EXCLUDED: 'wood packaging',
+        BTOM_CLARIFICATION:
+          'where Anolplophora glabripennis not known to be present',
+        BTOM_EUSL: '11C',
+        BTOM_NON_EUSL: '11B',
+        HOST_REF: 381,
+        PARENT_HOST_REF: 380
+      })
     })
 
     it('should build a Annex11 plant list using PAREN_HOST_REF - Annex11 Rule_2', async () => {
@@ -173,6 +196,32 @@ describe('updateDbPlantHandler', () => {
           ]
         }
       ])
+      // Populate - Annex11
+      const annex11ResultList = mapAnnex11(resultList, annex11List)
+      updateResultListWithAnnex11(resultList, annex11ResultList, [{}, {}])
+      updateResultListWithAnnex11ParentHost(
+        resultList,
+        annex11ResultListParentHost
+      )
+      expect(resultList[2].HOST_REGULATION.ANNEX11.length).toEqual(3)
+      expect(resultList[2].HOST_REGULATION.ANNEX11[2]).toEqual({
+        PLANT: 'Acer L',
+        PHI_PLANT: 'Acer',
+        FERA_PLANT: 'Acer',
+        FERA_PLANT_ID: 380,
+        COUNTRY_NAME: 'all',
+        'A11 RULE': '11A50',
+        INFERRED_INDICATOR: 'y',
+        SERVICE_FORMAT: 'Wood',
+        SERVICE_SUBFORMAT: '',
+        SERVICE_SUBFORMAT_EXCLUDED: 'wood packaging',
+        BTOM_CLARIFICATION:
+          'where Anolplophora glabripennis not known to be present',
+        BTOM_EUSL: '11C',
+        BTOM_NON_EUSL: '11B',
+        HOST_REF: 381,
+        PARENT_HOST_REF: 380
+      })
     })
 
     it('should build a Annex11 plant list using a GRAND_PARENT - Annex11 Rule_3', async () => {
@@ -183,6 +232,61 @@ describe('updateDbPlantHandler', () => {
         annex11List
       )
       expect(annex11ResultListGrandParent.length).toEqual(1)
+
+      const annex11ResultList = mapAnnex11(resultList, annex11List)
+      updateResultListWithAnnex11(resultList, annex11ResultList, [{}, {}])
+
+      const annex11ResultListParentHost = mapAnnex11ParentHost(
+        resultList,
+        annex11List
+      )
+      updateResultListWithAnnex11ParentHost(
+        resultList,
+        annex11ResultListParentHost
+      )
+      updateResultListWithAnnex11GrandParent(
+        resultList,
+        annex11ResultListGrandParent
+      )
+      expect(resultList[2].HOST_REGULATION.ANNEX11.length).toEqual(4)
+      expect(resultList[2].HOST_REGULATION.ANNEX11[2]).toEqual(
+        {
+          PLANT: 'Acer L',
+          PHI_PLANT: 'Acer',
+          FERA_PLANT: 'Acer',
+          FERA_PLANT_ID: 380,
+          COUNTRY_NAME: 'all',
+          'A11 RULE': '11A50',
+          INFERRED_INDICATOR: 'y',
+          SERVICE_FORMAT: 'Wood',
+          SERVICE_SUBFORMAT: '',
+          SERVICE_SUBFORMAT_EXCLUDED: 'wood packaging',
+          BTOM_CLARIFICATION:
+            'where Anolplophora glabripennis not known to be present',
+          BTOM_EUSL: '11C',
+          BTOM_NON_EUSL: '11B',
+          HOST_REF: 381,
+          PARENT_HOST_REF: 380
+        },
+        {
+          PLANT: 'Acer L',
+          PHI_PLANT: 'Acer',
+          FERA_PLANT: 'Acer',
+          FERA_PLANT_ID: 380,
+          COUNTRY_NAME: 'all',
+          'A11 RULE': '11A50',
+          INFERRED_INDICATOR: 'y',
+          SERVICE_FORMAT: 'Wood',
+          SERVICE_SUBFORMAT: '',
+          SERVICE_SUBFORMAT_EXCLUDED: 'wood packaging',
+          BTOM_CLARIFICATION:
+            'where Anolplophora glabripennis not known to be present',
+          BTOM_EUSL: '11C',
+          BTOM_NON_EUSL: '11B',
+          HOST_REF: 7351,
+          PARENT_HOST_REF: 0
+        }
+      )
     })
 
     it('should return error response when loadData throws an error', async () => {
