@@ -71,14 +71,14 @@ async function loadData(db) {
         )
       }
     })
-    // ANNEX 11 - For Rule 3
-    const annex11ResultListParent = mapAnnex11Parent(
+    // ANNEX 11 - For Rule 3 - Find GRANDPARENT
+    const annex11ResultListGrandParent = mapAnnex11GrandParent(
       resultList,
       plantList,
       annex11List
     )
 
-    annex11ResultListParent.forEach((x) => {
+    annex11ResultListGrandParent.forEach((x) => {
       if (x.HOST_REF === 23145) {
         console.log('RULE_3:HOST_REF:', x.HOST_REF, 'ANNEX11:', x.ANNEX11)
       }
@@ -100,7 +100,7 @@ async function loadData(db) {
       annex11ResultListParentHost
     )
     // Map Rule 3
-    updateResultListWithAnnex11Parent(resultList, annex11ResultListParent)
+    updateResultListWithAnnex11Parent(resultList, annex11ResultListGrandParent)
 
     updateResultListWithAnnex6(resultList, annex6ResultList)
 
@@ -232,7 +232,7 @@ function mapAnnex11ParentHost(resultList, annex11List) {
 }
 
 // ANNEX11 Rule 3 - Find a matching HOST_REF (FAMILY) in PLANT_NAME Collection from PLANT_DATA using PARENT_HOST_REF
-function mapAnnex11Parent(resultList, plantList, annex11List) {
+function mapAnnex11GrandParent(resultList, plantList, annex11List) {
   // const matchingElement = plantList.find((pl) => +pl.HOST_REF === 360)
   // console.log('matchingElementL', matchingElement)
 
@@ -252,7 +252,7 @@ function mapAnnex11Parent(resultList, plantList, annex11List) {
     .filter((element) => element !== undefined)
 
   resultListParent.forEach((x, i) => {
-    if (x?.HOST_CHILD_REF === 23145) {
+    // if (x?.HOST_CHILD_REF === 23145) {
       console.log(
         'PARENT_HOST_REF:',
         x.PARENT_HOST_REF,
@@ -261,7 +261,7 @@ function mapAnnex11Parent(resultList, plantList, annex11List) {
         'HOST_CHILD_REF:',
         x.HOST_CHILD_REF
       )
-    }
+    // }
   })
   return resultListParent.map((rl) => {
     const nx11ListParent = annex11List
@@ -291,10 +291,10 @@ function updateResultListWithAnnex11ParentHost(
 // MAP ANNEX11 Rule 3
 function updateResultListWithAnnex11Parent(
   resultList,
-  annex11ResultListParent
+  annex11ResultListGrandParent
 ) {
   resultList.forEach((x) => {
-    annex11ResultListParent.forEach((nx11) => {
+    annex11ResultListGrandParent.forEach((nx11) => {
       if (x.HOST_REF === nx11.HOST_REF) {
         x.HOST_REGULATION.ANNEX11 = [
           ...x.HOST_REGULATION.ANNEX11,
@@ -466,7 +466,7 @@ export {
   mapAnnex6,
   mapAnnex11,
   mapAnnex11ParentHost,
-  mapAnnex11Parent,
+  mapAnnex11GrandParent,
   mapPestLink,
   clearCollectionIfExists,
   updateResultListWithAnnex11,

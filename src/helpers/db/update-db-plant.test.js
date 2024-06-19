@@ -5,13 +5,15 @@ import {
   loadCollections,
   buildResultList,
   mapAnnex6,
-  mapAnnex11
+  mapAnnex11,
+  mapAnnex11ParentHost,
+  mapAnnex11GrandParent
 } from './update-db-plant'
 import { createLogger } from '~/src/helpers/logging/logger'
 import { plantList } from './mocks/plant_name'
 import { annex6List } from './mocks/plant_annex6'
 import { annex11List } from './mocks/plant_annex11'
-
+import { plantListWithGrandParent } from './mocks/plant_name_grand_parent'
 jest.mock('~/src/helpers/logging/logger', () => ({
   createLogger: jest.fn()
 }))
@@ -104,11 +106,8 @@ describe('updateDbPlantHandler', () => {
       expect(annex6ResultList.length).toEqual(3)
     })
 
-    it('should build a Annex11 plant list', async () => {
-      db.listCollections().toArray.mockResolvedValue([])
-
+    it('should build a Annex11 plant list - Annex11 Rule_1', async () => {
       const resultList = buildResultList(plantList)
-
       const annex11ResultList = mapAnnex11(resultList, annex11List)
       expect(annex11ResultList.length).toEqual(3)
       expect(annex11ResultList).toEqual([
@@ -138,6 +137,52 @@ describe('updateDbPlantHandler', () => {
         { HOST_REF: 2, ANNEX11: [] },
         { HOST_REF: 3, ANNEX11: [] }
       ])
+    })
+
+    it('should build a Annex11 plant list using PAREN_HOST_REF - Annex11 Rule_2', async () => {
+      const resultList = buildResultList(plantList)
+      const annex11ResultListParentHost = mapAnnex11ParentHost(
+        resultList,
+        annex11List
+      )
+      expect(annex11ResultListParentHost.length).toEqual(3)
+      expect(annex11ResultListParentHost).toEqual([
+        { HOST_REF: 381, ANNEX11: [] },
+        { HOST_REF: 2, ANNEX11: [] },
+        {
+          HOST_REF: 3,
+          ANNEX11: [
+            {
+              PLANT: 'Acer L',
+              PHI_PLANT: 'Acer',
+              FERA_PLANT: 'Acer',
+              FERA_PLANT_ID: 380,
+              COUNTRY_NAME: 'all',
+              'A11 RULE': '11A50',
+              INFERRED_INDICATOR: 'y',
+              SERVICE_FORMAT: 'Wood',
+              SERVICE_SUBFORMAT: '',
+              SERVICE_SUBFORMAT_EXCLUDED: 'wood packaging',
+              BTOM_CLARIFICATION:
+                'where Anolplophora glabripennis not known to be present',
+              BTOM_EUSL: '11C',
+              BTOM_NON_EUSL: '11B',
+              HOST_REF: 381,
+              PARENT_HOST_REF: 380
+            }
+          ]
+        }
+      ])
+    })
+
+    it('should build a Annex11 plant list using a GRAND_PARENT - Annex11 Rule_3', async () => {
+      const resultList = buildResultList(plantList)
+      const annex11ResultListGrandParent = mapAnnex11GrandParent(
+        resultList,
+        plantListWithGrandParent,
+        annex11List
+      )
+      expect(annex11ResultListGrandParent.length).toEqual(1)
     })
 
     it('should return error response when loadData throws an error', async () => {

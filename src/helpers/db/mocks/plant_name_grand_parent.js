@@ -1,7 +1,7 @@
-const plantList = [
+const plantListWithGrandParent = [
   {
     HOST_REF: 381,
-    PARENT_HOST_REF: 0,
+    PARENT_HOST_REF: 7351,
     LEVEL_OF_TAXONOMY: 'G',
     EPPO_CODE: '1ABEG',
     LATIN_NAME: 'Abelia',
@@ -292,4 +292,4 @@ const plantList = [
   }
 ]
 
-export { plantList }
+export { plantListWithGrandParent }
