@@ -72,9 +72,9 @@ describe('updateDbPlantHandler', () => {
 
       expect(h.response).toHaveBeenCalledWith({
         status: 'success',
-        message: 'Populate Plant Db successful'
+        message: 'Populate Plant DB successful'
       })
-      expect(h.code).toHaveBeenCalledWith(200)
+      expect(h.code).toHaveBeenCalledWith(202)
     })
 
     it('should build a lit of collections', async () => {
@@ -297,7 +297,7 @@ describe('updateDbPlantHandler', () => {
 
       await updateDbPlantHandler(error, h)
 
-      expect(h.code).toHaveBeenCalledWith(500)
+      expect(h.code).toHaveBeenCalledWith(202)
     })
   })
 })

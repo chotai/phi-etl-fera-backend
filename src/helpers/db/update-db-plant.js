@@ -23,7 +23,7 @@ const updateDbPlantHandler = async (request, h) => {
     return h
       .response({
         status: 'success',
-        message: 'Populate Plant DB initiated'
+        message: 'Populate Plant DB successful'
       })
       .code(202)
   } catch (error) {
