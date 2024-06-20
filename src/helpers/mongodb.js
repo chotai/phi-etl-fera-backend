@@ -1,13 +1,21 @@
 import { MongoClient } from 'mongodb'
 import { config } from '~/src/config'
+import { createMongoDBIndexes } from '~/.server/helpers/db/create-ds-indexes'
 
 const mongoPlugin = {
   name: 'mongodb',
   version: '1.0.0',
   register: async function (server) {
-    const db = createMongoClient(server.secureContext, server.logger)
+    const { client, db } = await createMongoClient(
+      server.secureContext,
+      server.logger
+    )
+
+    server.decorate('server', 'mongoClient', client)
     server.decorate('server', 'db', db)
     server.decorate('request', 'db', db)
+
+    await createMongoDBIndexes(db)
   }
 }
 
@@ -24,7 +32,7 @@ async function createMongoClient(secureContext, logger) {
   const client = await MongoClient.connect(mongoUrl.toString(), mongoOptions)
   const db = client.db(databaseName)
   logger.info(`mongodb connected to ${databaseName}`)
-  return db
+  return { client, db }
 }
 
 export { createMongoClient, mongoPlugin }
