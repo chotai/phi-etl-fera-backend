@@ -6,7 +6,7 @@ const logger = createLogger()
 
 const updateDbPlantHandler = async (request, h) => {
   try {
-    loadData(request.server.db)
+    await loadData(request.server.db)
     return h
       .response({
         status: 'success',
