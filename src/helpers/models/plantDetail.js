@@ -75,7 +75,8 @@ const plantDetail = convict({
       }
     ],
     SPECIES_NAME: 'string',
-    TAXONOMY: 'string'
+    TAXONOMY: 'string',
+    LEVEL_OF_TAXONOMY: 'string'
   }
 })
 

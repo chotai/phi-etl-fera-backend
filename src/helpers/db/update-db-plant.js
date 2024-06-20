@@ -145,7 +145,7 @@ function buildResultList(plantList) {
     plDetail.HOST_REF = plant?.HOST_REF
     plDetail.TAXONOMY = plant?.TAXONOMY
     plDetail.PARENT_HOST_REF = plant?.PARENT_HOST_REF
-
+    plDetail.LEVEL_OF_TAXONOMY = plant?.LEVEL_OF_TAXONOMY
     plDetail.PLANT_NAME = [
       { type: 'LATIN_NAME', NAME: plant?.LATIN_NAME },
       {
