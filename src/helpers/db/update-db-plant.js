@@ -6,29 +6,40 @@ import { createTranspiledWorker } from '~/src/helpers/db/update-db-plant-worker'
 
 const logger = createLogger()
 
-const updateDbPlantHandler = async (request, h) => {
-  try {
-    const worker = createTranspiledWorker(
-      join(__dirname, `/update-db-plant-worker`)
-    )
-    worker.postMessage('Load plant db data')
-    worker.once('message', (data) => {
-      logger.info(
-        `worker [${worker.threadId}] completed loading plant data - ${data}`
+const updateDbPlantHandler = {
+  options: {
+    timeout: {
+      socket: false
+    }
+  },
+  handler: async (request, h) => {
+    try {
+      const worker = createTranspiledWorker(
+        join(__dirname, `/update-db-plant-worker`)
       )
-    })
-    worker.once('error', (err) => {
-      logger.error(err)
-    })
-    return h
-      .response({
-        status: 'success',
-        message: 'Populate Plant DB successful'
+      await new Promise((resolve, reject) => {
+        worker.postMessage('Load plant db data')
+        worker.once('message', (data) => {
+          logger.info(
+            `worker [${worker.threadId}] completed loading plant data - ${data}`
+          )
+          resolve()
+        })
+        worker.once('error', (err) => {
+          logger.error(err)
+          reject(err)
+        })
       })
-      .code(202)
-  } catch (error) {
-    logger?.error(error)
-    return h.response({ status: 'error', message: error.message }).code(500)
+      return h
+        .response({
+          status: 'success',
+          message: 'Populate Plant Db successful'
+        })
+        .code(202)
+    } catch (error) {
+      logger?.error(error)
+      return h.response({ status: 'error', message: error.message }).code(500)
+    }
   }
 }
 
