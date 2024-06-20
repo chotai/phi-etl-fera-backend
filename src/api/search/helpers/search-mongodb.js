@@ -38,7 +38,8 @@ async function searchPlantDetailsDb(searchText, cdpLogger) {
       query = {
         PLANT_NAME: {
           $elemMatch: { type: 'LATIN_NAME', NAME: new RegExp(searchText, 'i') }
-        }
+        },
+        LEVEL_OF_TAXONOMY: 'S'
       }
 
       logger.info(query)
@@ -64,7 +65,8 @@ async function searchPlantDetailsDb(searchText, cdpLogger) {
             type: 'COMMON_NAME',
             NAME: { $in: [new RegExp(searchText, 'i')] }
           }
-        }
+        },
+        LEVEL_OF_TAXONOMY: 'S'
       }
       const commonNameResults = await collectionPlant.find(query).toArray()
 
@@ -88,7 +90,8 @@ async function searchPlantDetailsDb(searchText, cdpLogger) {
             type: 'SYNONYM_NAME',
             NAME: { $in: [new RegExp(searchText, 'i')] }
           }
-        }
+        },
+        LEVEL_OF_TAXONOMY: 'S'
       }
       const synonymResults = await collectionPlant.find(query).toArray()
       if (synonymResults) {
